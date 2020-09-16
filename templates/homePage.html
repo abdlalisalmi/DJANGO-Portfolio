@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="row pt-lg-5">
+            <div class="col-lg-7 mt-7">
+                <small class="text-muted">Welcome to my portfolio website!</small>
+
+                <div class="animated">
+                    Hey, I'm
+                    <span class="color-primary" id="animated-name"></span>
+                </div>
+                <p>{{info.mini_about}}</p>
+                <div class="">
+                    <a href="#" class="btn pl-lg-5 pr-lg-5 btn-secondary rounded-pill text-capitalize mb-2"><i class="far fa-file-alt pr-2 "></i> Download Resume</a>
+                    <a href="#projects" class="btn pl-lg-5 pr-lg-5 btn-default rounded-pill text-capitalize mb-2"><i class="fas fa-tasks pr-2 "></i> Projects</a>
+                </div>
+            </div>
+            <div class="col-lg-5 mt-6 text-center">
+                <img src="{% static 'img/land.svg' %}" width=100%>
+            </div>
+        </div>
+
+        <!-- Experiences and Education -->
+        {% include 'experiences_and_education.html' %}
+
+        <!-- Languages and Tools -->
+        {% include 'languages_and_tools.html' %}
+
+        <!-- Projects -->
+        {% include 'projects.html' %}
+
+        <!-- About and Contact -->
+        {% include 'about_and_contact.html'%}
+
+    </div>
+{% endblock content %}

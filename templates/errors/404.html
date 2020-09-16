@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row m-0">
+            <div class="col-12 text-center display-1">404</div>
+            <div class="col-12 text-center display-2">NOT FOUND</div>
+            <div class="col-12 text-center">
+                The page you are looking for has been lost in space.
+            </div>
+            <div class="col-12 text-center">
+                <img src="{% static 'img/page-not-found.png' %}" width=45%>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

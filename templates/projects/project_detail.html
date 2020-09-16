@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row p-lg-4 p-2">
+        <div class="col-12 mb-5">
+            <h3 class="project-title mt-lg-5 mt-3">
+                 {{project.title}}
+            </h3>
+            <small class="text-capitalize"><a href="{% url 'projectsPage' %}"><i class="ni ni-bold-left"></i> Back to projects</a></small>
+            <hr class="m-2">
+            <img class="d-block w-100" src="{{project.image.url}}" alt="{{project.title}} (img)">
+        </div>
+        <div class="col-12 text-left">
+            <p class="text-muted mb-0">{{project.description}}</p>
+            <div class="m-0">
+                <span class="font-weight-bold">Tools:</span>
+                <span class="color-primary">{{project.tools}}</span>
+
+            </div>
+            <div class="text-left pt-4">
+                <a href="{{project.demo}}" class="btn rounded-pill text-capitalize">
+                    <i class="fas fa-eye"></i> 
+                    see project demo
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

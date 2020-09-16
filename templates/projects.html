@@ -1,0 +1,48 @@
+<div class="row mt-5">
+    <div class="col-lg-12">
+        <h1 class="display-4 mb-0" id="projects">
+            <i class="ni ni-bullet-list-67"></i> 
+            Projects
+        </h1>
+        <small>You can see all of my projects from <a href="{% url 'projectsPage' %}" class="font-weight-bold">here</a></small>
+        <div class="row justify-content-center mt-2">
+            <div class="col-lg-12">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                
+                        {% for project in projects %}
+                            <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                <div class="row justify-content-center">
+                                <div class="col-lg-6">
+                                    <img class="d-block w-100" src="{{project.image.url}}" alt="{{project.title}} (img)">
+                                </div>
+                                <div class="col-lg-4 pt-5 text-left">
+                                    <h3 class="">{{project.title}}</h3>
+                                    <p class="text-muted mb-0">{{project.description|truncatewords:25}}</p>
+                                    <div class="m-0 mt-2">
+                                        <span class="font-weight-bold">Tools:</span>
+                                        <span class="color-primary">{{project.tools}}</span>
+                                    </div>
+                                    <div class="text-center pt-4">
+                                        <a href="{{project.get_project_absolute_url}}" class="btn rounded-pill text-capitalize">See More <i class="fas fa-angle-double-right"></i></a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <i class="fas fa-angle-left fa-3x color-primary"></i>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <i class="fas fa-angle-right fa-3x color-primary"></i>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>{% block title %}Abdelaali ES{% endblock title %}</title>
+
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.svg' %}"/>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+
+        <!-- Icons -->
+        <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+        <!-- Argon CSS -->
+        <link type="text/css" href="{% static 'css/argon-design-system.min.css' %}" rel="stylesheet">
+
+        <!-- Costom CSS -->
+        <link type="text/css" href="{% static 'app.css' %}" rel="stylesheet">
+
+    </head>
+    <body>
+        {% block body %}
+            {% include 'navbar.html' %}
+            {% block content %}
+            {% endblock content %}
+
+            <!-- Back to top button -->
+            <a id="Back-to-top-button"><i class="fa fa-angle-up fa-3x"></i></a>
+
+            <div class="container">
+                <hr>
+                <div class="row pb-3">
+                    <div class="col-12 text-center">
+                        <p>Copyright © {% now "Y" %} Abdelaali ES SALMI . All rights reserved</p>
+                        <p>Built in Django By <a href="/" class="color-primary">Abdelaali ES SALMI</a></p>
+                    </div>
+                </div>
+            </div>
+        {% endblock body %}
+
+        <!-- Core -->
+        <script src="{% static 'js/core/jquery.min.js' %}"></script>
+        <script src="{% static 'js/core/popper.min.js' %}"></script>
+        <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+
+        <!-- Optional plugins -->
+
+        <!-- Argon JS -->
+        <script src="{% static 'js/argon-design-system.js' %}"></script>
+
+        <!-- Costom JS-->
+        <script src="{% static 'app.js' %}"></script>
+        <script>
+            var btn = $('#Back-to-top-button');
+
+            $(window).scroll(function() {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+            });
+
+            btn.on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({scrollTop:0}, '300');
+            });
+        </script>
+    </body>
+</html>

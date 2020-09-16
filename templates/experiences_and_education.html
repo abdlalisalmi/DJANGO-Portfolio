@@ -1,0 +1,77 @@
+<div class="row mt-5">
+    <div class="col-lg-6" id="education">
+        <h1 class="display-4"><i class="ni ni-hat-3"></i> Education</h1>
+        {% for education in education %}
+            <div class="container py-2">
+                <!-- timeline item 1 -->
+                <div class="row">
+                    <!-- timeline item 1 left dot -->
+                    <div class="col-auto text-center flex-column d-none d-sm-flex">
+                        <div class="row h-50">
+                            <div class="col border-right">&nbsp;</div>
+                            <div class="col">&nbsp;</div>
+                        </div>
+                        <h5>
+                            <span class="badge bg-color-primary text-white">{{education.the_year}}</span>
+                        </h5>
+                        <div class="row h-50">
+                            <div class="col border-right">&nbsp;</div>
+                            <div class="col">&nbsp;</div>
+                        </div>
+                    </div>
+                    <!-- timeline item 1 event content -->
+                    <div class="col py-2">
+                    <div class="card border border-pill">
+                        <div class="card-body">
+                            <h6 class="time-line-title">{{education.title}}</h6>
+                            <p class="time-line-text">{{education.description}}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!--/row-->
+            </div>
+        {% endfor %}
+
+
+
+        
+
+    </div>
+    <div class="col-lg-6" id="experiences">
+        <h1 class="display-4"><i class="ni ni-archive-2"></i> Experiences</h1>
+
+        {% for experience in experiences %}
+            <div class="container py-2">
+                <!-- timeline item 1 -->
+                <div class="row">
+                    <!-- timeline item 1 left dot -->
+                    <div class="col-auto text-center flex-column d-none d-sm-flex">
+                        <div class="row h-50">
+                            <div class="col border-right">&nbsp;</div>
+                            <div class="col">&nbsp;</div>
+                        </div>
+                        <h5>
+                            <span class="badge bg-color-primary text-white">{{experience.the_year}}</span>
+                        </h5>
+                        <div class="row h-50">
+                            <div class="col border-right">&nbsp;</div>
+                            <div class="col">&nbsp;</div>
+                        </div>
+                    </div>
+                    <!-- timeline item 1 event content -->
+                    <div class="col py-2">
+                    <div class="card border border-pill">
+                        <div class="card-body">
+                            <h6 class="time-line-title">{{experience.title}}</h6>
+                            <p class="time-line-text">{{experience.description}}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!--/row-->
+            </div>  
+        {% endfor %}
+
+    </div>
+</div>

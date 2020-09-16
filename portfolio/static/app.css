@@ -1,0 +1,182 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Maven Pro', sans-serif;
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin: 24px 0;
+}
+
+.color-primary {
+    /* color: #dc61f1; */
+    color: #ba68c8;
+}
+.bg-color-primary {
+    background-color: #ba68c8;
+}
+
+.name {
+    color: #525f7f;
+    transition: all 0.5s;
+}
+.name:hover {
+    color: #ba68c8;
+}
+
+.nav-it:hover {
+    padding-bottom: 5px;
+    border-bottom: #ba68c8 solid 2px;
+    color: #ba68c8;
+}
+.nav-text {
+    color: #343a40;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.5s;
+    
+}
+.nav-text:hover {
+    color: #ba68c8;
+}
+
+.animated {
+    font-size: 37px;
+    font-weight: 900;
+    height: 100px;
+    line-height: 50px;
+}
+.animated span:before {
+    content: '';
+    animation: animate infinite 8s;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+}
+@keyframes animate {
+    30%{
+        content: 'Abdelaali ES SALMI';
+        opacity: 1;
+    }
+    45%{
+        opacity: 0;
+    }
+    65%{
+        content: 'Programmer';
+        opacity: 1;
+        
+    }
+    70%{
+        opacity: 0;
+    }
+    80%{
+        content: 'Full Stack Developer';
+        opacity: 1;
+    }
+}
+.competence-card {
+    background-color: white;
+    color: #32325d;
+    transition: background-color 1s, color 1s;
+    cursor: pointer;
+}
+.competence-card:hover {
+    background-color: #e9ecef;
+    color: #32325d;
+    transition: background-color 1s, color 1s;
+}
+.competence-img {
+    width: 35px; 
+    height: 35px;
+    object-fit: fill;
+}
+
+.time-line-title {
+    margin-bottom: 5px;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+.time-line-text {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 22px;
+
+}
+.social a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    opacity: .6;
+}
+.social a:hover {
+      opacity: 1;
+      transition: .5s;
+}
+
+#form-submit {
+    cursor: pointer;
+}
+
+.project-title {
+    font-size: 22px;
+    font-weight: 450;
+    border-left: #ba68c8 solid 4px;
+    padding: 5px;
+}
+
+#Back-to-top-button {
+    display: inline-block;
+    background-color: #525f7f;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, 
+      opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+  }
+  #Back-to-top-button::after {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+  }
+  #Back-to-top-button:hover {
+    cursor: pointer;
+    background-color: #ba68c8;
+    color: #e9ecef;
+  }
+  #Back-to-top-button:active {
+    background-color: #555;
+  }
+  #Back-to-top-button.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  @media (max-width: 500px) {
+    #Back-to-top-button.show {
+      display: none;
+    }
+  }

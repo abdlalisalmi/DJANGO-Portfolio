@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg bg-Secondary">{% load static %}
+    <div class="container">
+
+        <a class="display-4 name" href="/">
+            {% comment %} <img src="{% static 'img/user.svg' %}" width=13%> {% endcomment %}
+            <i class="ni ni-sound-wave"></i>
+             Abdelaali ES SALMI
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="ni ni-align-center"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-default">
+            <div class="navbar-collapse-header">
+                <div class="row">
+                    <div class="col-12 collapse-close text-center">
+                        <button type="button" class="navbar-toggler text-warning" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+
+                    <div class="col-12 collapse-brand">
+                        <a href="javascript:void(0)" class="display-4 name" style="color:#525f7f">
+                            <i class="ni ni-sound-wave"></i> Abdelaali ES SALMI
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+            <ul class="navbar-nav ml-lg-auto">
+                <li class="nav-item">
+                    <a class="nav-link nav-it" href="/#education">
+                        {% comment %} <i class="fa fa-graduation-cap"></i> {% endcomment %}
+                        <span class="nav-text">Education</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-it" href="/#competences">
+                        {% comment %} <i class="fa fa-graduation-cap"></i> {% endcomment %}
+                        <span class="nav-text">Competences</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-it" href="/#projects">
+                        {% comment %} <i class="fa fa-tasks"></i> {% endcomment %}
+                        <span class="nav-text">Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-it" href="/#contact-me">
+                        {% comment %} <i class="fa fa-envelope"></i> {% endcomment %}
+                        <span class="nav-text">Contact Me</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-it" href="/admin">
+                        {% comment %} <i class="fa fa-envelope"></i> {% endcomment %}
+                        <span class="nav-text">Admin</span>
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+</nav>
