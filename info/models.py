@@ -11,6 +11,8 @@ class Information(models.Model):
     phone = models.CharField(max_length=20)
     email = models.EmailField(max_length=255)
 
+    cv = models.FileField(upload_to='cv', blank=True, null=True)
+
     # Social Network
     github = models.URLField()
     linkedin = models.URLField()
