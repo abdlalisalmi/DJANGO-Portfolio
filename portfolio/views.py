@@ -44,10 +44,10 @@ def homePage(request):
 
     if request.method == 'GET':
         form = MessageForm()
-        competences = Competence.objects.all().order_by('-id')
+        competences = Competence.objects.all().order_by('id')
         education = Education.objects.all().order_by('-id')
         experiences = Experience.objects.all().order_by('-id')
-        projects = Project.objects.filter(show_in_slider=True).order_by('-id')
+        projects = Project.objects.filter(show_in_slider=True).order_by('id')
         info = Information.objects.first()
         context = {
             'info': info,
@@ -63,7 +63,7 @@ def homePage(request):
 def projectsPage(request):
     template_name = 'projects/projects_page.html'
     if request.method == 'GET':
-        projects = Project.objects.all()
+        projects = Project.objects.all().order_by('id')
         context = {
             'projects': projects
         }
