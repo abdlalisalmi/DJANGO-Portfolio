@@ -63,7 +63,7 @@ def homePage(request):
 def projectsPage(request):
     template_name = 'projects/projects_page.html'
     if request.method == 'GET':
-        projects = Project.objects.all().order_by('id')
+        projects = Project.objects.all().order_by('-id')
         context = {
             'projects': projects
         }
