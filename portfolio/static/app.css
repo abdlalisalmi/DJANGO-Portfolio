@@ -90,8 +90,8 @@ h1 {
     transition: background-color 1s, color 1s;
 }
 .competence-img {
-    width: 35px; 
-    height: 35px;
+    width: 72px; 
+    /* height: 35px; */
     object-fit: fill;
 }
 

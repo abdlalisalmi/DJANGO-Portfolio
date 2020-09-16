@@ -47,7 +47,7 @@ def homePage(request):
         competences = Competence.objects.all().order_by('id')
         education = Education.objects.all().order_by('-id')
         experiences = Experience.objects.all().order_by('-id')
-        projects = Project.objects.filter(show_in_slider=True).order_by('id')
+        projects = Project.objects.filter(show_in_slider=True).order_by('-id')
         info = Information.objects.first()
         context = {
             'info': info,
