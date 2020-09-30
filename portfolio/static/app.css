@@ -79,15 +79,16 @@ h1 {
     }
 }
 .competence-card {
-    background-color: white;
+    background: #f9f9fd;
+    border-radius: 5px;
     color: #32325d;
-    transition: background-color 1s, color 1s;
+    transition: all .7s;
     cursor: pointer;
 }
 .competence-card:hover {
-    background-color: #e9ecef;
-    color: #32325d;
-    transition: background-color 1s, color 1s;
+    background-color: #fff;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    
 }
 .competence-img {
     width: 72px; 

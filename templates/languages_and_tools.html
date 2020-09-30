@@ -8,7 +8,7 @@
         <div class="row">
         {% for competence in competences %}
             <div class="col-lg-2 col-sm-6 justify-content-center mt-3">
-                    <div class="card border border-pill competence-card text-center">
+                    <div class="competence-card text-center">
                         <div class="card-body" data-toggle="tooltip" data-placement="top" title="{{competence.description}}">
                             <img class="competence-img" alt="{{competence.title}} logo" src="{{competence.image.url}}">
                             <p class="font-weight-normal pt-2 mb-0">{{competence.title}}</p>
