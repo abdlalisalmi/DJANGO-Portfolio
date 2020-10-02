@@ -13,14 +13,14 @@
 
         <div class="row">
             {% for project in projects %}
-                <div class="col-lg-4">
+                <div class="col-lg-4 mb-4">
                     <div class="card border-0 project-card">
                         <div class="card-header p-0 bg-white">
                             <img class="d-block w-100 p-0" src="{{project.image.url}}">
                         </div>
                         <div class="card-body pt-0">
                             <p class="display-4 m-0">{{project.title|truncatewords:2}}</p>
-                            <p>{{project.description|truncatewords:20}}</p>
+                            <p class="h-50">{{project.description|truncatechars:80}}</p>
                             <div class="text-right">
                                 <a href="{{project.get_project_absolute_url}}" class="btn rounded-pill text-capitalize">See More <i class="fas fa-angle-double-right"></i></a>
                             </div>
