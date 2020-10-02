@@ -213,3 +213,15 @@ p {
   .modal-closse-btn:hover {
     color: #da2525;
   }
+
+  .project-card {
+    background: #ffffff;
+    border-radius: 5px;
+    color: #32325d;
+    transition: all .7s;
+    cursor: pointer;
+  }
+  .project-card:hover {
+    background-color: #fff;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
