@@ -19,8 +19,8 @@
                             <img class="d-block w-100 p-0" src="{{project.image.url}}">
                         </div>
                         <div class="card-body pt-0">
-                            <h3 class="display-6 m-0">{{project.title}}</h3>
-                            <p>{{project.description|truncatewords:25}}</p>
+                            <p class="display-4 m-0">{{project.title|truncatewords:2}}</p>
+                            <p>{{project.description|truncatewords:20}}</p>
                             <div class="text-right">
                                 <a href="{{project.get_project_absolute_url}}" class="btn rounded-pill text-capitalize">See More <i class="fas fa-angle-double-right"></i></a>
                             </div>
