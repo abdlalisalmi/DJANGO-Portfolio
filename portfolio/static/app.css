@@ -1,3 +1,15 @@
+:root[color-mode="dark"] {
+    --color: #f5f5f5;
+    --bg-color: #121212;
+    --secondary: #f5f5f5;
+}
+
+:root[color-mode="light"] {
+    --color: #121212;
+    --bg-color: #ffffff;
+    --secondary: #525f7f;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -5,11 +17,16 @@ html {
 body {
     font-family: 'Maven Pro', sans-serif;
     scroll-behavior: smooth;
+    background-color: var(--bg-color);
 }
 
 h1 {
     font-size: 2.8em;
     margin: 24px 0;
+    /* color: var(--secondary); */
+}
+p {
+    color: var(--secondary);
 }
 
 .color-primary {
@@ -21,7 +38,7 @@ h1 {
 }
 
 .name {
-    color: #525f7f;
+    color: var(--secondary);
     transition: all 0.5s;
 }
 .name:hover {
@@ -34,7 +51,7 @@ h1 {
     color: #ba68c8;
 }
 .nav-text {
-    color: #343a40;
+    color: var(--color);
     font-size: 14px;
     font-weight: 500;
     transition: all 0.5s;
@@ -180,4 +197,19 @@ h1 {
     #Back-to-top-button.show {
       display: none;
     }
+  }
+
+  .modal-closse-btn {
+    transition: 0.4s;
+    color: #ff5252;
+    font-size: 25px;
+    width: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .modal-closse-btn:hover {
+    color: #da2525;
   }

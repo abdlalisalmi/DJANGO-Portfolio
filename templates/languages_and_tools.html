@@ -7,14 +7,33 @@
         <small class="">Programming Languages and Tools</small>
         <div class="row">
         {% for competence in competences %}
-            <div class="col-lg-2 col-sm-6 justify-content-center mt-3">
+            <div class="col-lg-2 col-sm-6 justify-content-center mt-3" data-toggle="modal" data-target=".competance-model-{{competence.id}}">
                     <div class="competence-card text-center">
-                        <div class="card-body" data-toggle="tooltip" data-placement="top" title="{{competence.description}}">
+                        <div class="card-body">
                             <img class="competence-img" alt="{{competence.title}} logo" src="{{competence.image.url}}">
                             <p class="font-weight-normal pt-2 mb-0">{{competence.title}}</p>
                         </div>
                     </div>
             </div>
+
+
+            <div class="modal fade competance-model-{{competence.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content mt-8">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{competence.title}}</h5>
+                        <a data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-times-circle modal-closse-btn"></i>
+                        </a>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{competence.description}}</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
         {% endfor %}
         </div>
 
