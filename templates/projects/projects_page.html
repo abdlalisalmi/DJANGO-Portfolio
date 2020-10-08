@@ -13,9 +13,9 @@
 
         <div class="row">
             {% for project in projects %}
-                <div class="col-lg-4 mb-4 mx-2 border project-card">
+                <div class="col-lg-4 mb-4 ">
                     <a href="{{project.get_project_absolute_url}}">
-                        <div class="card border-0 ">
+                        <div class="card project-card border">
                             <div class="card-header p-0 bg-white">
                                 <img class="d-block w-100 p-0" src="{{project.image.url}}">
                             </div>
