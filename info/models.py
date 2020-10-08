@@ -58,6 +58,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to="projects/", blank=False, null=False)
     tools = models.CharField(max_length=200, blank=False, null=False)
     demo = models.URLField()
+    github = models.URLField()
     show_in_slider = models.BooleanField(default=False)
 
     def __str__(self):
