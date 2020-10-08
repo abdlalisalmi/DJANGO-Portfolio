@@ -248,6 +248,7 @@ p {
     padding: 6px;
     border-radius: 10px;
     cursor: pointer;
+    line-height: 35px;
     transition: all 0.5s;
 }
 .tool:hover {

@@ -13,7 +13,7 @@
 
         <div class="row">
             {% for project in projects %}
-                <div class="col-lg-4 mb-4 border project-card">
+                <div class="col-lg-4 mb-4 mx-2 border project-card">
                     <a href="{{project.get_project_absolute_url}}">
                         <div class="card border-0 ">
                             <div class="card-header p-0 bg-white">
@@ -21,7 +21,7 @@
                             </div>
                             <div class="card-body pt-0">
                                 <p class="display-4 m-0">{{project.title|truncatewords:2}}</p>
-                                <p class="h-50">{{project.description|truncatechars:80}}</p>
+                                <p class="h-50 text-muted">{{project.description|truncatechars:80}}</p>
 
                                 
                                 <div class="m-0 mt-4">
