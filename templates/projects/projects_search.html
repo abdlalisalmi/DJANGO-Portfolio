@@ -1,0 +1,64 @@
+{% extends 'base.html' %}{% load static %}{% load filter_tags %}
+
+{% block content %}
+    <div class="container">
+        <div class="row pt-lg-4">
+            <div class="col-12 text-center">
+                <p class="display-3 m-0">Search for Projects</p>
+                <p class="text-muted">Search for projects with titles, descriptions, or tools.</p>
+                <a class="text-success" href="{% url 'projectsPage' %}"><i class="fa fa-arrow-circle-left pr-2 mb-4"></i>Projects Page</a>
+
+
+                <form method="POST" action="{% url 'search' %}" id="search-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative mb-4">
+                            <input id="search-input" class="form-control form-control-alternative" name="searchText" placeholder="Search for projects title or a tools" type="text" required>
+                            <div class="search-btn" id="search-btn">
+                                <span><i class="fa fa-search"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                <form>
+
+            </div>
+        </div>
+
+        <hr class="mt-2 mb-4">
+        {% if projects %}
+            <p class="text-muted">You search for <strong class="text-success">{{searchText}}</strong></p>
+            <div class="row">
+                {% for project in projects %}
+                    <div class="col-lg-4 mb-4 ">
+                        <a href="{{project.get_project_absolute_url}}">
+                            <div class="card project-card border">
+                                <div class="card-header p-0 bg-white">
+                                    <img class="d-block w-100 p-0" src="{{project.image.url}}">
+                                </div>
+                                <div class="card-body pt-0">
+                                    <p class="display-4 m-0">{{project.title|truncatechars:18}}</p>
+                                    <p class="h-50 text-muted">{{project.description|truncatechars:80}}</p>
+
+                                    
+                                    <div class="m-0 mt-4">
+                                        <span class="font-weight-bold text-success"><i class="ni ni-settings pr-2"></i>Tools:</span>
+                                        {% with project.tools|split:"," as tools %}
+                                            {% for tool in tools %}
+                                                <span class="badge bg-secondary">{{tool}}</span>
+                                            {% endfor %}
+                                        {% endwith %}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center">
+                <p class="display-1 text-muted">No Results Found</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}

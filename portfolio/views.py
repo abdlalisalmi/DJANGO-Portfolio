@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
+from django.core import serializers
+import json
+from django.db.models import Q
 
 from django.core.mail import send_mail
 from django.conf import settings
@@ -75,6 +78,18 @@ def projectDetail(request, slug):
     if request.method == 'GET':
         project = get_object_or_404(Project, slug=slug)
         return render(request, template_name, {'project': project})
+
+
+def search(request):
+    template_name = 'projects/projects_search.html'
+    if request.method == 'POST':
+        search_text = request.POST.get('searchText', False)
+        if search_text:
+            lookups = Q(title__contains=search_text) | Q(
+                description__contains=search_text) | Q(tools__contains=search_text)
+            projects = Project.objects.filter(lookups)
+            return render(request, template_name, {'projects': projects, 'searchText': search_text})
+    return render(request, template_name)
 
 
 def handler404(request, exception):

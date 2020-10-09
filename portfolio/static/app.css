@@ -256,3 +256,21 @@ p {
     background-color: #525f7f;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+
+.search-btn {
+    background-color: #edeff3;
+    color: #2dce89;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    font-size: 26px;
+    padding-top: 5px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.search-btn:hover {
+    background-color: #2dce89;
+    color: #e9ecef;
+}

@@ -4,6 +4,7 @@ from .views import (
     homePage,
     projectsPage,
     projectDetail,
+    search,
     handler404
 )
 
@@ -18,6 +19,8 @@ urlpatterns = [
     path('', homePage, name='homePage'),
     path('projects/', projectsPage, name='projectsPage'),
     path('projects/<str:slug>/', projectDetail, name='projectDetail'),
+    path('search/', search, name='search'),
+
 
     path('admin/', admin.site.urls),
 
