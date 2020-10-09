@@ -85,8 +85,8 @@ def search(request):
     if request.method == 'POST':
         search_text = request.POST.get('searchText', False)
         if search_text:
-            lookups = Q(title__contains=search_text) | Q(
-                description__contains=search_text) | Q(tools__contains=search_text)
+            lookups = Q(title__icontains=search_text) | Q(
+                description__icontains=search_text) | Q(tools__icontains=search_text)
             projects = Project.objects.filter(lookups)
             return render(request, template_name, {'projects': projects, 'searchText': search_text})
     return render(request, template_name)
