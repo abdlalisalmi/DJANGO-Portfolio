@@ -41,25 +41,53 @@ p {
     color: var(--secondary);
     transition: all 0.5s;
 }
-.name:hover {
-    color: #ba68c8;
-}
 
-.nav-it:hover {
-    padding-bottom: 5px;
-    border-bottom: #ba68c8 solid 2px;
-    color: #ba68c8;
-}
-.nav-text {
+/* .nav-text {
     color: var(--color);
     font-size: 14px;
     font-weight: 500;
     transition: all 0.5s;
+    text-align: center;
     
 }
 .nav-text:hover {
     color: #ba68c8;
+    font-weight: 800;
+} */
+
+.nav-text {
+    color: var(--color);
+    font-size: 15px;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease 0s;
 }
+
+.nav-text:after {
+
+    bottom: -4px;
+    content: "";
+    display: block;
+    height: 2.5px;
+    left: 0;
+    position: absolute;
+    background: #ba68c8;
+    opacity: 0.6;
+    transition: width 0.3s ease 0s, opacity 0.3s ease 0s;
+    width: 0;
+}
+
+.nav-text:hover
+ {
+    color: #ba68c8;
+ }
+.nav-text:hover:after
+ {
+    width: 100%;
+    opacity: 0.9;
+}
+
 
 .animated {
     font-size: 37px;
