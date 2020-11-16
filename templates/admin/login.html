@@ -16,11 +16,11 @@
 	<div class="container">
 		<div class="row justify-content-center mt-6 mb-8">
 			<div class="col-lg-6 col-12 text-center">
-				<div class="crad card shadow border-0">
-					<div class="crad-header card-header bg-white">
-						<h3 class="display-5">welcome again</h3>
+				<div class="login-card">
+					<div class="login-card-header">
+						<h3>Welcome</h3>
 					</div>
-					<div class="crad-body bg-secondary px-lg-5 px-2 py-lg-5 py-2">
+					<div class="mx-5">
 						{% if form.errors and not form.non_field_errors %}
 							<p class="errornote">
 								{% if form.errors.items|length == 1 %}
@@ -50,10 +50,10 @@
 						</p>
 						{% endif %}
 
-						<form class="form" action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
+						<form class="login-form" action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
 
 							<div class="form-group mb-3">
-								<div class="input-group input-group-alternative">
+								<div class="input-group mb-2">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-circle-08"></i></span>
 									</div>
@@ -63,11 +63,12 @@
 							</div>
 
 							<div class="form-group mb-3">
-								<div class="input-group input-group-alternative">
+								<div class="input-group mb-2">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
 									</div>
-									<input class="form-control" name="password" placeholder="Password" type="password">
+									<input id="password-input" class="form-control" name="password" placeholder="Password" type="password">
+									<a class="show-password fa fa-eye"></a>
 									<input type="hidden" name="next" value="{{ next }}">
 								</div>
 								<small class="text-danger text-left">{{ form.password.errors }}</small>
@@ -82,7 +83,7 @@
 							{% endif %}
 							
 							<div class="text-center">
-								<input class="btn btn-default rounded-pill my-4 pl-5 pr-5 text-capitalize" type="submit" value="{% trans 'Log in' %}">
+								<input class="login-btn my-4 pl-5 pr-5 text-capitalize" type="submit" value="{% trans 'Log in' %}">
 							</div>
 						</form>
 

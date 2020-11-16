@@ -2,18 +2,17 @@
 
 {% block content %}
     <div class="container">
-        <div class="row pt-lg-4">
-            <div class="col-lg-6">
-                <h1 class="display-3 m-0">Projects</h1>
-                <p>Hey, on this page you will find all of my projects.</p>
+        <div class="row pt-lg-4 justify-content-center">
+            <div class="col-12 text-center">
+                <h1 class="display-3 title m-0">Projects</h1>
+                <p class="s-color">Hey, on this page you will find all of my projects.</p>
             </div>
 
-            <div class="col-lg-6 mt-lg-4">
-                <form method="POST" action="{% url 'search' %}" id="search-form">
-                    {% csrf_token %}
+            <div class="col-lg-8">
+                <form class="search-form" id="search-form" onSubmit="return false">
                     <div class="form-group">
                         <div class="input-group input-group-alternative mb-4">
-                            <input id="search-input" class="form-control form-control-alternative" name="searchText" placeholder="Search for projects with titles, descriptions, or tools." type="text" required>
+                            <input id="search-input" class="form-control search-input" name="searchText" placeholder="Search for projects with titles, descriptions, or tools." type="text" required>
                             <div class="search-btn" id="search-btn">
                                 <span><i class="fa fa-search"></i></span>
                             </div>
@@ -22,36 +21,27 @@
                 <form>
             </div>
         </div>
-        <hr class="mt-2 mb-4">
+        <hr class="mt-2 mb-4 ">
 
 
-        <div class="row" id="projects">
+        <div class="row" id="projectsContainer">
             {% for project in projects %}
                 <div class="col-lg-4 mb-4 ">
-                    <a href="{{project.get_project_absolute_url}}">
-                        <div class="card project-card border">
-                            <div class="card-header p-0 bg-white">
+                    
+                        <div class="project-card">
+                            <div class="">
                                 <img class="d-block w-100 p-0" src="{{project.image.url}}">
                             </div>
                             <div class="card-body pt-0">
-                                <p class="display-4 m-0">{{project.title|truncatechars:18}}</p>
-                                <p class="h-50 text-muted">{{project.description|truncatechars:80}}</p>
-
-                                
-                                <div class="m-0 mt-4">
-                                    <span class="font-weight-bold text-success"><i class="ni ni-settings pr-2"></i>Tools:</span>
-                                    {% with project.tools|split:"," as tools %}
-                                        {% for tool in tools %}
-                                            <span class="badge bg-secondary">{{tool}}</span>
-                                        {% endfor %}
-                                    {% endwith %}
+                                <p class="project-card-title">{{project.title|truncatechars:25}}</p>
+                                <p class="project-card-disc">{{project.description|truncatechars:85}}</p>
+                                <div class="show-project-btn text-center">
+                                    <a href="{{project.get_project_absolute_url}}">Show Project</a>
                                 </div>
-
                             </div>
                         </div>
-                    </a>
+                    
                 </div>
             {% endfor %}
         </div>
-    </div>
 {% endblock content %}

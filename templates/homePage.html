@@ -2,23 +2,44 @@
 {% load static %}
 {% block content %}
     <div class="container">
-        <div class="row pt-lg-5">
+        <div class="row pt-lg-5 home">
             <div class="col-lg-7 mt-7">
-                <small class="text-muted">Welcome to my portfolio website!</small>
+                <small class="s-color">Welcome to my portfolio website!</small>
 
                 <div class="animated">
                     Hey, I'm
                     <span class="color-primary" id="animated-name"></span>
                 </div>
-                <p>{{info.mini_about}}</p>
-                <div class="">
-                    <a href="{{info.cv.url}}" class="btn pl-lg-5 pr-lg-5 shadow rounded-pill text-capitalize mb-2 bg-secondary" target="_blank"><i class="far fa-file-alt pr-2 "></i> Download Resume</a>
+                <p class="s-color">{{info.mini_about}}</p>
+
+                <div class="social m-0" style="justify-content: left;">
+                    <a href="{{info.github}}" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="{{info.linkedin}}" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="{{info.instagram}}" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="{{info.facebook}}" target="_blank">
+                        <i class="fab fa-facebook-f"></i></i>
+                    </a>
+                    <a href="{{info.twitter}}" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
                 </div>
             </div>
-            <div class="col-lg-5 mt-6 text-center">
-                <img src="{% static 'img/land.svg' %}" width=100%>
+            <div class="col-lg-5 text-center">
+                <img src="{% static 'img/home.svg' %}" width=100%>
             </div>
         </div>
+
+        <button class="scroll__down">
+            <span class="scroll__mouse">
+                <span class="scroll__wheel"></span>
+            </span>
+        </button>
 
         <!-- Experiences and Education -->
         {% include 'experiences_and_education.html' %}

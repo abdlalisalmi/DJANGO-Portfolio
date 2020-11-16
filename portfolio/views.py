@@ -81,15 +81,24 @@ def projectDetail(request, slug):
 
 
 def search(request):
-    template_name = 'projects/projects_search.html'
     if request.method == 'POST':
         search_text = request.POST.get('searchText', False)
         if search_text:
             lookups = Q(title__icontains=search_text) | Q(
                 description__icontains=search_text) | Q(tools__icontains=search_text)
-            projects = Project.objects.filter(lookups)
-            return render(request, template_name, {'projects': projects, 'searchText': search_text})
-    return render(request, template_name)
+
+            objs = Project.objects.filter(lookups)
+            if objs:
+                projects = Project.objects.filter(lookups).values()
+                projects = list(projects)
+                for project, obj in zip(projects, objs):
+                    project.update({
+                        'url': obj.get_project_absolute_url(),
+                        'image_url': obj.image.url
+                    })
+                    print(obj.get_project_absolute_url())
+                return JsonResponse({'success': True, 'projects': projects, 'searchText': search_text})
+    return JsonResponse({'success': False, 'searchText': search_text})
 
 
 def handler404(request, exception):

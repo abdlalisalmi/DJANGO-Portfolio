@@ -1,5 +1,5 @@
 <!DOCTYPE html>{% load static %}
-<html lang="en" color-mode="light">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,6 +20,7 @@
 
         <!-- Costom CSS -->
         <link type="text/css" href="{% static 'app.css' %}" rel="stylesheet">
+        <link type="text/css" href="{% static 'slider.css' %}" rel="stylesheet">
 
     </head>
     <body>
@@ -33,10 +34,10 @@
 
             <div class="container">
                 <hr>
-                <div class="row pb-3">
+                <div class="row pb-3 footer">
                     <div class="col-12 text-center">
                         <p>Copyright © {% now "Y" %} Abdelaali ES SALMI . All rights reserved</p>
-                        <p>Built with <i class="fa fa-heart text-danger"></i> in Django By <a href="/" class="color-primary">Abdelaali ES SALMI</a></p>
+                        <p class="coder">Built with <i class="fa fa-heart text-danger"></i> in Django By <a href="/">Abdelaali ES SALMI</a></p>
                     </div>
                 </div>
             </div>
@@ -70,5 +71,7 @@
             $('html, body').animate({scrollTop:0}, '300');
             });
         </script>
+        {% block script %}
+        {% endblock script %}
     </body>
 </html>

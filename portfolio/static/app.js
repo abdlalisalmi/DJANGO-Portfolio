@@ -22,6 +22,22 @@ function getCookie(name) {
 }
 const csrftoken = getCookie('csrftoken');
 
+const showPassword = document.querySelector('.show-password');
+if (showPassword) {
+    showPassword.addEventListener('click', () => {
+        const passwordInput = document.querySelector('#password-input');
+        if (passwordInput.type == 'password') {
+            passwordInput.type = 'text';
+            showPassword.classList.remove('fa-eye')
+            showPassword.classList.add('fa-eye-slash')
+        } else {
+            passwordInput.type = 'password'
+            showPassword.classList.remove('fa-eye-slash')
+            showPassword.classList.add('fa-eye')
+        }
+    })
+}
+
 if (formSubmitBtn) {
     formSubmitBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -78,7 +94,7 @@ if (formSubmitBtn) {
                 } else {
                     if (data.errors.name) {
                         changeToF(formName);
-                        document.getElementById('name-error').innerHTML = `<small class="text-danger">${data.errors.name}</small>`
+                        document.getElementById('name-error').innerHTML = `<small class="error-text"><i class="fa fa-exclamation-triangle"></i> ${data.errors.name}</small>`
                     } else {
                         changeToS(formName);
                         document.getElementById('name-error').innerHTML = '';
@@ -86,14 +102,14 @@ if (formSubmitBtn) {
 
                     if (data.errors.email) {
                         changeToF(formEmail);
-                        document.getElementById('email-error').innerHTML = `<small class="text-danger">${data.errors.email}</small>`
+                        document.getElementById('email-error').innerHTML = `<small class="error-text"><i class="fa fa-exclamation-triangle"></i> ${data.errors.email}</small>`
                     } else {
                         changeToS(formEmail);
                         document.getElementById('email-error').innerHTML = '';
                     }
                     if (data.errors.message) {
                         changeToF(formMessage);
-                        document.getElementById('message-error').innerHTML = `<small class="text-danger">${data.errors.message}</small>`
+                        document.getElementById('message-error').innerHTML = `<small class="error-text"><i class="fa fa-exclamation-triangle"></i> ${data.errors.message}</small>`
                     } else {
                         changeToS(formMessage);
                         document.getElementById('message-error').innerHTML = '';
@@ -104,10 +120,84 @@ if (formSubmitBtn) {
 }
 
 
+function truncateString(str, num) {
+    if (str.length > num) {
+        return str.slice(0, num) + "...";
+    } else {
+        return str;
+    }
+}
+
 const searchBtn = document.querySelector('#search-btn');
 
 if (searchBtn) {
-    searchBtn.addEventListener('click', () => {
-        document.getElementById('search-form').submit();
+    searchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // document.getElementById('search-form').submit();
+        searchText = document.getElementById('search-input');
+        if (searchText.value.length != 0) {
+            // Build formData object.
+            let formData = new FormData();
+            formData.append('searchText', searchText.value);
+    
+            fetch("/search/",
+                {
+                    body: formData,
+                    method: "post",
+                    credentials: 'same-origin',
+                    headers: {
+                        "X-CSRFToken": csrftoken
+                    }
+                }).then(response => response.json())
+                .then(data => {
+                    projectsContainer = document.getElementById('projectsContainer');
+                    if (data.success == true) {
+                        projectsContainer.innerHTML = '';
+                        data.projects.forEach(project => {
+                            projectsContainer.innerHTML += `
+                            <div class="col-lg-4 mb-4">
+                                <div class="card-loader card-loader--tabs"></div>
+                            </div>
+                            `;
+                        });
+
+                        setTimeout(() => {
+                            projectsContainer.innerHTML = '';
+                            data.projects.forEach(project => {
+                                projectsContainer.innerHTML += `
+                                <div class="col-lg-4 mb-4 ">
+                            
+                                    <div class="card project-card">
+                                        <div class="">
+                                            <img class="d-block w-100 p-0" src="${project.image_url}">
+                                        </div>
+                                        <div class="card-body pt-0">
+                                            <p class="project-card-title">${truncateString(project.title, 25)}</p>
+                                            <p class="project-card-disc">${truncateString(project.description, 85)}</p>
+                                            <div class="show-project-btn text-center">
+                                                <a href="${project.url}">Show Project</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                </div>
+                                `;
+                            });
+                        }, 3000);
+                    } else {
+                        projectsContainer.classList.add('justify-content-center')
+                        projectsContainer.innerHTML = `
+                            <div class="col-lg-4 text-center s-color">
+                                <p>There are no projects with the name '<strong class="color-primary">${data.searchText}</strong>'</p>
+                                <div class="show-project">
+                                    <a href="/projects">Back To Projects</a>
+                                </div>
+                            </div>
+                            `;
+                    }
+                })
+        }
     })
 }
+
+

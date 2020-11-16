@@ -1,16 +1,19 @@
 <div class="row mt-6">
-    <div class="col-lg-5 bg-default rounded">
+    <div class="col-lg-5 about">
         <div class="text-white p-2">
             <div id="about-me">
-                <h2 class="display-4 text-white">About Me</h2>
+                <h2 class="display-4">About Me</h2>
                 <p class="text-muted">{{info.about}}</p>
             </div>
             <div id="contact-me">
-                <h2 class="display-4 text-white">Contact Me</h2>
-                <p class="mb-0 text-muted"><i class="fas fa-phone"></i> {{info.phone}}</p>
+                <h2 class="display-4">Contact Me</h2>
+                <p class="mb-0 text-muted">
+                    <i class="fas fa-phone"></i>
+                    <span class="ml-2">{{info.phone}}<span>
+                </p>
                 <p class="mb-0 text-muted">
                     <i class="fa fa-envelope"></i>
-                    <a class="text-white" href="mailto:{{info.email}}">{{info.email}}</a>
+                    <a class="" href="mailto:{{info.email}}">{{info.email}}</a>
                 </p>
                 <div class="social text-center">
                     <a href="{{info.github}}" target="_blank">
@@ -36,32 +39,33 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-7 pl-lg-6" id="message-me">
-        <h2 class="display-3">Interested to work together? Let's talk</h2>
+    <div class="col-lg-7 pl-lg-6 contact" id="message-me">
+        <h2>Interested to work together? </br><span>Let's talk</span></h2>
 
         <form class="form" id="form">
             {% csrf_token %}
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input name="name" id="form-name" type="text" placeholder="Your Name" class="form-control form-control-alternative text-default" />
+                        <input name="name" id="form-name" type="text" placeholder="Your Name" class="form-control input" autocomplete="off"/>
                         <div id="name-error"></div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input name="email" id="form-email" type="email" class="form-control form-control-alternative text-default" placeholder="Your E-Mail">
+                        <input name="email" id="form-email" type="email" class="form-control input" placeholder="Your E-Mail" autocomplete="off">
                         <div id="email-error"></div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <textarea name="message" id="form-message" class="form-control form-control-alternative text-default" rows="7" placeholder="Your Message here ..."></textarea>
+                <textarea name="message" id="form-message" class="form-control input" rows="7" placeholder="Your Message here ..." autocomplete="off"></textarea>
                 <div id="message-error"></div>
             </div>
-            <div class="text-right">
-                <a class="btn btn-default rounded-pill text-capitalize text-white" id="form-submit">Send <i class="ni ni-send"></i></a>
-            </div>
+            <a id="form-submit">
+            <div class="send-message">
+                Send <i class="ni ni-send"></i>
+            </div></a>
         </form>
 
         <!-- Small modal -->

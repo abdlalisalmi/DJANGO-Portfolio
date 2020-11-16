@@ -1,10 +1,10 @@
 <div class="row mt-5">
-    <div class="col-lg-12 text-left">
-        <h1 class="display-4 mb-0" id="competences">
+    <div class="col-lg-12">
+        <h1 class="display-4 title mb-0" id="competences">
             <i class="ni ni-atom"></i> 
             Competences
         </h1>
-        <small class="">Programming Languages and Tools</small>
+        <small class="s-color">Programming Languages and Tools</small>
         <div class="row">
         {% for competence in competences %}
             <div class="col-lg-2 col-sm-6 justify-content-center mt-3" data-toggle="modal" data-target=".competance-model-{{competence.id}}">
@@ -15,15 +15,13 @@
                         </div>
                     </div>
             </div>
-
-
             <div class="modal fade competance-model-{{competence.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content mt-8">
+                <div class="modal-content mt-8 competence-modal">
                     <div class="modal-header">
                         <h5 class="modal-title">{{competence.title}}</h5>
                         <a data-dismiss="modal" aria-label="Close">
-                        <i class="fa fa-times-circle modal-closse-btn"></i>
+                        <i class="far fa-times-circle modal-closse-btn"></i>
                         </a>
                     </div>
                     <div class="modal-body">

@@ -1,39 +1,31 @@
-<div class="row mt-5">{% load filter_tags %}
+<div class="row mt-5 ">{% load filter_tags %}
     <div class="col-lg-12">
-        <h1 class="display-4 mb-0" id="projects">
-            <i class="ni ni-bullet-list-67"></i> 
+        <h1 class="display-4 title mb-0" id="projects">
+            <i class="fa fa-code"></i> 
             Projects
         </h1>
-        <small>To see all of my projects click on "<span class="font-weight-bold text-info">Show All Projects</span>" on the bottom.</small>
+        <small class="s-color">To see all of my projects click on "<a href="/projects/" class="font-weight-bold text-info">Show All Projects</a>"</small>
         <div class="row justify-content-center mt-2">
-            <div class="col-lg-12">
+            <div class="col-lg-12 mt-lg-2">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         {% for project in projects %}
                             <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} mb-4">
-                                <div class="row justify-content-center">
-                                <div class="col-lg-6">
-                                    <a href="{{project.get_project_absolute_url}}">
-                                        <img class="d-block w-100" src="{{project.image.url}}" alt="{{project.title}} (img)">
-                                    </a>
-                                </div>
-                                <div class="col-lg-4 pt-5 text-left">
-                                    <a href="{{project.get_project_absolute_url}}">
-                                        <h3 class="">{{project.title}}</h3>
-                                    </a>
-                                    <p class="text-muted mb-0">{{project.description|truncatechars:180}}</p>
-                                    <div class="m-0 mt-4">
-                                        <span class="font-weight-bold color-primary"><i class="ni ni-settings pr-2"></i>Tools: </span>
-                                        {% with project.tools|split:"," as tools %}
-                                            {% for tool in tools %}
-                                                <span class="tool">{{tool}}</span>
-                                            {% endfor %}
-                                        {% endwith %}
-                                    </div>
-                                    
+                                <div class="blog-slider">
+                                    <div class="blog-slider__wrp swiper-wrapper">
+
+                                        <div class="blog-slider__item swiper-slide">
+                                            <div class="blog-slider__img">
+                                                <img src="{{project.image.url}}" alt="">
+                                            </div>
+                                            <div class="blog-slider__content">
+                                                <div class="blog-slider__title">{{project.title|truncatechars:25}}</div>
+                                                <div class="blog-slider__text">{{project.description|truncatechars:180}}</div>
+                                                <a href="{{project.get_project_absolute_url}}" class="blog-slider__button">READ MORE</a>
+                                            </div>
+                                        </div>
                                         
-                                    
-                                </div>
+                                    </div>
                                 </div>
                             </div>
                         {% endfor %}
@@ -46,12 +38,7 @@
                         <i class="fas fa-angle-right fa-3x color-primary"></i>
                         <span class="sr-only">Next</span>
                     </a>
-                </div>
-
-                <div class="text-center bg-secondary">
-                    <a href="{% url 'projectsPage' %}" class="more-btn text-capitalize">Show All Projects</a>
-                </div>
-                
+                </div>                
             </div>
         </div>
     </div>

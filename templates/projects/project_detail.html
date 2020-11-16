@@ -2,35 +2,37 @@
 
 {% block content %}
 <div class="container">
-    <div class="row p-lg-4 p-2">
-        <div class="col-12 mb-5">
-            <h3 class="project-title mt-lg-5 mt-3">
-                 {{project.title}}
-            </h3>
-            <small class="text-capitalize"><a href="{% url 'projectsPage' %}"><i class="ni ni-bold-left"></i> Back to projects</a></small>
-            <hr class="m-2">
-            <img class="d-block w-100" src="{{project.image.url}}" alt="{{project.title}} (img)">
+    <div class="row p-lg-4 p-2 justify-content-center">
+        <div class="col-12">
+            <p class="project-title mb-3">{{project.title}}</p> 
+            <hr class="mt-2 mb-0">
+        </div>
+        <div class="col-lg-10 col-12">
+            <img class="d-block w-100 project-image" src="{{project.image.url}}" alt="{{project.title}} (img)">
         </div>
         <div class="col-12 text-left">
-            <p class="mb-0">{{project.description}}</p>
+            <p class="mini-title">Description:</p>
+            <p class="project-disc">{{project.description}}</p>
+            
             <div class="mt-4">
-                <p class="text-muted">All the tools that I used in this project:</p>
+                <p class="mini-title">Tools:</p>
+                <p class="mb-0">All the tools that I used in this project:</p>
                 {% with project.tools|split:"," as tools %}
                     {% for tool in tools %}
                         <span class="tool">{{tool}}</span>
                     {% endfor %}
                 {% endwith %}
-
             </div>
+
             <div class="text-left pt-4">
-                <p class="text-muted">See the project:</p>
-                <a href="{{project.github}}" class="btn rounded-pill text-capitalize">
+                <p class="mini-title mb-3">Preview:</p>
+                <a href="{{project.github}}" class="preview-btn">
                     <i class="fab fa-github"></i>
-                    On Github
+                    Source Code On Github
                 </a>
-                <a href="{{project.demo}}" class="btn rounded-pill text-capitalize">
+                <a href="{{project.demo}}" class="preview-btn">
                     <i class="fas fa-globe"></i> 
-                    On Live
+                    Site Web On Live
                 </a>
             </div>
         </div>

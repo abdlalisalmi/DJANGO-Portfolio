@@ -5,7 +5,8 @@ from .views import (
     projectsPage,
     projectDetail,
     search,
-    handler404
+    handler404,
+    # test404
 )
 
 from django.conf import settings
@@ -20,6 +21,8 @@ urlpatterns = [
     path('projects/', projectsPage, name='projectsPage'),
     path('projects/<str:slug>/', projectDetail, name='projectDetail'),
     path('search/', search, name='search'),
+
+    # path('test/', test404, name='test'),
 
 
     path('admin/', admin.site.urls),
