@@ -173,7 +173,7 @@ if (searchBtn) {
                                         </div>
                                         <div class="card-body pt-0">
                                             <h1 class="project-card-title">${truncateString(project.title, 25)}</h1>
-                                            <p class="project-card-disc">${truncateString(project.description, 85)}</p>
+                                            <p class="project-card-disc">${truncateString(project.description, 100)}</p>
                                             <div class="show-project-btn text-center">
                                                 <a href="${project.url}">Show Project</a>
                                             </div>
