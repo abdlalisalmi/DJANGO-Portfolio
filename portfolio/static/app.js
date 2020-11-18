@@ -172,7 +172,7 @@ if (searchBtn) {
                                             <img src="${project.image_url}">
                                         </div>
                                         <div class="card-body pt-0">
-                                            <h1 class="project-card-title">${truncateString(project.title, 25)}</h1>
+                                            <h1 class="project-card-title">${truncateString(project.title, 22)}</h1>
                                             <p class="project-card-disc">${truncateString(project.description, 100)}</p>
                                             <div class="show-project-btn">
                                                 <a href="${project.url}"><i class="fa fa-eye"></i> Read More</a>
@@ -206,5 +206,3 @@ if (searchBtn) {
         }
     })
 }
-
-
