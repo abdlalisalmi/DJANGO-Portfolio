@@ -168,14 +168,14 @@ if (searchBtn) {
                                 <div class="col-lg-4 mb-4 ">
                             
                                     <div class="card project-card">
-                                        <div class="">
-                                            <img class="d-block w-100 p-0" src="${project.image_url}">
+                                        <div class="project-card-img">
+                                            <img src="${project.image_url}">
                                         </div>
                                         <div class="card-body pt-0">
                                             <h1 class="project-card-title">${truncateString(project.title, 25)}</h1>
                                             <p class="project-card-disc">${truncateString(project.description, 100)}</p>
-                                            <div class="show-project-btn text-center">
-                                                <a href="${project.url}">Show Project</a>
+                                            <div class="show-project-btn">
+                                                <a href="${project.url}"><i class="fa fa-eye"></i> Read More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -183,14 +183,21 @@ if (searchBtn) {
                                 </div>
                                 `;
                             });
+                            projectsContainer.innerHTML += `
+                            <div class="col-12 my-4 text-center">
+                                <div class="back-to-projects">
+                                    <a href="/projects">Back to Projects</a>
+                                </div>
+                            </div>
+                            `;
                         }, 2000);
                     } else {
                         projectsContainer.classList.add('justify-content-center')
                         projectsContainer.innerHTML = `
                             <div class="col-lg-4 text-center s-color">
                                 <p>There are no projects with the name '<strong class="color-primary">${data.searchText}</strong>'</p>
-                                <div class="show-project">
-                                    <a href="/projects">Back To Projects</a>
+                                <div class="back-to-projects">
+                                    <a href="/projects">Back to Projects</a>
                                 </div>
                             </div>
                             `;
