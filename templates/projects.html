@@ -20,7 +20,7 @@
                                             </div>
                                             <div class="blog-slider__content">
                                                 <div class="blog-slider__title">{{project.title|truncatechars:25}}</div>
-                                                <div class="blog-slider__text">{{project.description|truncatechars:180}}</div>
+                                                <div class="blog-slider__text">{{project.description|truncatechars:180|safe}}</div>
                                                 <a href="{{project.get_project_absolute_url}}" class="blog-slider__button">READ MORE</a>
                                             </div>
                                         </div>

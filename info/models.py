@@ -1,6 +1,6 @@
 from django.db import models
 import re
-
+from ckeditor.fields import RichTextField
 
 class Information(models.Model):
     name_complete = models.CharField(max_length=50, blank=False, null=False)
@@ -54,7 +54,7 @@ class Experience(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=200, blank=False, null=False)
     slug = models.SlugField(max_length=200, blank=True, null=True)
-    description = models.TextField(blank=False, null=False)
+    description = RichTextField(blank=False, null=False)
     image = models.ImageField(upload_to="projects/", blank=False, null=False)
     tools = models.CharField(max_length=200, blank=False, null=False)
     demo = models.URLField()
