@@ -183,7 +183,7 @@ if (searchBtn) {
                                 </div>
                                 `;
                             });
-                        }, 3000);
+                        }, 2000);
                     } else {
                         projectsContainer.classList.add('justify-content-center')
                         projectsContainer.innerHTML = `
