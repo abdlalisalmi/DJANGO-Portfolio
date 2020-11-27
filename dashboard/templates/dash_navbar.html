@@ -1,0 +1,88 @@
+<!-- Topbar -->{% load static %}
+    <nav class="navbar navbar-expand topbar mb-4 static-top shadow dash-navbar">
+
+        <!-- Sidebar Toggle (Topbar) -->
+        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- Topbar Search -->
+        <div class="title">
+            <h1 class="h4  text-gray-800">Abdelaali ES</h1>
+        </div>
+
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle message-icon" href="#" id="messagesDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-envelope fa-fw"></i>
+                    <!-- Counter - Messages -->
+                    <span class="badge badge-danger badge-counter">7</span>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="messagesDropdown">
+                    <div class="massage-header py-3 text-center">Messages Counter</div>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="{% static 'img/message.svg' %}"
+                                alt="">
+                        </div>
+                        <div class="font-weight-bold">
+                            <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                problem I've been having.</div>
+                            <div class="small text-gray-500">Emily Fowler</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="{% static 'img/message.svg' %}"
+                                alt="">
+                        </div>
+                        <div class="font-weight-bold">
+                            <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                problem I've been having.</div>
+                            <div class="small text-gray-500">Emily Fowler</div>
+                        </div>
+                    </a>
+
+                    <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Abdelaali es salmi</span>
+                    <img class="img-profile rounded-circle"
+                        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png">
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="userDropdown">
+                    <a class="dropdown-item user-dropdown" href="#">
+                        <i class="fas fa-user mr-2"></i>
+                        Profile
+                    </a>
+                    <a class="dropdown-item user-dropdown" href="/">
+                        <i class="fas fa-eye mr-2"></i>
+                        <span>View Site</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item user-logout" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt mr-2"></i>
+                        Logout
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+
+</nav>
+    <!-- End of Topbar -->

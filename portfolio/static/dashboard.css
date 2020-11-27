@@ -1,0 +1,68 @@
+:root {
+    --color: #d1d8e0;
+    --scolor: #17D778;
+    --bg-color: #1A181E;
+    --secondary: #2c303a;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Maven Pro', sans-serif;
+    scroll-behavior: smooth;
+    background-color: var(--bg-color);
+}
+.scolor {
+    color: var(--scolor);
+}
+
+.dash_sidebar {
+    background-color: var(--secondary) ;
+}
+.sidebar-divider {
+    border-top: #d1d8e0b1 solid 1px;
+}
+.dash_sidebar .dash {
+    color: var(--scolor) ;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 550;
+}
+.dash_sidebar .dash:hover {
+    color: #0cb15f;
+    text-decoration: none;
+}
+.dash_sidebar a {
+    color: var(--color) ;
+    transition: color .5s;
+    padding: 10px;
+}
+.dash_sidebar a:hover {
+    color: var(--scolor) ;
+}
+
+.dash-navbar .message-icon{
+    color: var(--secondary);
+    transition: color .5s;
+}
+.dash-navbar .message-icon:hover{
+    color: var(--scolor);
+}
+.dash-navbar .massage-header {
+    background-color: var(--scolor);
+    color: #fff;
+    padding: 15px;
+}
+.dash-navbar .user-dropdown {
+    color: var(--secondary);
+    transition: color .3s;
+}
+.dash-navbar .user-dropdown:hover {
+    color: var(--scolor);
+}
+.dash-navbar .user-logout{
+    color: #e74a3b;
+    transition: color .3s;
+}
