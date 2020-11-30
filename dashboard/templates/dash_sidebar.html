@@ -21,6 +21,8 @@
         </a>
     </li>
 
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
     <!-- Heading -->
     <div class="sidebar-heading">
@@ -28,10 +30,16 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item my-0">
-        <a class="nav-link collapsed" href="#">
+    <li class="nav-item">
+        <a class="nav-link {% if profile_active %}link-active{% endif %}" href="/dashboard/profile/">
             <i class="fas fa-fw fa-cog"></i>
             <span>Profile</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-envelope"></i>
+            <span>Messages</span>
         </a>
     </li>
 
@@ -51,19 +59,19 @@
     </li>
     <li class="nav-item">
         <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Messages</span></a>
+            <i class="ni ni-atom"></i>
+            <span>Competences</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="ni ni-hat-3"></i>
             <span>Educations</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="ni ni-archive-2"></i>
             <span>Experiences</span></a>
     </li>
 

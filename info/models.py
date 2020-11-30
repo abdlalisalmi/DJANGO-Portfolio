@@ -3,11 +3,11 @@ import re
 from ckeditor.fields import RichTextField
 
 class Information(models.Model):
-    name_complete = models.CharField(max_length=50, blank=False, null=False)
+    name_complete = models.CharField(max_length=50, blank=True, null=True)
     mini_about = models.TextField()
     about = models.TextField()
-    born_date = models.DateField(blank=False, null=False)
-    address = models.CharField(max_length=100, blank=False, null=False)
+    born_date = models.DateField(blank=True, null=True)
+    address = models.CharField(max_length=100, blank=True, null=True)
     phone = models.CharField(max_length=20)
     email = models.EmailField(max_length=255)
 

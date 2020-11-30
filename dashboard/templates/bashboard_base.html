@@ -22,7 +22,10 @@
     <link href="{% static 'dashboard/css/sb-admin-2.min.css' %}" rel="stylesheet">
 
     <!-- Costom CSS -->
+    <!-- Argon CSS -->
+        <link type="text/css" href="{% static 'css/argon-design-system.min.css' %}" rel="stylesheet">
     <link type="text/css" href="{% static 'dashboard.css' %}" rel="stylesheet">
+    {% block style %}{% endblock style %}
 
 </head>
 
@@ -43,7 +46,7 @@
                         {% include 'dash_navbar.html' %}
 
                         <!-- Begin Page Content -->
-                        <div class="container-fluid">
+                        <div class="container-fluid p-0">
 
                             {% block content %}{% endblock content %}
 
@@ -103,6 +106,7 @@
 
     <!-- Core plugin JavaScript-->
     <script src="{% static 'dashboard/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/fontawesome-free/css/all.min.css' %}"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="{% static 'dashboard/js/sb-admin-2.min.js' %}"></script>
@@ -113,6 +117,20 @@
     <!-- Page level custom scripts -->
     <script src="{% static 'dashboard/js/demo/chart-area-demo.js' %}"></script>
     <script src="{% static 'dashboard/js/demo/chart-pie-demo.js' %}"></script>
+
+    <!-- Core -->
+    <script src="{% static 'js/core/jquery.min.js' %}"></script>
+    <script src="{% static 'js/core/popper.min.js' %}"></script>
+    <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+
+    <!-- Optional plugins -->
+
+    <!-- Argon JS -->
+    <script src="{% static 'js/argon-design-system.js' %}"></script>
+
+    <script src="{% static 'dashboard.js' %}"></script>
+
+    {% block script %}{% endblock script %}
 
 </body>
 

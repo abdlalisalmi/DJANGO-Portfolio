@@ -35,12 +35,16 @@ body {
     text-decoration: none;
 }
 .dash_sidebar a {
-    color: var(--color) ;
+    color: #d1d8e0de ;
     transition: color .5s;
-    padding: 10px;
+    padding-top: 8px !important;
+    padding-bottom: 5px !important;
 }
 .dash_sidebar a:hover {
     color: var(--scolor) ;
+}
+.link-active {
+    color: var(--scolor) !important;
 }
 
 .dash-navbar .message-icon{

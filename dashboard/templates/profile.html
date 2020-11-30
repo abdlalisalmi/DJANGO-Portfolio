@@ -1,0 +1,167 @@
+{% extends 'bashboard_base.html' %}
+
+{% load static %}
+{% block style %}
+<link type="text/css" href="{% static 'profile.css' %}" rel="stylesheet">
+{% endblock style %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mb-5">
+        <div class="col-12 text-center">  
+            <form id="profile-form" action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="profile-pic">
+                    <div class="profile-pic shadow" style="background-image: url('{% if user.avatar %}{{user.avatar.url}}{% else %}{% static 'img/default-avatar.svg' %}{% endif %}')">
+                        <i class="fa fa-camera change-pic" ></i>
+                        <span>Change Image</span>
+                    </div>
+                </label>
+                <input type="File" name="avatar" id="profile-pic">
+            </form>
+        </div>
+        <div class="col-12 text-center">
+            <p class="m-0 display-4">Abdlali Es Salmi</p>
+            <div class="row justify-content-center mt-2">
+                <div class="col-lg-8">
+                    <div class="profile-boi">
+                        <p>I always felt curious about the field of technology, And I consider that digital transforming will be the key to face many future challenges</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center mb-5">
+            <div class="col-lg-6">
+                <p class="profile-title"><i class="ni ni-circle-08 mr-2"></i>About Me</p>
+                <p class="">Hey, I am Abdelaali ES SALMI, a Full Stack Developer, able to code web services and APIs used by front-end developers. 
+                also, I'm responsible for server-side web application logic as well as the integration of the front-end part.</p>
+            </div>
+            <div class="col-lg-6">
+                <div class="">
+                    <p class="profile-title"><i class="ni ni-chat-round mr-2"></i>Contact Me</p>
+                    <a href="#" class="social-media">
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            abdlalisalmi@gmail.com
+                        </div>
+                    </a>
+                    <a href="#" class="social-media">
+                        <div>
+                            <i class="fab fa-github"></i>
+                            github/abdlalisalmi
+                        </div>
+                    </a>
+                    <a href="#" class="social-media">
+                        <div>
+                            <i class="fab fa-facebook"></i>
+                            facebook/abdlalisalmi
+                        </div>
+                    </a>
+                    <a href="#" class="social-media">
+                        <div>
+                            <i class="fab fa-twitter"></i>
+                            twitter/abdlalisalmi
+                        </div>
+                    </a>
+                    <a href="#" class="social-media">
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            +212615836728
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+	</div>
+    <div class="row justify-content-center">
+        <div class="col-8 edit-profile text-center mb-4 type="button" data-toggle="modal" data-target="#edit-profile-modal"">
+            <i class="ni ni-ui-04 mr-2"></i>
+            Edit Profile
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="edit-profile-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog edit-profile-modal" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit You Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <form class="edit-profile-form">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-gr">
+                        <label class="label">Full Name</label>
+                        <input type="text" id="full_name" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-gr">
+                        <label class="label">Bio</label>
+                        <textarea class="form-control" id="bio" rows="2" placeholder="Write a short bio here ..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-gr">
+                        <label class="label">About Me</label>
+                        <textarea class="form-control" id="about" rows="3" placeholder="Write a long bio here ..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12">
+                    <div class="input-gr">
+                        <label class="label">Email</label>
+                        <input type="text" id="email" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-gr">
+                        <label class="label">Github</label>
+                        <input type="text" id="github" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-gr">
+                        <label class="label">Facebook</label>
+                        <input type="text" id="facebook" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-gr">
+                        <label class="label">Twitte</label>
+                        <input type="text" id="twitter" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-gr">
+                        <label class="label">Phone</label>
+                        <input type="text" id="phone" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <a class="save" id="save-profile-edit">Save Changes</a>
+        <a class="close" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
