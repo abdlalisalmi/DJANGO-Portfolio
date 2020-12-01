@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Maven Pro', sans-serif !important;
     scroll-behavior: smooth;
     background-color: var(--bg-color);
 }

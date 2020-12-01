@@ -164,6 +164,7 @@
  .blog-slider__content > * {
 	 transform: translateY(10px);
 	 transition: all 0.4s;
+	 font-family: 'Maven Pro', sans-serif !important;
 }
  .blog-slider__title {
 	 font-size: 24px;

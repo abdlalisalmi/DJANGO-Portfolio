@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
 from .forms import EditProfileForm
+
+from info.models import Information
 
 
 
@@ -16,13 +18,26 @@ def dashboard(request):
 def profile(request):
     template_name = 'profile.html'
     context = {}
-
-    context.update({'profile_active': True})
+    profile = Information.objects.first()
+    context.update({'profile_active': True, 'profile': profile})
     return render(request, template_name, context)
 
 
 @login_required()
 def profile_edit(request):
     if request.method == 'POST':
-        return JsonResponse({'test':request.POST['full_name']})
-    return render(request, template_name, context)
+        instance = Information.objects.first()
+
+        avatar = request.FILES.get('avatar', False)
+        if avatar:
+            account = Information.objects.first()
+            account.avatar = avatar
+            account.save()
+            return redirect('dashboard:profile')
+        else:
+            form = EditProfileForm(instance=instance, data=request.POST)
+            if form.is_valid():
+                form.save()
+                return JsonResponse({'success': True})
+            return JsonResponse({'success': False, 'errors': form.errors})
+    return JsonResponse({'status':'bad request'})

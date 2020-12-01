@@ -5,13 +5,13 @@
 <link type="text/css" href="{% static 'profile.css' %}" rel="stylesheet">
 {% endblock style %}
 {% block content %}
-<div class="container">
+<div class="container mt-7">
     <div class="row justify-content-center mb-5">
         <div class="col-12 text-center">  
-            <form id="profile-form" action="" method="post" enctype="multipart/form-data">
+            <form id="profile-form" action="{% url 'dashboard:profile_edit' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <label for="profile-pic">
-                    <div class="profile-pic shadow" style="background-image: url('{% if user.avatar %}{{user.avatar.url}}{% else %}{% static 'img/default-avatar.svg' %}{% endif %}')">
+                    <div class="profile-pic shadow" style="background-image: url('{% if profile.avatar %}{{profile.avatar.url}}{% else %}{% static 'img/default-avatar.svg' %}{% endif %}')">
                         <i class="fa fa-camera change-pic" ></i>
                         <span>Change Image</span>
                     </div>
@@ -20,60 +20,56 @@
             </form>
         </div>
         <div class="col-12 text-center">
-            <p class="m-0 display-4">Abdlali Es Salmi</p>
+            <p class="m-0 display-4 text-capitalize">{{profile.name_complete}}</p>
             <div class="row justify-content-center mt-2">
                 <div class="col-lg-8">
                     <div class="profile-boi">
-                        <p>I always felt curious about the field of technology, And I consider that digital transforming will be the key to face many future challenges</p>
+                        <p>{{profile.mini_about}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row justify-content-center mb-5">
+    <div class="row justify-content-center mt-6">
             <div class="col-lg-6">
                 <p class="profile-title"><i class="ni ni-circle-08 mr-2"></i>About Me</p>
-                <p class="">Hey, I am Abdelaali ES SALMI, a Full Stack Developer, able to code web services and APIs used by front-end developers. 
-                also, I'm responsible for server-side web application logic as well as the integration of the front-end part.</p>
+                <p class="">{{profile.about}}</p>
             </div>
             <div class="col-lg-6">
-                <div class="">
-                    <p class="profile-title"><i class="ni ni-chat-round mr-2"></i>Contact Me</p>
-                    <a href="#" class="social-media">
-                        <div>
-                            <i class="fas fa-envelope"></i>
-                            abdlalisalmi@gmail.com
-                        </div>
+                <p class="profile-title"><i class="ni ni-chat-round mr-2"></i>Contact Me</p>
+                <a href="mailto:{{profile.email}}" class="social-media" target="_blank">
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        {{profile.email}}
+                    </div>
+                </a>
+                <a href="{{profile.phone}}" class="social-media" target="_blank">
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        {{profile.phone}}
+                    </div>
+                </a>
+                <div class="text-center mt-3">
+                    <a href="{{profile.github}}" class="social-media-inline" target="_blank">
+                        <i class="fab fa-github"></i>
                     </a>
-                    <a href="#" class="social-media">
-                        <div>
-                            <i class="fab fa-github"></i>
-                            github/abdlalisalmi
-                        </div>
+                    <a href="{{profile.linkedin}}" class="social-media-inline" target="_blank">
+                        <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="#" class="social-media">
-                        <div>
-                            <i class="fab fa-facebook"></i>
-                            facebook/abdlalisalmi
-                        </div>
+                    <a href="{{profile.facebook}}" class="social-media-inline" target="_blank">
+                        <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="#" class="social-media">
-                        <div>
-                            <i class="fab fa-twitter"></i>
-                            twitter/abdlalisalmi
-                        </div>
+                    <a href="{{profile.instagram}}" class="social-media-inline" target="_blank">
+                        <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="social-media">
-                        <div>
-                            <i class="fas fa-phone"></i>
-                            +212615836728
-                        </div>
-                    </a>
+                    <a href="{{profile.twitter}}" class="social-media-inline" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>  
                 </div>
             </div>
 
 	</div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-7">
         <div class="col-8 edit-profile text-center mb-4 type="button" data-toggle="modal" data-target="#edit-profile-modal"">
             <i class="ni ni-ui-04 mr-2"></i>
             Edit Profile
@@ -85,13 +81,10 @@
 
 <!-- Modal -->
 <div class="modal fade" id="edit-profile-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog edit-profile-modal" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit You Profile</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <div class="modal-dialog " role="document">
+    <div class="modal-content edit-profile-modal">
+      <div class="modal-head">
+        EDIT PROFILE
       </div>
       <div class="modal-body">
 
@@ -100,67 +93,106 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-gr">
+                    <i class="fas fa-user"></i>
                         <label class="label">Full Name</label>
-                        <input type="text" id="full_name" class="form-control">
+                        <input type="text" id="full_name" class="form-control" value="{{profile.name_complete}}">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-gr">
-                        <label class="label">Bio</label>
-                        <textarea class="form-control" id="bio" rows="2" placeholder="Write a short bio here ..."></textarea>
+                        <i class="fas fa-id-card"></i>
+                        <label class="label" >Bio</label>
+                        <textarea class="form-control" id="mini-about" rows="2"
+                            placeholder="Write a short bio here ..." 
+                        >{% if profile.mini_about %}{{profile.mini_about}}{% endif %}</textarea>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-gr">
-                        <label class="label">About Me</label>
-                        <textarea class="form-control" id="about" rows="3" placeholder="Write a long bio here ..."></textarea>
+                        <i class="fas fa-address-card"></i>
+                        <label class="label" >About Me</label>
+                        <textarea class="form-control" id="about" rows="4" 
+                        placeholder="Write a long bio here ..." 
+                        >{% if profile.about %}{{profile.about}}{% endif %}</textarea>
                     </div>
                 </div>
             </div>
             <div class="row">
-            <div class="col-md-12">
+                <div class="col-md-12">
                     <div class="input-gr">
+                        <i class="fas fa-envelope"></i>
                         <label class="label">Email</label>
-                        <input type="text" id="email" class="form-control">
+                        <input type="text" id="email" class="form-control" value="{% if profile.email %}{{profile.email}}{% endif %}">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="input-gr">
-                        <label class="label">Github</label>
-                        <input type="text" id="github" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="input-gr">
-                        <label class="label">Facebook</label>
-                        <input type="text" id="facebook" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="input-gr">
-                        <label class="label">Twitte</label>
-                        <input type="text" id="twitter" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="input-gr">
+                        <i class="fas fa-phone"></i>
                         <label class="label">Phone</label>
-                        <input type="text" id="phone" class="form-control">
+                        <input type="text" id="phone" class="form-control" value="{{profile.phone}}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-gr">
+                    <i class="fab fa-github"></i>
+                        <label class="label">Github</label>
+                        <input type="text" id="github" class="form-control" value="{{profile.github}}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-gr">
+                        <i class="fab fa-linkedin"></i>
+                        <label class="label">LinkedIn</label>
+                        <input type="text" id="linkedin" class="form-control" value="{{profile.linkedin}}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-gr">
+                        <i class="fab fa-facebook"></i>
+                        <label class="label">Facebook</label>
+                        <input type="text" id="facebook" class="form-control" value="{{profile.facebook}}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-gr">
+                        <i class="fab fa-twitter"></i>
+                        <label class="label">Twitte</label>
+                        <input type="text" id="twitter" class="form-control" value="{{profile.twitter}}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-gr">
+                        <i class="fab fa-instagram"></i>
+                        <label class="label">Instagram</label>
+                        <input type="text" id="instagram" class="form-control" value="{{profile.instagram}}">
                     </div>
                 </div>
             </div>
         </form>
-
+        <div id="form-errors"></div>
 
       </div>
       <div class="modal-footer">
         <a class="save" id="save-profile-edit">Save Changes</a>
         <a class="close" data-dismiss="modal">Close</a>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- profilechange success -->
+<button style="display: none;" data-toggle="modal" data-target=".bd-example-modal-sm" id="change-success"></button>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content profile-change-success text-center">
+        Your information has been changed successfully
+        <i class="ni ni-check-bold"></i>
     </div>
   </div>
 </div>

@@ -4,21 +4,22 @@ from ckeditor.fields import RichTextField
 
 class Information(models.Model):
     name_complete = models.CharField(max_length=50, blank=True, null=True)
-    mini_about = models.TextField()
-    about = models.TextField()
+    avatar = models.ImageField(upload_to="avatar/", blank=True, null=True)
+    mini_about = models.TextField(blank=True, null=True)
+    about = models.TextField(blank=True, null=True)
     born_date = models.DateField(blank=True, null=True)
     address = models.CharField(max_length=100, blank=True, null=True)
-    phone = models.CharField(max_length=20)
-    email = models.EmailField(max_length=255)
+    phone = models.CharField(max_length=20, blank=True, null=True)
+    email = models.EmailField(max_length=255, blank=True, null=True)
 
     cv = models.FileField(upload_to='cv', blank=True, null=True)
 
     # Social Network
-    github = models.URLField()
-    linkedin = models.URLField()
-    facebook = models.URLField()
-    twitter = models.URLField()
-    instagram = models.URLField()
+    github = models.URLField(blank=True, null=True)
+    linkedin = models.URLField(blank=True, null=True)
+    facebook = models.URLField(blank=True, null=True)
+    twitter = models.URLField(blank=True, null=True)
+    instagram = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.name_complete

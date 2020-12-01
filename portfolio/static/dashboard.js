@@ -5,12 +5,14 @@ if (saveProfileEdit) {
 		e.preventDefault();
         // Build formData object.
         let formData = new FormData();
-        formData.append('full_name', document.querySelector('#full_name').value);
-        formData.append('bio', document.querySelector('#bio').value);
+        formData.append('name_complete', document.querySelector('#full_name').value);
+        formData.append('mini_about', document.querySelector('#mini-about').value);
 		formData.append('about', document.querySelector('#about').value);
 		formData.append('email', document.querySelector('#email').value);
 		formData.append('github', document.querySelector('#github').value);
+		formData.append('linkedin', document.querySelector('#linkedin').value);
 		formData.append('facebook', document.querySelector('#facebook').value);
+		formData.append('instagram', document.querySelector('#instagram').value);
 		formData.append('twitter', document.querySelector('#twitter').value);
 		formData.append('phone', document.querySelector('#phone').value);
 		
@@ -23,12 +25,26 @@ if (saveProfileEdit) {
 			}
 		})
 		.then(response => response.json())
-		.then(data => console.log(data));
+		.then(data => {
+			console.log(data)
+			if (data.success == true) {
+				document.querySelector('#change-success').click();
+				setTimeout(() => {  location.reload(); }, 3000);
+			} else {
+				document.querySelector('#form-errors').innerHTML = "* Something's wrong, please check your information!";
+			}
+		});
 	});
 }
 
-
-
+const profilePic = document.querySelector('#profile-pic');
+if (profilePic) {
+    profilePic.addEventListener('change', () => {
+        if (profilePic.length != 0) {
+            document.querySelector('#profile-form').submit();
+        }
+    })
+}
 
 
 

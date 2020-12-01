@@ -130,6 +130,7 @@ form input[type="file"] {
     background-color: #85879695;
     margin: 4px;
     border-radius: 15px;
+    border-top-left-radius: 0px;
     font-size: 13px;
     transition: all .5s;
  }
@@ -142,26 +143,55 @@ form input[type="file"] {
     color: #fff;
     padding: 12px;
     border-radius: 15px;
+    border-top-left-radius: 0px;
     margin-right: 10px;
  }
-
- .edit-profile-modal .modal-header {
-     background-color: aliceblue;
+ .social-media-inline {
+    background-color: var(--scolor) ;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    margin-right: 10px;
+    transition: all .5s;
+ }
+ .social-media-inline:hover {
+    background-color: #0a8c4b ;
+    color: #fff;
+ }
+ .edit-profile-modal {
+    border-radius: 20px;
+}
+ .edit-profile-modal .modal-head{
+    border-radius: 20px;
+    border-bottom: var(--scolor) solid 3px;
+    padding: 15px;
+    color: var(--scolor);
+    background-color: #4c4f5a;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
  }
  .edit-profile-modal .modal-footer {
     padding: 10px;
 }
 .edit-profile-modal .modal-footer .save {
-    border: var(--scolor) solid 1px;
+    background-color: var(--scolor);
+    color: #fff;
     cursor: pointer;
     border-radius: 10px;
     padding: 8px;
     margin-right: 20px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: var(--scolor) solid 1px;
     transition: ease-in .3s;
 }
 .edit-profile-modal .modal-footer .save:hover {
-    background-color: var(--scolor);
-    color: #fff;
+    background-color: transparent;
+    color: var(--scolor);
 }
 
 .edit-profile-modal .modal-footer .close {
@@ -169,13 +199,33 @@ form input[type="file"] {
     color: #f44040;
     font-size: 16px;
     font-weight: 500;
+    margin-right: 15px;
     transition: ease-in .3s;
 }
 
  .edit-profile-form label {
     padding-bottom: 5px;
-    font-size: 17px;
+    margin: 0;
+    font-size: 13px;
  }
  .edit-profile-form input, textarea {
     margin-bottom: 20px;
+    border-radius: 10px !important;
+    border-top-left-radius: 0px !important;
+    border-bottom: var(--scolor) solid 2px !important;
+ }
+
+ .profile-change-success {
+     padding: 15px;
+     font-size: 18px;
+     border-radius: 15px;
+ }
+ .profile-change-success i {
+    font-size: 30px;
+    color: var(--scolor);
+ }
+
+ #form-errors {
+     color: #eb4747;
+     font-size: 14px;
  }
