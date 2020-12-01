@@ -3,23 +3,15 @@
 
     <!-- Sidebar - Brand -->
     
-    {% comment %} <a class="sidebar-brand d-flex align-items-center justify-content-center">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center">
+        <div class="sidebar-brand-icon text-white">
+            <i class="fas fa-tachometer-alt"></i>
         </div>
-        <div class="sidebar-brand-text mx-3"></div>
-    </a> {% endcomment %}
+        <div class="sidebar-brand-text dash-icon">Dashboard</div>
+    </a>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
-    <li class=" my-4">
-        <a class="dash" href="/dashboard/">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-        </a>
-    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -30,15 +22,15 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link {% if profile_active %}link-active{% endif %}" href="/dashboard/profile/">
-            <i class="fas fa-fw fa-cog"></i>
+    <li class="nav-item my-1">
+        <a class="{% if profile_active %}link-active{% endif %}" href="/dashboard/profile/">
+            <i class="fas fa-cog"></i>
             <span>Profile</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-envelope"></i>
+    <li class="nav-item mb-1">
+        <a class="" href="#">
+            <i class="fas fa-envelope"></i>
             <span>Messages</span>
         </a>
     </li>
@@ -52,25 +44,25 @@
     </div>
 
     <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
+    <li class="nav-item mt-1">
+        <a class="" href="charts.html">
+            <i class="fas fa-chart-area"></i>
             <span>Projects</span></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item mt-1">
+        <a class="" href="charts.html">
             <i class="ni ni-atom"></i>
             <span>Competences</span></a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item mt-1">
+        <a class="" href="charts.html">
             <i class="ni ni-hat-3"></i>
             <span>Educations</span></a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item my-1">
+        <a class="" href="charts.html">
             <i class="ni ni-archive-2"></i>
             <span>Experiences</span></a>
     </li>

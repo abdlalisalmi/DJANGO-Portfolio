@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Maven Pro', sans-serif !important;
     scroll-behavior: smooth;
     background-color: var(--bg-color);
 }
@@ -24,22 +24,33 @@ body {
 .sidebar-divider {
     border-top: #d1d8e0b1 solid 1px;
 }
-.dash_sidebar .dash {
+.dash_sidebar .dash-icon {
     color: var(--scolor) ;
-    padding: 20px;
+    margin-left: 10px;
     font-size: 20px;
     font-weight: 550;
 }
-.dash_sidebar .dash:hover {
-    color: #0cb15f;
-    text-decoration: none;
-}
 .dash_sidebar a {
-    color: #d1d8e0de ;
+    color: #d1d8e0de;
     transition: color .5s;
-    padding-top: 8px !important;
-    padding-bottom: 5px !important;
+    padding: 15px;
+    margin: 10px;
+    font-size: 14px;
 }
+@media (max-width: 768px) {
+    .dash_sidebar li {
+        text-align: center;
+    }
+    .dash_sidebar a {
+        font-size: 11px;
+        padding: 0px;
+        margin: 0px;
+    }
+    .dash_sidebar a i {
+        width: 100%;
+    }
+}
+
 .dash_sidebar a:hover {
     color: var(--scolor) ;
 }
