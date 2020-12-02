@@ -12,7 +12,7 @@ html {
 body {
     font-family: 'Maven Pro', sans-serif !important;
     scroll-behavior: smooth;
-    background-color: var(--bg-color);
+    background-color: var(--secondary);
 }
 .scolor {
     color: var(--scolor);
@@ -20,6 +20,9 @@ body {
 
 .dash_sidebar {
     background-color: var(--secondary) ;
+}
+.dash_sidebar .sidebar-heading {
+    color: #17D778 !important;
 }
 .sidebar-divider {
     border-top: #d1d8e0b1 solid 1px;
@@ -80,4 +83,50 @@ body {
 .dash-navbar .user-logout{
     color: #e74a3b;
     transition: color .3s;
+}
+
+.hr-messages {
+    margin: 4px;
+    padding: 0;
+}
+.message-item {
+    color: #485460bb;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.message-item:hover {
+    background-color: #EFEFEF;
+}
+.message-item .sender {
+    text-align: left;
+}
+.message-item .message {
+    text-align: center;
+}
+.message-item .time {
+    text-align: center;
+}
+
+
+
+.footer {
+    color: var(--secondary);
+    background-color: transparent;
+}
+.footer p{
+    margin: 0px;
+    color: var(--secondary);
+    font-size: 15px;
+}
+.footer .coder {
+    font-size: 14px;
+}
+.footer a{
+    color: var(--scolor);
+    transition: all .5s;
+}
+.footer a:hover{
+    color: var(--secondary);
 }

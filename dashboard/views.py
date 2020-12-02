@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import EditProfileForm
 
-from info.models import Information
+from info.models import Information, Message
 
 
 
@@ -41,3 +41,12 @@ def profile_edit(request):
                 return JsonResponse({'success': True})
             return JsonResponse({'success': False, 'errors': form.errors})
     return JsonResponse({'status':'bad request'})
+
+
+@login_required()
+def messages(request):
+    template_name = 'messages.html'
+    context = {}
+    messages = Message.objects.all()
+    context.update({'messages_active': True, 'messages': messages})
+    return render(request, template_name, context)

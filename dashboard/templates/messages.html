@@ -1,0 +1,42 @@
+{% extends 'bashboard_base.html' %}
+
+{% load static %}
+
+{% block style %}
+{% comment %} <link type="text/css" href="{% static 'profile.css' %}" rel="stylesheet"> {% endcomment %}
+{% endblock style %}
+
+{% block content %}
+<div class="container">
+    <h1>Inbox</h1>
+    <hr class="mt-0">
+
+    {% for message in messages %}
+        <div class="row message-item">
+            <div class="col-3 sender">
+                {{message.name}}
+            </div>
+            <div class="col-7 message">
+                {{message.message|truncatechars:80}}
+            </div>
+            <div class="col-2 time">
+                March 2
+            </div>
+        </div>
+    {% endfor %}
+    
+</div>
+
+
+<!-- profilechange success -->
+<button style="display: none;" data-toggle="modal" data-target=".bd-example-modal-sm" id="change-success"></button>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content profile-change-success text-center">
+        Your information has been changed successfully
+        <i class="ni ni-check-bold"></i>
+    </div>
+  </div>
+</div>
+{% endblock content %}
