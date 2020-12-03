@@ -36,7 +36,7 @@ if (saveProfileEdit) {
 		});
 	});
 }
-
+// edit profile picture
 const profilePic = document.querySelector('#profile-pic');
 if (profilePic) {
     profilePic.addEventListener('change', () => {
@@ -46,10 +46,95 @@ if (profilePic) {
     })
 }
 
+///////////////////////// messages page ////////////////////////////
+// remove message
+const deleteMessageBtns = document.querySelectorAll('.delete-message');
+if (deleteMessageBtns) {
+	deleteMessageBtns.forEach(messageBtn => {
+		messageBtn.addEventListener('click', (e) => {
+			e.preventDefault();
+			let ID = messageBtn.attributes.id.value.split('-')[1]
+			// Build formData object.
+			let formData = new FormData();
+			formData.append('message_id', ID);
+			formData.append('option_type', "delete");
+			
+			fetch('/dashboard/messages/api/', {
+				body: formData,
+				method: "post",
+				credentials: 'same-origin',
+				headers: {
+					"X-CSRFToken": csrftoken
+				}
+			})
+			.then(response => response.json())
+			.then(data => {
+				if (data.status == "success") {
+					document.querySelector('#row-'+ID).style.display = 'none';
+				}
+			});
+		})
+	})
+}
 
+// set the message as read
+const viewMessage = document.querySelectorAll('.view-message');
+if (viewMessage) {
+	viewMessage.forEach(view => {
+		view.addEventListener('click', (e) => {
+			e.preventDefault();
+			let ID = view.attributes.id.value.split('-')[1]
+			// Build formData object.
+			let formData = new FormData();
+			formData.append('message_id', ID);
+			formData.append('option_type', "view");
+			
+			fetch('/dashboard/messages/api/', {
+				body: formData,
+				method: "post",
+				credentials: 'same-origin',
+				headers: {
+					"X-CSRFToken": csrftoken
+				}
+			})
+			.then(response => response.json())
+			.then(data => {
+				if (data.status == "success") {
+					document.querySelector('#view-'+ID).parentElement.classList.remove('new-message')
+				}
+			});
+		})
+	})
+}
 
-
-
+// search for messages
+const messageSearchBtn = document.querySelector('#search-btn');
+if (messageSearchBtn) {
+	messageSearchBtn.addEventListener('click', (e) => {
+		e.preventDefault();
+		// Build formData object.
+		input = document.querySelector('#search-input').value;
+		let formData = new FormData();
+		formData.append('search_text', input);
+		formData.append('option_type', "search");
+		
+		fetch('/dashboard/messages/api/', {
+			body: formData,
+			method: "post",
+			credentials: 'same-origin',
+			headers: {
+				"X-CSRFToken": csrftoken
+			}
+		})
+		.then(response => response.json())
+		.then(data => {
+			if (data.status == "success") {
+				console.log(data.messages);
+			}
+		});
+	})
+}
+///////////////////////// end messages page /////////////////////////
 
 
 

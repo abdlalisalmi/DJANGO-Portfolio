@@ -85,31 +85,98 @@ body {
     transition: color .3s;
 }
 
+.inbox {
+    font-size: 35px;
+    color: #2c303ab9;
+}
+.search input {
+    border-radius: 8px;
+}
+.search .search-btn {
+    background-color:  #2c303ab9;
+    color: #fff;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: 45px;
+    height: auto;
+    text-align: center;
+    font-size: 26px;
+    padding-top: 4px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.search .search-btn:hover {
+    background-color: #17D778;
+}
 .hr-messages {
     margin: 4px;
     padding: 0;
 }
 .message-item {
     color: #485460bb;
+    background-color: #efefef81;
     padding: 10px;
-    border-radius: 20px;
+    margin-bottom: 3px;
+    border-radius: 15px;
+    font-size: 15px;
+    transition: all .5s;
+}
+.new-message {
+    color: var(--bg-color);
+    background-color: #dad8d8b2;
+}
+.message-item:hover {
+    background-color: #dad8d8b2;
+}
+.message-item .message-icons{
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+.message-item .message-icons .delete-message {
+    text-align: center;
+    width: 45px;
     cursor: pointer;
     transition: all .5s;
 }
-.message-item:hover {
-    background-color: #EFEFEF;
+.message-item .message-icons .delete-message:hover {
+    color: crimson;
+    border-radius: 8px;
 }
 .message-item .sender {
     text-align: left;
+    cursor: pointer;
 }
 .message-item .message {
-    text-align: center;
+    text-align: left;
+    cursor: pointer;
 }
 .message-item .time {
     text-align: center;
+    font-size: 13px;
 }
-
-
+.message-modal {
+    margin-top: 200px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgb(240, 240, 240);
+}
+.message-modal .modal-head {
+    font-size: 20px;
+    border-bottom: var(--scolor) solid 1px ;
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+.message-modal .modal-body {
+    font-size: 14px;
+    border: var(--scolor) soldi 2px !important;
+    padding-left: 15px;
+}
+.message-modal .modal-body p {
+    font-size: 14px;
+    margin-top: 15px;
+    color: #485460bb;
+}
 
 .footer {
     color: var(--secondary);
