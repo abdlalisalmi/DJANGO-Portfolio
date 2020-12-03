@@ -82,7 +82,7 @@ class Message(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(max_length=255, null=False, blank=False)
     message = models.TextField(null=False, blank=False)
-    send_time = models.DateTimeField(auto_now_add=True)
+    send_time = models.DateTimeField(auto_now=True)
     is_read = models.BooleanField(default=False)
 
     def __str__(self):
