@@ -2,14 +2,13 @@
 
 {% load static %}
 
-{% block style %}<link type="text/css" href="{% static 'dashboard.css' %}" rel="stylesheet">{% endblock style %}
 {% block body %}
 
 <div class="container mt-lg-8">
     <div class="row">
     <div class="col-lg-4 sidebar p-0">
         <a href="{% url 'dashboard:dashboard' %}">
-            <div class="row info dashboard-active">
+            <div class="row info {% if dashboard %}dashboard-active{% endif %}">
                 <div class="col-2 pic">
                     <div class="profile-pic shadow" style="background-image: url('{% if profile.avatar %}{{profile.avatar.url}}{% else %}{% static 'img/default-avatar.svg' %}{% endif %}')">
                     </div>
@@ -23,13 +22,13 @@
         <hr class="m-0 mb-1">
         <ul class="sidebar-list">
             <a href="{% url 'dashboard:profile' %}">
-                <li class="link-active">
+                <li class="{% if profile_active %}link-active{% endif %}">
                     <svg version="1.1" viewBox="0, 0, 24, 24" class="svg-icon svg-fill" style="width: 24px; height: 24px;"><path pid="0" d="M17.698 10.97c.064.374.096.711.096 1.03 0 .32-.032.657-.096 1.031a.997.997 0 0 0 .35.942l1.25 1.028-1.153 1.997-1.51-.566a.993.993 0 0 0-.356-.055 4.487 4.487 0 0 0-2.055-3.632c.355-.493.57-1.092.57-1.745 0-1.654-1.346-3-3-3-1.655 0-3 1.346-3 3 0 .653.215 1.252.57 1.745a4.489 4.489 0 0 0-2.056 3.631.964.964 0 0 0-.355.056l-1.51.566-1.153-1.997 1.25-1.028c.278-.23.411-.59.35-.945A5.939 5.939 0 0 1 5.793 12c0-.325.031-.661.095-1.027a1 1 0 0 0-.349-.945L4.29 8.999l1.152-1.997 1.511.567a.999.999 0 0 0 .994-.17 5.943 5.943 0 0 1 1.785-1.026c.338-.124.584-.42.643-.775L10.641 4h2.305l.267 1.598a.998.998 0 0 0 .642.775 5.943 5.943 0 0 1 1.785 1.026c.277.231.655.296.995.17l1.51-.567 1.153 1.997-1.25 1.029a.996.996 0 0 0-.35.942zm-6.904.03a1.001 1.001 0 0 1 2 0 1.001 1.001 0 0 1-2 0zm3.5 6.423c-.147.068-.285.149-.439.204a.998.998 0 0 0-.642.776L12.946 20h-2.305l-.266-1.597a1.001 1.001 0 0 0-.643-.776c-.153-.055-.292-.136-.438-.204v-.902c0-1.379 1.121-2.5 2.5-2.5 1.38 0 2.5 1.121 2.5 2.5v.902zm5.457-4.639a7.294 7.294 0 0 0 0-1.568l1.472-1.211a1 1 0 0 0 .231-1.272l-2-3.465a1 1 0 0 0-1.218-.437l-1.782.669a8.05 8.05 0 0 0-1.36-.781l-.314-1.883A1 1 0 0 0 13.794 2h-4a1 1 0 0 0-.987.836l-.313 1.883a7.972 7.972 0 0 0-1.36.781l-1.783-.669a1 1 0 0 0-1.217.437l-2 3.465a1 1 0 0 0 .23 1.272l1.472 1.211a7.247 7.247 0 0 0 0 1.568l-1.472 1.211a1 1 0 0 0-.23 1.273l2 3.465c.245.424.758.605 1.217.436l1.783-.669a7.91 7.91 0 0 0 1.36.782l.313 1.882c.08.483.497.836.987.836h4a.999.999 0 0 0 .986-.836l.314-1.882a7.987 7.987 0 0 0 1.36-.782l1.782.669a1 1 0 0 0 1.218-.436l2-3.465a1.002 1.002 0 0 0-.23-1.273l-1.473-1.211z" fill="#161A21" fill-rule="evenodd"></path></svg>
                     Profile
                 </li>
             </a>
-            <a href="{% url 'dashboard:profile' %}">
-                <li>
+            <a href="{% url 'dashboard:messages' %}">
+                <li class="{% if messages_active %}link-active{% endif %}">
                     <svg version="1.1" viewBox="0, 0, 24, 24" class="svg-icon svg-fill" style="width: 24px; height: 24px;"><path pid="0" d="M4.618 15.923a.987.987 0 0 0 .764 0 .986.986 0 0 0 .325-.217l2-1.999a1 1 0 0 0-1.414-1.414L6 12.586V7c0-.552.45-1 1-1h12a1 1 0 1 0 0-2H7C5.346 4 4 5.346 4 7v5.586l-.293-.293a.999.999 0 1 0-1.414 1.414l2 1.999a1 1 0 0 0 .325.217m17.09-5.63l-2-1.999a1.001 1.001 0 0 0-1.415 0l-2 1.999a.999.999 0 1 0 1.414 1.414l.293-.293V17c0 .552-.449 1-1 1H5a1 1 0 1 0 0 2h12c1.654 0 3-1.346 3-3v-5.586l.293.293a.997.997 0 0 0 1.414 0 1 1 0 0 0 0-1.414" fill="#000" fill-rule="nonzero"></path></svg>
                     Messages
                 </li>
@@ -68,12 +67,36 @@
         {% block dashboardContent %}
             <div class="dashboard-title">Dashboard</div>
             <div class="row">
-                <div class="col-4">
+                <div class="col-lg-4 m-0 p-0">
                     <div class="card">
-                        <img src="{% static 'img/user.svg' %}" width="45px">
-                        <div class="">
-                            <h4 class="mb-2 h5">My Projects</h4>
-                            <small>20</small>
+                        <div class="card-content">
+                            <img src="{% static 'img/projects-icone.svg' %}">
+                            <div class="">
+                                <h4 class="">Projects</h4>
+                                <small>20</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 m-0 p-0">
+                    <div class="card">
+                        <div class="card-content">
+                            <img src="{% static 'img/competences-icon.svg' %}">
+                            <div class="">
+                                <h4 class="">Competences</h4>
+                                <small>20</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 m-0 p-0">
+                    <div class="card">
+                        <div class="card-content">
+                            <img src="{% static 'img/messages-icon.svg' %}">
+                            <div class="">
+                                <h4 class="">Messages</h4>
+                                <small>20</small>
+                            </div>
                         </div>
                     </div>
                 </div>

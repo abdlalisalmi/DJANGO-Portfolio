@@ -7,6 +7,9 @@
 
 body {
     background-color: #fff;
+    font-family: 'Maven Pro', sans-serif !important;
+    scroll-behavior: smooth;
+    background-color: #fff;
 }
 .scolor {
     color: var(--scolor);
@@ -22,7 +25,9 @@ body {
     color: #000;
 }
 .sidebar .info{
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0;
 }
 .sidebar .pic{
     padding-top: 5px;
@@ -66,6 +71,12 @@ body {
 .sidebar .dashboard-active * {
     color: #fff;
 }
+.dash_sidebar .sidebar-heading {
+    color: #17D778 !important;
+}
+.sidebar-divider {
+    border-top: #d1d8e0b1 solid 1px;
+}
 .sidebar-list {
     list-style: none;
     font-size: 1rem;
@@ -101,23 +112,41 @@ body {
 
 
 
-/* .dashboard-content {
-    padding-left: 20px;
-} */
 
 .dashboard-content .dashboard-title {
-    color: rgba(0, 0, 0, 0.692);
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 700;
+    font-size: 35px;
+    color: #2c303ab9;
 }
 .dashboard-content .card {
-    margin-top: 20px;
+    margin: 10px;
     border: 0 solid rgba(0,0,0,.125);
     box-shadow: 0 0 2px 0 rgba(22,26,33,.1), 0 2px 4px 0 rgba(22,26,33,.1);
     border-radius: 5px;
-    padding: 20px;
+    padding: 20px 10px 20px 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
 }
+.dashboard-content .card .card-content {
+    display: flex;
+}
+.dashboard-content .card .card-content *{
+    padding: 0;
+    margin: 0;
+}
+.dashboard-content .card .card-content h4{
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+.dashboard-content .card .card-content img {
+    width: 60px;
+    height: 60px;
+    margin-right: 5px;
+}
+
+
 
 
 
@@ -146,3 +175,116 @@ body {
     color: #e74a3b;
     transition: color .3s;
 } */
+
+.inbox {
+    font-size: 35px;
+    color: #2c303ab9;
+}
+.search input {
+    border-radius: 8px;
+}
+.search .search-btn {
+    background-color:  #2c303ab9;
+    color: #fff;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: 45px;
+    height: auto;
+    text-align: center;
+    font-size: 26px;
+    padding-top: 4px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.search .search-btn:hover {
+    background-color: #17D778;
+}
+.hr-messages {
+    margin: 4px;
+    padding: 0;
+}
+.message-item {
+    color: #485460bb;
+    background-color: #efefef81;
+    padding: 10px;
+    margin-bottom: 3px;
+    border-radius: 15px;
+    font-size: 15px;
+    transition: all .5s;
+}
+.new-message {
+    color: var(--bg-color);
+    background-color: #dad8d8b2;
+}
+.message-item:hover {
+    background-color: #dad8d8b2;
+}
+.message-item .message-icons{
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+.message-item .message-icons .delete-message {
+    text-align: center;
+    width: 45px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.message-item .message-icons .delete-message:hover {
+    color: crimson;
+    border-radius: 8px;
+}
+.message-item .sender {
+    text-align: left;
+    cursor: pointer;
+}
+.message-item .message {
+    text-align: left;
+    cursor: pointer;
+}
+.message-item .time {
+    text-align: center;
+    font-size: 13px;
+}
+.message-modal {
+    margin-top: 200px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgb(240, 240, 240);
+}
+.message-modal .modal-head {
+    font-size: 20px;
+    border-bottom: var(--scolor) solid 1px ;
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+.message-modal .modal-body {
+    font-size: 14px;
+    border: var(--scolor) soldi 2px !important;
+    padding-left: 15px;
+}
+.message-modal .modal-body p {
+    font-size: 14px;
+    margin-top: 15px;
+    color: #485460bb;
+}
+
+.footer {
+    color: var(--secondary);
+    background-color: transparent;
+}
+.footer p{
+    margin: 0px;
+    color: var(--secondary);
+    font-size: 15px;
+}
+.footer .coder {
+    font-size: 14px;
+}
+.footer a{
+    color: var(--scolor);
+    transition: all .5s;
+}
+.footer a:hover{
+    color: var(--secondary);
+}

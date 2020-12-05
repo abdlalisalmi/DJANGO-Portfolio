@@ -1,11 +1,20 @@
-{% extends 'bashboard_base.html' %}
+{% extends 'dashboard.html' %}
 
 {% load static %}
 {% block style %}
 <link type="text/css" href="{% static 'profile.css' %}" rel="stylesheet">
 {% endblock style %}
-{% block content %}
-<div class="container mt-7">
+{% block dashboardContent %}
+
+<div class="row">
+    <div class="dashboard-title col-6">Profile</div>
+    <div class="col-6 edit-profile text-center mb-4 type="button" data-toggle="modal" data-target="#edit-profile-modal"">
+        Edit Profile
+    </div>
+</div>
+<hr class="mt-2">
+
+<div class="container mt-5">
     <div class="row justify-content-center mb-5">
         <div class="col-12 text-center">  
             <form id="profile-form" action="{% url 'dashboard:profile_edit' %}" method="post" enctype="multipart/form-data">
@@ -20,7 +29,7 @@
             </form>
         </div>
         <div class="col-12 text-center">
-            <p class="m-0 display-4 text-capitalize">{{profile.name_complete}}</p>
+            <p class="m-0 profile-name">{{profile.name_complete}}</p>
             <div class="row justify-content-center mt-2">
                 <div class="col-lg-8">
                     <div class="profile-boi">
@@ -69,12 +78,7 @@
             </div>
 
 	</div>
-    <div class="row justify-content-center mt-7">
-        <div class="col-8 edit-profile text-center mb-4 type="button" data-toggle="modal" data-target="#edit-profile-modal"">
-            <i class="ni ni-ui-04 mr-2"></i>
-            Edit Profile
-        </div>
-    </div>
+    
 </div>
 
 
@@ -196,4 +200,4 @@
     </div>
   </div>
 </div>
-{% endblock content %}
+{% endblock dashboardContent %}

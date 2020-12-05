@@ -72,6 +72,12 @@ form input[type="file"] {
     font-size: 25px;
     color: #fff;
  }
+ .profile-name {
+    color: #000000ab;
+     text-transform: capitalize;
+     font-size: 2em;
+     font-weight: 700;
+ }
  .profile-boi * {
     padding: 0;
     margin: 0;
@@ -81,22 +87,19 @@ form input[type="file"] {
     border-radius: 15px;
     border-top-left-radius: 0px;
     border: black solid 1px;
-    /* background: linear-gradient(109.61deg,#202125 4.26%,#4c4f5a 84.84%); */
     position: relative;
  }
-
- .profile-title {
-    font-size: 18px;
-    /* color: var(--scolor); */
-    padding-bottom: 10px;
-    border-bottom: var(--scolor) solid 1px;
+ .profile-boi p {
+    color: #000000ab;
  }
 
+
 .edit-profile {
-    border: var(--secondary) solid 1px;
-    background-color: #4c4f5a;
-    color: var(--color);
+    margin-top: 10px;
+    border: var(--scolor) solid 1px;
+    color: var(--scolor);
     border-radius: 10px;
+    font-weight: 700;
     padding: 8px;
     cursor: pointer;
     transition: all .5s;
@@ -105,9 +108,8 @@ form input[type="file"] {
     color: var(--color);
 }
 .edit-profile:hover {
-    border: var(--secondary) solid 1px;
-    color: var(--secondary);
-    background: none;
+    color: #fff;
+    background-color: var(--scolor);
 }
 .edit-profile:hover * {
     color: var(--secondary);

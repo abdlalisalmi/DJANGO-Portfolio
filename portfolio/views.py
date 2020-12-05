@@ -96,7 +96,6 @@ def search(request):
                         'url': obj.get_project_absolute_url(),
                         'image_url': obj.image.url
                     })
-                    print(obj.get_project_absolute_url())
                 return JsonResponse({'success': True, 'projects': projects, 'searchText': search_text})
     return JsonResponse({'success': False, 'searchText': search_text})
 

@@ -1,0 +1,76 @@
+{% extends 'dashboard.html' %}
+
+{% load static %}
+
+{% block dashboardContent %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 inbox">
+            <i class="fas fa-inbox"></i>
+            Inbox 
+        </div>
+        <div class="col-lg-6 search">
+            <div class="form-group">
+                <div class="input-group mb-4">
+                    <input class="form-control" id="search-input" placeholder="Search for messages" type="text">
+                    <div class="search-btn" id="search-btn">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="mt-0">
+
+    {% for message in messages %}
+        <div class="row message-item {% if not message.is_read %}new-message{% endif %}" id="row-{{message.id}}">
+            <div class="col-1 message-icons">
+                <div class="delete-message" id="message-{{message.id}}">
+                    <i class="fa fa-trash"></i>
+                </div>
+            </div>
+            <div class="col-9 view-message" id="view-{{message.id}}" data-toggle="modal" data-target=".modal-{{message.id}}">
+                <div class="row">
+                    <div class="col-3 sender text-capitalize">
+                        {{message.name}}
+                    </div>
+                    <div class="col-9 message">
+                        {{message.message|truncatechars:80}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 time">
+                {{message.send_time|date:"D, d M, Y"}}
+            </div>
+        </div>
+
+        <div class="modal fade modal-{{message.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="message-modal">
+                    <div class="modal-head text-capitalize">
+                        {{message.name}}
+                    </div>
+                    <div class="modal-body">
+                        {{message.message}}
+                        <p><i class="fas fa-envelope"></i> {{message.email}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    
+</div>
+
+
+<!-- profilechange success -->
+<button style="display: none;" data-toggle="modal" data-target=".bd-example-modal-sm" id="change-success"></button>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content profile-change-success text-center">
+        Your information has been changed successfully
+        <i class="ni ni-check-bold"></i>
+    </div>
+  </div>
+</div>
+{% endblock dashboardContent %}

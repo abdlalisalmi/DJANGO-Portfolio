@@ -23,20 +23,20 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item my-1">
-        <a class="{% if profile_active %}link-active{% endif %}" href="/dashboard/profile/">
+        <a class="{% if profile_active %}link-active{% endif %}" href="{% url 'dashboard:profile' %}">
             <i class="fas fa-cog"></i>
             <span>Profile</span>
         </a>
     </li>
     <li class="nav-item mb-1">
-        <a class="" href="#">
+        <a class="{% if messages_active %}link-active{% endif %}" href="{% url 'dashboard:messages' %}">
             <i class="fas fa-envelope"></i>
             <span>Messages</span>
         </a>
     </li>
 
     <!-- Divider -->
-    <hr class="sidebar-divider">
+    <hr class="sidebar-divider mt-2">
 
     <!-- Heading -->
     <div class="sidebar-heading">
@@ -66,14 +66,5 @@
             <i class="ni ni-archive-2"></i>
             <span>Experiences</span></a>
     </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
-
 </ul>
 <!-- End of Sidebar -->
