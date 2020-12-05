@@ -20,7 +20,7 @@
 
         <!-- Costom CSS -->
         <link type="text/css" href="{% static 'app.css' %}" rel="stylesheet">
-        <link type="text/css" href="{% static 'dashboard.css' %}" rel="stylesheet">
+        
         <link type="text/css" href="{% static 'slider.css' %}" rel="stylesheet">
         {% block style %}{% endblock style %}
 
@@ -73,7 +73,6 @@
             $('html, body').animate({scrollTop:0}, '300');
             });
         </script>
-        <script src="{% static 'dashboard.js' %}"></script>
         {% block script %}
         {% endblock script %}
     </body>

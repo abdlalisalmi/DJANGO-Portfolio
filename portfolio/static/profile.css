@@ -4,27 +4,18 @@
     --bg-color: #1A181E;
     --secondary: #2c303a;
 }
+body {
+    background-color: #fff;
+    font-family: 'Maven Pro', sans-serif !important;
+    scroll-behavior: smooth;
+    background-color: #fff;
+}
+.scolor {
+    color: var(--scolor);
+}
 
 /* Profile Image */
-.nav-profile-pic {
-    border-radius: 50%;
-    height: 45px;
-    width: 45px;
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: multiply;
-    vertical-align: middle;
-    text-align: center;
-    color: transparent;
-    transition: all .3s ease;
-    text-decoration: none;
-    cursor: pointer;
-}
-.nav-profile-pic:hover {
-    background-color: rgba(0,0,0,.5);
-    transition: all .3s ease;
-}
-.profile-pic {
+.profile-pic-change {
     border-radius: 50%;
     height: 200px;
     width: 200px;
@@ -40,7 +31,7 @@
     position: relative;
 }
 
-.profile-pic:hover {
+.profile-pic-change:hover {
     background-color: rgba(0,0,0,.5);
     z-index: 10000;
     color: #fff;
@@ -50,7 +41,7 @@
     text-decoration: none;
 }
 
-.profile-pic span {
+.profile-pic-change span {
     display: inline-block;
     padding-top: 4.5em;
     padding-bottom: 4.5em;

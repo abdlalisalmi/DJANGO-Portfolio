@@ -1,7 +1,7 @@
 {% extends 'dashboard.html' %}
 
 {% load static %}
-{% block style %}
+{% block style %} {{ block.super }}
 <link type="text/css" href="{% static 'profile.css' %}" rel="stylesheet">
 {% endblock style %}
 {% block dashboardContent %}
@@ -19,8 +19,8 @@
         <div class="col-12 text-center">  
             <form id="profile-form" action="{% url 'dashboard:profile_edit' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <label for="profile-pic">
-                    <div class="profile-pic shadow" style="background-image: url('{% if profile.avatar %}{{profile.avatar.url}}{% else %}{% static 'img/default-avatar.svg' %}{% endif %}')">
+                <label for="profile-pic-change">
+                    <div class="profile-pic-change shadow" style="background-image: url('{% if profile.avatar %}{{profile.avatar.url}}{% else %}{% static 'img/default-avatar.svg' %}{% endif %}')">
                         <i class="fa fa-camera change-pic" ></i>
                         <span>Change Image</span>
                     </div>
