@@ -131,7 +131,7 @@ form input[type="file"] {
     color: #000000ab;
 }
 .social-media {
-    color: #fff;
+    color: #777777;
  }
 .social-media:hover {
     text-decoration: none;
@@ -139,7 +139,7 @@ form input[type="file"] {
  }
 
  .social-media div{
-    background-color: #85879695;
+    background-color: #ededed;
     margin: 4px;
     border-radius: 15px;
     border-top-left-radius: 0px;
@@ -147,7 +147,8 @@ form input[type="file"] {
     transition: all .5s;
  }
  .social-media div:hover{
-    background-color: #858796;
+    background-color: #dbd9d9;
+    color: #2c303a;
  }
 
  .social-media i {
@@ -179,8 +180,8 @@ form input[type="file"] {
     border-radius: 20px;
     border-bottom: var(--scolor) solid 3px;
     padding: 15px;
-    color: var(--scolor);
-    background-color: #4c4f5a;
+    color: #000;
+    background-color: #fafafc;
     font-size: 18px;
     font-weight: 500;
     text-align: center;
@@ -224,7 +225,7 @@ form input[type="file"] {
     margin-bottom: 20px;
     border-radius: 10px !important;
     border-top-left-radius: 0px !important;
-    border-bottom: var(--scolor) solid 2px !important;
+    /* border-bottom: var(--scolor) solid 2px !important; */
  }
 
  .profile-change-success {
