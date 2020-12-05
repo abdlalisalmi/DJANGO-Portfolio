@@ -5,60 +5,125 @@
     --secondary: #2c303a;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: 'Maven Pro', sans-serif !important;
-    scroll-behavior: smooth;
-    background-color: var(--bg-color);
+    background-color: #fff;
 }
 .scolor {
     color: var(--scolor);
 }
 
-.dash_sidebar {
-    background-color: var(--secondary) ;
+.sidebar {
+    padding-top: 15px;
+    border: 0 solid rgba(0,0,0,.125);
+    box-shadow: 0 0 2px 0 rgba(22,26,33,.1), 0 2px 4px 0 rgba(22,26,33,.1);
+    border-radius: 5px;
 }
-.sidebar-divider {
-    border-top: #d1d8e0b1 solid 1px;
+.sidebar .info *{
+    color: #000;
 }
-.dash_sidebar .dash-icon {
-    color: var(--scolor) ;
-    margin-left: 10px;
-    font-size: 20px;
-    font-weight: 550;
+.sidebar .info{
+    padding: 20px;
 }
-.dash_sidebar a {
-    color: #d1d8e0de;
-    transition: color .5s;
-    padding: 15px;
-    margin: 10px;
-    font-size: 14px;
+.sidebar .pic{
+    padding-top: 5px;
 }
-@media (max-width: 768px) {
-    .dash_sidebar li {
-        text-align: center;
-    }
-    .dash_sidebar a {
-        font-size: 11px;
-        padding: 0px;
-        margin: 0px;
-    }
-    .dash_sidebar a i {
-        width: 100%;
-    }
+.sidebar .profile-pic {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    vertical-align: middle;
+    text-align: center;
+    color: transparent;
+    transition: all .3s ease;
+    text-decoration: none;
+    position: relative;
+}
+.sidebar .name {
+    padding: 10px;
+    padding-left: 45px;
+    padding-top: 20px;
+}
+.sidebar .name h5, p {
+    padding: 0;
+    margin: 0;
+}
+.sidebar .name .full-name {
+    font-weight: 500;
+    line-height: 1.5rem;
+    text-transform: capitalize;
+}
+.sidebar .name .email {
+    font-size: 13px;
+}
+.sidebar .dashboard-active {
+    background-color: #17D778;
+    color: #fff;
+    margin: 0;
+}
+.sidebar .dashboard-active * {
+    color: #fff;
+}
+.sidebar-list {
+    list-style: none;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    text-align: left;
+    margin:0;
+    padding:0;
+    padding-bottom: 15px;
+}
+.sidebar-list li {
+    cursor: pointer;
+    padding: 10px 20px;
+    color: rgba(0, 0, 0, 0.664);
+}
+.sidebar-list li:hover {
+    background-color: #fafafc;
+}
+.sidebar-list li svg {
+    margin-right: 10px;
+}
+.sidebar .sidebar-line {
+    margin: 5px;
+    margin-left: 16px;
+    margin-right: 16px;
 }
 
-.dash_sidebar a:hover {
-    color: var(--scolor) ;
-}
-.link-active {
-    color: var(--scolor) !important;
+.link-active{
+    background-color: #fafafc;
+    border-right: var(--scolor) solid 5px;
 }
 
-.dash-navbar .message-icon{
+
+
+
+/* .dashboard-content {
+    padding-left: 20px;
+} */
+
+.dashboard-content .dashboard-title {
+    color: rgba(0, 0, 0, 0.692);
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+.dashboard-content .card {
+    margin-top: 20px;
+    border: 0 solid rgba(0,0,0,.125);
+    box-shadow: 0 0 2px 0 rgba(22,26,33,.1), 0 2px 4px 0 rgba(22,26,33,.1);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+
+
+
+
+/* .dash-navbar .message-icon{
     color: var(--secondary);
     transition: color .5s;
 }
@@ -80,4 +145,4 @@ body {
 .dash-navbar .user-logout{
     color: #e74a3b;
     transition: color .3s;
-}
+} */

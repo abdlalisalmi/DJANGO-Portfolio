@@ -1,117 +1,87 @@
-{% extends 'bashboard_base.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 
-{% block content %}
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-    <i class="fas fa-eye text-white-50"></i> View Site</a>
-</div>
+{% block style %}<link type="text/css" href="{% static 'dashboard.css' %}" rel="stylesheet">{% endblock style %}
+{% block body %}
 
-<!-- Content Row -->
-<div class="row">
-
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Projects</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-code fa-2x text-gray-300"></i>
+<div class="container mt-lg-8">
+    <div class="row">
+    <div class="col-lg-4 sidebar p-0">
+        <a href="{% url 'dashboard:dashboard' %}">
+            <div class="row info dashboard-active">
+                <div class="col-2 pic">
+                    <div class="profile-pic shadow" style="background-image: url('{% if profile.avatar %}{{profile.avatar.url}}{% else %}{% static 'img/default-avatar.svg' %}{% endif %}')">
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Competences</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">25</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="ni ni-atom text-gray-300" style="font-size:35px;"></i>
-                        {% comment %} <i class="fas fa-dollar-sign fa-2x text-gray-300"></i> {% endcomment %}
-                    </div>
+                <div class="col-10 name">
+                    <h5 class="full-name">{{profile.name_complete}}</h5>
+                    <p class="email">{{profile.email}}</p>
                 </div>
             </div>
-        </div>
+        <a/>
+        <hr class="m-0 mb-1">
+        <ul class="sidebar-list">
+            <a href="{% url 'dashboard:profile' %}">
+                <li class="link-active">
+                    <svg version="1.1" viewBox="0, 0, 24, 24" class="svg-icon svg-fill" style="width: 24px; height: 24px;"><path pid="0" d="M17.698 10.97c.064.374.096.711.096 1.03 0 .32-.032.657-.096 1.031a.997.997 0 0 0 .35.942l1.25 1.028-1.153 1.997-1.51-.566a.993.993 0 0 0-.356-.055 4.487 4.487 0 0 0-2.055-3.632c.355-.493.57-1.092.57-1.745 0-1.654-1.346-3-3-3-1.655 0-3 1.346-3 3 0 .653.215 1.252.57 1.745a4.489 4.489 0 0 0-2.056 3.631.964.964 0 0 0-.355.056l-1.51.566-1.153-1.997 1.25-1.028c.278-.23.411-.59.35-.945A5.939 5.939 0 0 1 5.793 12c0-.325.031-.661.095-1.027a1 1 0 0 0-.349-.945L4.29 8.999l1.152-1.997 1.511.567a.999.999 0 0 0 .994-.17 5.943 5.943 0 0 1 1.785-1.026c.338-.124.584-.42.643-.775L10.641 4h2.305l.267 1.598a.998.998 0 0 0 .642.775 5.943 5.943 0 0 1 1.785 1.026c.277.231.655.296.995.17l1.51-.567 1.153 1.997-1.25 1.029a.996.996 0 0 0-.35.942zm-6.904.03a1.001 1.001 0 0 1 2 0 1.001 1.001 0 0 1-2 0zm3.5 6.423c-.147.068-.285.149-.439.204a.998.998 0 0 0-.642.776L12.946 20h-2.305l-.266-1.597a1.001 1.001 0 0 0-.643-.776c-.153-.055-.292-.136-.438-.204v-.902c0-1.379 1.121-2.5 2.5-2.5 1.38 0 2.5 1.121 2.5 2.5v.902zm5.457-4.639a7.294 7.294 0 0 0 0-1.568l1.472-1.211a1 1 0 0 0 .231-1.272l-2-3.465a1 1 0 0 0-1.218-.437l-1.782.669a8.05 8.05 0 0 0-1.36-.781l-.314-1.883A1 1 0 0 0 13.794 2h-4a1 1 0 0 0-.987.836l-.313 1.883a7.972 7.972 0 0 0-1.36.781l-1.783-.669a1 1 0 0 0-1.217.437l-2 3.465a1 1 0 0 0 .23 1.272l1.472 1.211a7.247 7.247 0 0 0 0 1.568l-1.472 1.211a1 1 0 0 0-.23 1.273l2 3.465c.245.424.758.605 1.217.436l1.783-.669a7.91 7.91 0 0 0 1.36.782l.313 1.882c.08.483.497.836.987.836h4a.999.999 0 0 0 .986-.836l.314-1.882a7.987 7.987 0 0 0 1.36-.782l1.782.669a1 1 0 0 0 1.218-.436l2-3.465a1.002 1.002 0 0 0-.23-1.273l-1.473-1.211z" fill="#161A21" fill-rule="evenodd"></path></svg>
+                    Profile
+                </li>
+            </a>
+            <a href="{% url 'dashboard:profile' %}">
+                <li>
+                    <svg version="1.1" viewBox="0, 0, 24, 24" class="svg-icon svg-fill" style="width: 24px; height: 24px;"><path pid="0" d="M4.618 15.923a.987.987 0 0 0 .764 0 .986.986 0 0 0 .325-.217l2-1.999a1 1 0 0 0-1.414-1.414L6 12.586V7c0-.552.45-1 1-1h12a1 1 0 1 0 0-2H7C5.346 4 4 5.346 4 7v5.586l-.293-.293a.999.999 0 1 0-1.414 1.414l2 1.999a1 1 0 0 0 .325.217m17.09-5.63l-2-1.999a1.001 1.001 0 0 0-1.415 0l-2 1.999a.999.999 0 1 0 1.414 1.414l.293-.293V17c0 .552-.449 1-1 1H5a1 1 0 1 0 0 2h12c1.654 0 3-1.346 3-3v-5.586l.293.293a.997.997 0 0 0 1.414 0 1 1 0 0 0 0-1.414" fill="#000" fill-rule="nonzero"></path></svg>
+                    Messages
+                </li>
+            </a>
+            <hr class="sidebar-line">
+            <a href="{% url 'dashboard:profile' %}">
+                <li>
+                    <svg version="1.1" viewBox="0, 0, 24, 24" class="svg-icon svg-fill" style="width: 24px; height: 24px;"><path pid="0" d="M20 6H4V5c0-.552.449-1 1-1h14c.551 0 1 .448 1 1v1zm0 13c0 .552-.449 1-1 1H5c-.551 0-1-.448-1-1V8h16v11zM19 2H5C3.346 2 2 3.346 2 5v14c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3V5c0-1.654-1.346-3-3-3zm-5.707 15.707a.997.997 0 0 0 1.414 0l3-3a.999.999 0 0 0 0-1.414l-3-3a.999.999 0 1 0-1.414 1.414L15.586 14l-2.293 2.293a.999.999 0 0 0 0 1.414zm-4 0a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414L8.414 14l2.293-2.293a.999.999 0 1 0-1.414-1.414l-3 3a.999.999 0 0 0 0 1.414l3 3z" fill="#000" fill-rule="nonzero"></path></svg>
+                    Projects
+                </li>
+            </a>
+            <a href="{% url 'dashboard:profile' %}">
+                <li>
+                <svg version="1.1" viewBox="0, 0, 24, 24" class="svg-icon svg-fill" style="width: 24px; height: 24px;"><path pid="0" d="M20 9h-3c-1.654 0-3 1.346-3 3s1.346 3 3 3h3v3a1 1 0 0 1-1 1H5c-.551 0-1-.448-1-1V6c0-.552.449-1 1-1h14a1 1 0 0 1 1 1v3zm0 4h-3a1 1 0 0 1 0-2h3v2zM19 3H5C3.346 3 2 4.346 2 6v12c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3V6c0-1.654-1.346-3-3-3z" fill="#000" fill-rule="nonzero"></path></svg>
+                    Competences
+                </li>
+            </a>
+            <a href="{% url 'dashboard:profile' %}">
+                <li>
+                    <svg version="1.1" viewBox="0, 0, 24, 24" class="svg-icon svg-fill" style="width: 24px; height: 24px;"><path pid="0" d="M8.5 18c.153 0 .307.035.447.105l3.553 1.777 3.553-1.777c.299-.148.653-.139.943.027L19 19.276V5a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v14.276l2.004-1.144A.993.993 0 0 1 8.5 18m4 4c-.153 0-.307-.035-.447-.105l-3.522-1.761-3.035 1.734A1 1 0 0 1 4 21V5c0-1.654 1.346-3 3-3h11c1.654 0 3 1.346 3 3v16a1 1 0 0 1-1.496.868l-3.035-1.734-3.522 1.761c-.14.07-.294.105-.447.105M16 12H9a1 1 0 1 1 0-2h7a1 1 0 1 1 0 2zm0 4H9a1 1 0 1 1 0-2h7a1 1 0 1 1 0 2zm0-8H9a1 1 0 1 1 0-2h7a1 1 0 1 1 0 2z" fill="#000" fill-rule="nonzero"></path></svg>
+                    Educations
+                </li>
+            </a>
+            <a href="{% url 'dashboard:profile' %}">
+                <li>
+                    <svg version="1.1" viewBox="0, 0, 24, 24" class="svg-icon svg-fill" style="width: 24px; height: 24px;"><path pid="0" d="M16 17v-.373c0-.326-.038-.643-.097-.951-.007-.037-.011-.074-.019-.112a4.782 4.782 0 0 0-.274-.879c-.004-.01-.006-.022-.009-.032.828-.264 1.693-.182 2.495.245l1.363.727c.299.159.602.673.602 1.346L16 17zm.561-7c.689 0 1.25.561 1.25 1.25s-.561 1.25-1.25 1.25a1.251 1.251 0 0 1 0-2.5zm-2.562 7H4v-.373c0-.923.402-1.781.979-2.089l1.817-.969c1.419-.756 2.986-.756 4.407-.001l1.818.971c.134.071.257.179.37.304l.023.027c.033.038.058.086.088.127.066.093.132.187.187.296.03.057.052.118.078.179.049.121.093.247.127.38.014.057.03.114.042.172.036.184.058.374.06.57 0 .01.003.021.003.033V17zM9 7c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm11.4 6.86l-1.251-.667c.41-.544.662-1.212.662-1.943A3.254 3.254 0 0 0 16.561 8a3.254 3.254 0 0 0-3.25 3.25c0 .477.108.926.293 1.333l-1.459-.779c-.072-.038-.145-.064-.216-.099A3.976 3.976 0 0 0 13 9c0-2.206-1.794-4-4-4S5 6.794 5 9c0 1.046.412 1.991 1.071 2.705-.071.035-.145.062-.217.1l-1.816.968C2.8 13.433 2 14.945 2 16.627V17c0 1.121.769 2 1.75 2h16.748c.876 0 1.563-.769 1.563-1.75v-.279c0-1.352-.652-2.573-1.661-3.111z" fill="#000" fill-rule="nonzero"></path></svg>
+                    Experiences
+                </li>
+            </a>
+        </ul>
+        
+ 
+ 
     </div>
-
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-info shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                        Experiences
+    <div class="col-lg-8 dashboard-content pl-lg-4">
+        {% block dashboardContent %}
+            <div class="dashboard-title">Dashboard</div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <img src="{% static 'img/user.svg' %}" width="45px">
+                        <div class="">
+                            <h4 class="mb-2 h5">My Projects</h4>
+                            <small>20</small>
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">25</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="ni ni-archive-2 text-gray-300" style="font-size:35px;"></i>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Pending Requests Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Messages</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- Content Row -->
-
-<div class="row">
-    <div class="col-lg-6">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Last Project</h6>
-            </div>
-            <div class="card-body">
-                <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
-                </div>
-                <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                    constantly updated collection of beautiful svg images that you can use
-                    completely free and without attribution!</p>
-                <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                    unDraw →</a>
-            </div>
-        </div>
+        {% endblock dashboardContent %}
     </div>
 </div>
 
 
-
-<!-- Content Row -->
-
-{% endblock content %}
+{% endblock body %}
