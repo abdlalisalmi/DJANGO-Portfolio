@@ -120,6 +120,16 @@ form input[type="file"] {
     text-decoration: none;
 }
 
+.about-me p {
+    color: #000000ab;
+}
+.about-me .profile-title {
+    font-weight: 500;
+}
+.contact-me .profile-title {
+    font-weight: 500;
+    color: #000000ab;
+}
 .social-media {
     color: #fff;
  }
