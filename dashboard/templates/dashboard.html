@@ -9,7 +9,7 @@
     <div class="row">
     <div class="col-lg-4 sidebar p-0">
         <a href="{% url 'dashboard:dashboard' %}">
-            <div class="row info {% if dashboard %}dashboard-active{% endif %}">
+            <div class="row info {% if dashboard %}dashboard-active {% else %}info-unactive{% endif %}">
                 <div class="col-2 pic">
                     <div class="profile-pic shadow" style="background-image: url('{% if profile.avatar %}{{profile.avatar.url}}{% else %}{% static 'img/default-avatar.svg' %}{% endif %}')">
                     </div>
@@ -35,8 +35,8 @@
                 </li>
             </a>
             <hr class="sidebar-line">
-            <a href="{% url 'dashboard:profile' %}">
-                <li>
+            <a href="{% url 'dashboard:projects' %}">
+                <li class="{% if projects_active %}link-active{% endif %}">
                     <svg version="1.1" viewBox="0, 0, 24, 24" class="svg-icon svg-fill" style="width: 24px; height: 24px;"><path pid="0" d="M20 6H4V5c0-.552.449-1 1-1h14c.551 0 1 .448 1 1v1zm0 13c0 .552-.449 1-1 1H5c-.551 0-1-.448-1-1V8h16v11zM19 2H5C3.346 2 2 3.346 2 5v14c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3V5c0-1.654-1.346-3-3-3zm-5.707 15.707a.997.997 0 0 0 1.414 0l3-3a.999.999 0 0 0 0-1.414l-3-3a.999.999 0 1 0-1.414 1.414L15.586 14l-2.293 2.293a.999.999 0 0 0 0 1.414zm-4 0a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414L8.414 14l2.293-2.293a.999.999 0 1 0-1.414-1.414l-3 3a.999.999 0 0 0 0 1.414l3 3z" fill="#000" fill-rule="nonzero"></path></svg>
                     Projects
                 </li>

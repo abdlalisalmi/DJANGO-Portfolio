@@ -4,7 +4,10 @@
     --bg-color: #1A181E;
     --secondary: #2c303a;
 }
-
+* {
+    margin: 0;
+    padding: 0;
+}
 body {
     background-color: #fff;
     font-family: 'Maven Pro', sans-serif !important;
@@ -27,6 +30,10 @@ body {
 .sidebar .info{
     padding-top: 20px;
     padding-bottom: 20px;
+    margin: 0;
+}
+.sidebar .info-unactive:hover {
+    background-color: #fafafc;
     margin: 0;
 }
 .sidebar .pic{
@@ -71,6 +78,7 @@ body {
 .sidebar .dashboard-active * {
     color: #fff;
 }
+
 .dash_sidebar .sidebar-heading {
     color: #17D778 !important;
 }
@@ -115,6 +123,8 @@ body {
 
 .dashboard-content .dashboard-title {
     font-size: 35px;
+    margin-bottom: 0;
+    padding-bottom: 0;
     color: #2c303ab9;
 }
 .dashboard-content .card {
@@ -205,9 +215,9 @@ body {
 }
 .message-item {
     color: #485460bb;
-    background-color: #efefef81;
+    background-color: #efefefb2;
     padding: 10px;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
     border-radius: 15px;
     font-size: 15px;
     transition: all .5s;
@@ -215,6 +225,7 @@ body {
 .new-message {
     color: var(--bg-color);
     background-color: #dad8d8b2;
+
 }
 .message-item:hover {
     background-color: #dad8d8b2;
@@ -228,6 +239,7 @@ body {
     text-align: center;
     width: 45px;
     cursor: pointer;
+    padding-top: 10px;
     transition: all .5s;
 }
 .message-item .message-icons .delete-message:hover {
@@ -268,6 +280,79 @@ body {
     margin-top: 15px;
     color: #485460bb;
 }
+
+
+.create-one {
+    margin-top: 10px;
+    border: var(--scolor) solid 1px;
+    color: var(--scolor);
+    border-radius: 10px;
+    font-weight: 700;
+    padding: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all .5s;
+}
+.create-one * {
+    color: var(--color);
+}
+.create-one:hover {
+    color: #fff;
+    background-color: var(--scolor);
+}
+.create-one:hover * {
+    color: var(--secondary);
+}
+
+.create-one a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.one-project {
+    margin: 10px;
+    border: 0 solid rgba(0,0,0,.125);
+    box-shadow: 0 0 2px 0 rgba(22,26,33,.1), 0 2px 4px 0 rgba(22,26,33,.1);
+    border-radius: 5px;
+    padding: 20px 10px 20px 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.one-project .content {
+    display: flex;
+}
+.one-project .content img{
+    width: 250px;
+    height: 250px;
+    margin-right: 20px;
+}
+.one-project .content h3{
+    color: #2c303ad2;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+}
+.one-project .content p{
+    color: #2c303a8a;
+}
+.one-project .content .link{
+    margin-top: 20px;
+    background-color: var(--scolor);
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 500;
+    padding: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-transform: capitalize;
+    transition: all .5s;
+}
+.one-project .content .link:hover{
+    background-color: #15a15b;
+}
+
+
 
 .footer {
     color: var(--secondary);

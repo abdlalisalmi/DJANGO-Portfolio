@@ -35,7 +35,7 @@
                         {{message.name}}
                     </div>
                     <div class="col-9 message">
-                        {{message.message|truncatechars:80}}
+                        {{message.message|truncatechars:60}}
                     </div>
                 </div>
             </div>
@@ -61,16 +61,4 @@
     
 </div>
 
-
-<!-- profilechange success -->
-<button style="display: none;" data-toggle="modal" data-target=".bd-example-modal-sm" id="change-success"></button>
-
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content profile-change-success text-center">
-        Your information has been changed successfully
-        <i class="ni ni-check-bold"></i>
-    </div>
-  </div>
-</div>
 {% endblock dashboardContent %}

@@ -1,0 +1,46 @@
+{% extends 'dashboard.html' %}
+
+{% load static %}
+
+{% block dashboardContent %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="dashboard-title">Projects</div>
+            <small>Manage your projects</small>
+        </div>
+        
+        <div class="col-6">
+            <div class="create-one type="button" data-toggle="modal" data-target="#edit-profile-modal"">
+                Create One
+            </div>
+        </div>
+    </div>
+    <hr class="mt-2">
+
+    {% with projects|first as project %}
+        <div class="row">
+            <div class="col-12 one-project">
+                <div class="content">
+                    <img src="{{project.image.url}}">
+                    <div class="">
+                        <h3>{{project.title|truncatechars:30}}</h3>
+                        <p>{{project.description|safe|truncatechars:140}}</p>
+                        <a href="{{project.get_project_absolute_url}}">
+                            <div class="link">
+                                Show the project
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endwith %}
+
+    {% for project in projects %}
+        project
+    {% endfor %}
+    
+</div>
+
+{% endblock dashboardContent %}

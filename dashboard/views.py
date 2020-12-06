@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import EditProfileForm
 
-from info.models import Information, Message
+from info.models import Information, Message, Project
 
 
 
@@ -65,8 +65,9 @@ def messages_api(request):
             return JsonResponse({'status': 'success'})
         elif type == "view":
             message = Message.objects.get(id=int(message_id))
-            message.is_read = True
-            message.save()
+            if not message.is_read:
+                message.is_read = True
+                message.save()
             return JsonResponse({'status': 'success'})
         elif type == "search":
             search_text = request.POST.get('search_text')
@@ -79,3 +80,13 @@ def messages_api(request):
 
             return JsonResponse({'status': 'success', 'messages': messages})
     return JsonResponse({'status': 'bad request'})
+
+
+@login_required()
+def projects(request):
+    template_name = 'dashboard_projects.html'
+    context = {}
+    profile = Information.objects.first()
+    projects = Project.objects.all().order_by('-id')
+    context.update({'projects_active': True, 'projects': projects, 'profile': profile})
+    return render(request, template_name, context)
