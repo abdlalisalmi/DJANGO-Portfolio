@@ -11,7 +11,7 @@
         </div>
         
         <div class="col-6">
-            <div class="create-one type="button" data-toggle="modal" data-target="#edit-profile-modal"">
+            <div class="create-one" type="button" data-toggle="modal" data-target="#creat-project">
                 Create One
             </div>
         </div>
@@ -36,11 +36,87 @@
             </div>
         </div>
     {% endwith %}
-
-    {% for project in projects %}
-        project
-    {% endfor %}
+    <div class="row">
+        {% comment %} <div class="ml-3 mt-4 h5">Projects</div> {% endcomment %}
+        <div class="col-12 dashboard-projects-list">
+            {% for project in projects %}
+                <div class="row item">
+                    <div class="col-8 item-name">
+                        {{project.title|truncatechars:40}}
+                    </div>
+                    <div class="col-4 text-right">
+                        <a href="#">
+                            <svg class="svg-icon-edit" viewBox="0 0 20 20">
+                                <path fill="none" d="M15.808,14.066H6.516v-1.162H5.354v1.162H4.193c-0.321,0-0.581,0.26-0.581,0.58s0.26,0.58,0.581,0.58h1.162
+                                    v1.162h1.162v-1.162h9.292c0.32,0,0.58-0.26,0.58-0.58S16.128,14.066,15.808,14.066z M15.808,9.419h-1.742V8.258h-1.162v1.161
+                                    h-8.71c-0.321,0-0.581,0.26-0.581,0.581c0,0.321,0.26,0.581,0.581,0.581h8.71v1.161h1.162v-1.161h1.742
+                                    c0.32,0,0.58-0.26,0.58-0.581C16.388,9.679,16.128,9.419,15.808,9.419z M17.55,0.708H2.451c-0.962,0-1.742,0.78-1.742,1.742v15.1
+                                    c0,0.961,0.78,1.74,1.742,1.74H17.55c0.962,0,1.742-0.779,1.742-1.74v-15.1C19.292,1.488,18.512,0.708,17.55,0.708z M18.13,17.551
+                                    c0,0.32-0.26,0.58-0.58,0.58H2.451c-0.321,0-0.581-0.26-0.581-0.58v-15.1c0-0.321,0.26-0.581,0.581-0.581H17.55
+                                    c0.32,0,0.58,0.26,0.58,0.581V17.551z M15.808,4.774H9.419V3.612H8.258v1.162H4.193c-0.321,0-0.581,0.26-0.581,0.581
+                                    s0.26,0.581,0.581,0.581h4.065v1.162h1.161V5.935h6.388c0.32,0,0.58-0.26,0.58-0.581S16.128,4.774,15.808,4.774z"></path>
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg class="svg-icon-delete" viewBox="0 0 20 20">
+                                <path fill="none" d="M7.083,8.25H5.917v7h1.167V8.25z M18.75,3h-5.834V1.25c0-0.323-0.262-0.583-0.582-0.583H7.667
+                                    c-0.322,0-0.583,0.261-0.583,0.583V3H1.25C0.928,3,0.667,3.261,0.667,3.583c0,0.323,0.261,0.583,0.583,0.583h1.167v14
+                                    c0,0.644,0.522,1.166,1.167,1.166h12.833c0.645,0,1.168-0.522,1.168-1.166v-14h1.166c0.322,0,0.584-0.261,0.584-0.583
+                                    C19.334,3.261,19.072,3,18.75,3z M8.25,1.833h3.5V3h-3.5V1.833z M16.416,17.584c0,0.322-0.262,0.583-0.582,0.583H4.167
+                                    c-0.322,0-0.583-0.261-0.583-0.583V4.167h12.833V17.584z M14.084,8.25h-1.168v7h1.168V8.25z M10.583,7.083H9.417v8.167h1.167V7.083
+                                    z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
     
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="creat-project" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="form-title">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="form-description" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control" id="form-image">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="form-tools">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="form-demo">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="form-github">
+                </div>
+                <label class="custom-toggle">
+                    <input type="checkbox" id="form-show_in_slider">
+                    <span class="custom-toggle-slider rounded-circle"></span>
+                </label>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <a class="btn btn-primary text-white" id="creat-project-btn">Save changes</a>
+        </div>
+        </div>
+    </div>
 </div>
 
 {% endblock dashboardContent %}

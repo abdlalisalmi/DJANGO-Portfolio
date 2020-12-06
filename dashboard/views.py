@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
-from .forms import EditProfileForm
+from .forms import EditProfileForm, CreateProjectForm
 
 from info.models import Information, Message, Project
 
@@ -90,3 +90,22 @@ def projects(request):
     projects = Project.objects.all().order_by('-id')
     context.update({'projects_active': True, 'projects': projects, 'profile': profile})
     return render(request, template_name, context)
+
+@login_required()
+def projects_api(request):
+    if request.method == 'POST':
+
+        if request.POST.get('type') == 'create':
+            form = CreateProjectForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                return JsonResponse({'status': 'Create Project Successfully', 'code': 200})
+            else:
+                return JsonResponse({'status': 'Create Project Failed', 'code': 400, 'errors':form.errors})
+
+        elif request.POST.get('type') == 'update':
+            pass
+        elif request.POST.get('type') == 'delete':
+            pass
+    return JsonResponse({'status': 'Bad Request'})
+

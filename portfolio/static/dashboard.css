@@ -352,7 +352,19 @@ body {
     background-color: #15a15b;
 }
 
-
+.dashboard-projects-list {
+    margin: 10px;
+    border: 0 solid rgba(0,0,0,.125);
+    box-shadow: 0 0 2px 0 rgba(22,26,33,.1), 0 2px 4px 0 rgba(22,26,33,.1);
+    border-radius: 5px;
+    padding: 20px 10px 20px 10px;
+}
+.dashboard-projects-list .item{
+    margin: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: rgba(0,0,0,.125) solid 1px;
+}
 
 .footer {
     color: var(--secondary);
@@ -373,3 +385,28 @@ body {
 .footer a:hover{
     color: var(--secondary);
 }
+
+
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon-edit, .svg-icon-delete {
+    width: 1.6em;
+    height: 1.6em;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: all .3s;
+  }
+  
+.svg-icon-edit  path, .svg-icon-delete  path {
+    fill: rgba(0, 0, 0, 0.486);
+  }
+.svg-icon-edit:hover  path{
+    fill: var(--scolor);
+  }
+.svg-icon-delete:hover  path{
+    fill: #ff1616b1;
+  }

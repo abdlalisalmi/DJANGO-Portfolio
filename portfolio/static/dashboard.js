@@ -136,21 +136,38 @@ if (messageSearchBtn) {
 }
 ///////////////////////// end messages page /////////////////////////
 
+///////////////////////// projects page /////////////////////////////
+const createProjectBtn = document.querySelector('#creat-project-btn');
+if (createProjectBtn) {
+	createProjectBtn.addEventListener('click', (e) => {
+		e.preventDefault()
+		let formData = new FormData();
+		formData.append('type', 'create');
 
-
-// function getCookie(name) {
-//     let cookieValue = null;
-//     if (document.cookie && document.cookie !== '') {
-//         const cookies = document.cookie.split(';');
-//         for (let i = 0; i < cookies.length; i++) {
-//             const cookie = cookies[i].trim();
-//             // Does this cookie string begin with the name we want?
-//             if (cookie.substring(0, name.length + 1) === (name + '=')) {
-//                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-//                 break;
-//             }
-//         }
-//     }
-//     return cookieValue;
-// }
-// const csrftoken = getCookie('csrftoken');
+		formData.append('title', document.querySelector('#form-title').value);
+		formData.append('description', document.querySelector('#form-description').value);
+		formData.append('image', document.querySelector('#form-image').files[0]);
+		formData.append('tools', document.querySelector('#form-tools').value);
+		formData.append('demo', document.querySelector('#form-demo').value);
+		formData.append('github', document.querySelector('#form-github').value);
+		formData.append('show_in_slider', document.querySelector('#form-show_in_slider').value);
+		console.log(document.querySelector('#form-image').value);
+		fetch('/dashboard/projects/api/', {
+			body: formData,
+			method: "post",
+			credentials: 'same-origin',
+			headers: {
+				"X-CSRFToken": csrftoken
+			}
+		})
+		.then(response => response.json())
+		.then(data => {
+			if(data.code == 200) {
+				location.reload();
+			} else {
+				
+			}
+		});
+	})
+}
+///////////////////////// end projects page /////////////////////////
