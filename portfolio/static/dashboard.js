@@ -142,11 +142,7 @@ if (createProjectForm) {
 	createProjectForm.addEventListener("click", (e) => {
 		e.preventDefault();
 		form = document.querySelector('.create-project-form');
-		if (form.style.display == 'block') {
-			form.style.display = '';
-		} else if (form.style.display == '') {
-			form.style.display = 'block';
-		}
+		form.classList.toggle('hide');
 	})
 }
 const createProjectBtn = document.querySelector('#creat-project-btn');
@@ -163,7 +159,7 @@ if (createProjectBtn) {
 		formData.append('demo', document.querySelector('#form-demo').value);
 		formData.append('github', document.querySelector('#form-github').value);
 		formData.append('show_in_slider', document.querySelector('#form-show_in_slider').value);
-		console.log(document.querySelector('#form-image').value);
+		console.log(document.querySelector('#form-show_in_slider').value);
 		fetch('/dashboard/projects/api/', {
 			body: formData,
 			method: "post",
