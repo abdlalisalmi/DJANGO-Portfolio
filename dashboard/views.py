@@ -104,7 +104,15 @@ def projects_api(request):
                 return JsonResponse({'status': 'Create Project Failed', 'code': 400, 'errors':form.errors})
 
         elif request.POST.get('type') == 'update':
-            pass
+            id = int(request.POST.get('id'))
+            project = Project.objects.get(id=id)
+            if project:
+                form = CreateProjectForm(request.POST, instance=project)
+                if form.is_valid():
+                    form.save()
+                else:
+                    return JsonResponse({'status': 'Update Project Failed', 'code': 400, 'errors':form.errors})
+            return JsonResponse({'status': 'Project Does Not Exist', 'code': 400})
         elif request.POST.get('type') == 'delete':
             pass
     return JsonResponse({'status': 'Bad Request'})

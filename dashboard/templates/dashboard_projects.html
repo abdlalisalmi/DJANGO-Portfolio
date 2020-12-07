@@ -11,12 +11,74 @@
         </div>
         
         <div class="col-6">
-            <div class="create-one" type="button" data-toggle="modal" data-target="#creat-project">
+            <div class="create-one" id="display-create-form">
                 Create One
             </div>
         </div>
     </div>
     <hr class="mt-2">
+
+
+    <div class="create-project-form">
+        <form>
+            <div class="form-group">
+                <lable>Title</lable>
+                <input type="text" class="form-control" id="form-title" placeholder="Project title">
+            </div>
+            <div class="form-group">
+                <lable>Description</lable>
+                <textarea class="form-control" id="form-description" rows="10" placeholder="Project description"></textarea>
+            </div>
+            <div class="form-group">
+                <lable>Image</lable>
+                <input type="file" class="form-control" id="form-image">
+            </div>
+            <div class="form-group">
+                <lable>Tools</lable>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-cog"></i></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="form-tools" placeholder="Project building tools">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <lable>Demo</lable>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-globe"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="form-demo" placeholder="Project web site">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <lable>Github</lable>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fab fa-github"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="form-github" placeholder="Github repository">
+                </div>
+            </div>
+
+            <lable>Home Display</lable>
+            <div class="form-group">
+                <label class="custom-toggle">
+                    <input type="checkbox" id="form-show_in_slider">
+                    <span class="custom-toggle-slider rounded-circle"></span>
+                </label>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <a class="btn btn-primary text-white" id="creat-project-btn">Save changes</a>
+        </div>
+
+    </div>
+
+
 
     {% with projects|first as project %}
         <div class="row">
@@ -45,78 +107,23 @@
                         {{project.title|truncatechars:40}}
                     </div>
                     <div class="col-4 text-right">
-                        <a href="#">
-                            <svg class="svg-icon-edit" viewBox="0 0 20 20">
-                                <path fill="none" d="M15.808,14.066H6.516v-1.162H5.354v1.162H4.193c-0.321,0-0.581,0.26-0.581,0.58s0.26,0.58,0.581,0.58h1.162
-                                    v1.162h1.162v-1.162h9.292c0.32,0,0.58-0.26,0.58-0.58S16.128,14.066,15.808,14.066z M15.808,9.419h-1.742V8.258h-1.162v1.161
-                                    h-8.71c-0.321,0-0.581,0.26-0.581,0.581c0,0.321,0.26,0.581,0.581,0.581h8.71v1.161h1.162v-1.161h1.742
-                                    c0.32,0,0.58-0.26,0.58-0.581C16.388,9.679,16.128,9.419,15.808,9.419z M17.55,0.708H2.451c-0.962,0-1.742,0.78-1.742,1.742v15.1
-                                    c0,0.961,0.78,1.74,1.742,1.74H17.55c0.962,0,1.742-0.779,1.742-1.74v-15.1C19.292,1.488,18.512,0.708,17.55,0.708z M18.13,17.551
-                                    c0,0.32-0.26,0.58-0.58,0.58H2.451c-0.321,0-0.581-0.26-0.581-0.58v-15.1c0-0.321,0.26-0.581,0.581-0.581H17.55
-                                    c0.32,0,0.58,0.26,0.58,0.581V17.551z M15.808,4.774H9.419V3.612H8.258v1.162H4.193c-0.321,0-0.581,0.26-0.581,0.581
-                                    s0.26,0.581,0.581,0.581h4.065v1.162h1.161V5.935h6.388c0.32,0,0.58-0.26,0.58-0.581S16.128,4.774,15.808,4.774z"></path>
-                            </svg>
+                        <a href="{{project.get_project_absolute_url}}" target="_blank">
+                            <svg class="svg-icon-view" viewBox="0 0 20 20">
+							    <path d="M10,6.978c-1.666,0-3.022,1.356-3.022,3.022S8.334,13.022,10,13.022s3.022-1.356,3.022-3.022S11.666,6.978,10,6.978M10,12.267c-1.25,0-2.267-1.017-2.267-2.267c0-1.25,1.016-2.267,2.267-2.267c1.251,0,2.267,1.016,2.267,2.267C12.267,11.25,11.251,12.267,10,12.267 M18.391,9.733l-1.624-1.639C14.966,6.279,12.563,5.278,10,5.278S5.034,6.279,3.234,8.094L1.609,9.733c-0.146,0.147-0.146,0.386,0,0.533l1.625,1.639c1.8,1.815,4.203,2.816,6.766,2.816s4.966-1.001,6.767-2.816l1.624-1.639C18.536,10.119,18.536,9.881,18.391,9.733 M16.229,11.373c-1.656,1.672-3.868,2.594-6.229,2.594s-4.573-0.922-6.23-2.594L2.41,10l1.36-1.374C5.427,6.955,7.639,6.033,10,6.033s4.573,0.922,6.229,2.593L17.59,10L16.229,11.373z"></path>
+						    </svg>
                         </a>
-                        <a href="#">
-                            <svg class="svg-icon-delete" viewBox="0 0 20 20">
-                                <path fill="none" d="M7.083,8.25H5.917v7h1.167V8.25z M18.75,3h-5.834V1.25c0-0.323-0.262-0.583-0.582-0.583H7.667
-                                    c-0.322,0-0.583,0.261-0.583,0.583V3H1.25C0.928,3,0.667,3.261,0.667,3.583c0,0.323,0.261,0.583,0.583,0.583h1.167v14
-                                    c0,0.644,0.522,1.166,1.167,1.166h12.833c0.645,0,1.168-0.522,1.168-1.166v-14h1.166c0.322,0,0.584-0.261,0.584-0.583
-                                    C19.334,3.261,19.072,3,18.75,3z M8.25,1.833h3.5V3h-3.5V1.833z M16.416,17.584c0,0.322-0.262,0.583-0.582,0.583H4.167
-                                    c-0.322,0-0.583-0.261-0.583-0.583V4.167h12.833V17.584z M14.084,8.25h-1.168v7h1.168V8.25z M10.583,7.083H9.417v8.167h1.167V7.083
-                                    z"></path>
-                            </svg>
-                        </a>
+                        <svg class="svg-icon-edit" viewBox="0 0 20 20" id="{{project.id}}">
+                            <path fill="none" d="M19.404,6.65l-5.998-5.996c-0.292-0.292-0.765-0.292-1.056,0l-2.22,2.22l-8.311,8.313l-0.003,0.001v0.003l-0.161,0.161c-0.114,0.112-0.187,0.258-0.21,0.417l-1.059,7.051c-0.035,0.233,0.044,0.47,0.21,0.639c0.143,0.14,0.333,0.219,0.528,0.219c0.038,0,0.073-0.003,0.111-0.009l7.054-1.055c0.158-0.025,0.306-0.098,0.417-0.211l8.478-8.476l2.22-2.22C19.695,7.414,19.695,6.941,19.404,6.65z M8.341,16.656l-0.989-0.99l7.258-7.258l0.989,0.99L8.341,16.656z M2.332,15.919l0.411-2.748l4.143,4.143l-2.748,0.41L2.332,15.919z M13.554,7.351L6.296,14.61l-0.849-0.848l7.259-7.258l0.423,0.424L13.554,7.351zM10.658,4.457l0.992,0.99l-7.259,7.258L3.4,11.715L10.658,4.457z M16.656,8.342l-1.517-1.517V6.823h-0.003l-0.951-0.951l-2.471-2.471l1.164-1.164l4.942,4.94L16.656,8.342z"></path>
+                        </svg>
+                        <svg class="svg-icon-delete" viewBox="0 0 20 20" id="{{project.id}}">
+                            <path d="M17.114,3.923h-4.589V2.427c0-0.252-0.207-0.459-0.46-0.459H7.935c-0.252,0-0.459,0.207-0.459,0.459v1.496h-4.59c-0.252,0-0.459,0.205-0.459,0.459c0,0.252,0.207,0.459,0.459,0.459h1.51v12.732c0,0.252,0.207,0.459,0.459,0.459h10.29c0.254,0,0.459-0.207,0.459-0.459V4.841h1.511c0.252,0,0.459-0.207,0.459-0.459C17.573,4.127,17.366,3.923,17.114,3.923M8.394,2.886h3.214v0.918H8.394V2.886z M14.686,17.114H5.314V4.841h9.372V17.114z M12.525,7.306v7.344c0,0.252-0.207,0.459-0.46,0.459s-0.458-0.207-0.458-0.459V7.306c0-0.254,0.205-0.459,0.458-0.459S12.525,7.051,12.525,7.306M8.394,7.306v7.344c0,0.252-0.207,0.459-0.459,0.459s-0.459-0.207-0.459-0.459V7.306c0-0.254,0.207-0.459,0.459-0.459S8.394,7.051,8.394,7.306"></path>
+                        </svg>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
     
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="creat-project" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="form-title">
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" id="form-description" rows="10"></textarea>
-                </div>
-                <div class="form-group">
-                    <input type="file" class="form-control" id="form-image">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="form-tools">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="form-demo">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="form-github">
-                </div>
-                <label class="custom-toggle">
-                    <input type="checkbox" id="form-show_in_slider">
-                    <span class="custom-toggle-slider rounded-circle"></span>
-                </label>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <a class="btn btn-primary text-white" id="creat-project-btn">Save changes</a>
-        </div>
-        </div>
-    </div>
 </div>
 
 {% endblock dashboardContent %}

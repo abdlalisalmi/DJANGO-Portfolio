@@ -137,6 +137,18 @@ if (messageSearchBtn) {
 ///////////////////////// end messages page /////////////////////////
 
 ///////////////////////// projects page /////////////////////////////
+const createProjectForm = document.querySelector('#display-create-form');
+if (createProjectForm) {
+	createProjectForm.addEventListener("click", (e) => {
+		e.preventDefault();
+		form = document.querySelector('.create-project-form');
+		if (form.style.display == 'block') {
+			form.style.display = '';
+		} else if (form.style.display == '') {
+			form.style.display = 'block';
+		}
+	})
+}
 const createProjectBtn = document.querySelector('#creat-project-btn');
 if (createProjectBtn) {
 	createProjectBtn.addEventListener('click', (e) => {
@@ -168,6 +180,45 @@ if (createProjectBtn) {
 				
 			}
 		});
+	})
+}
+
+const editProjectBtns = document.querySelectorAll('.svg-icon-edit');
+if (editProjectBtns) {
+	editProjectBtns.forEach(btn => {
+		btn.addEventListener('click', (e) => {
+			e.preventDefault()
+			let formData = new FormData();
+			formData.append('type', 'update');
+	
+			formData.append('id', btn.attributes.id.value);
+			formData.append('title', document.querySelector('#form-title').value);
+			formData.append('description', document.querySelector('#form-description').value);
+			formData.append('image', document.querySelector('#form-image').files[0]);
+			formData.append('tools', document.querySelector('#form-tools').value);
+			formData.append('demo', document.querySelector('#form-demo').value);
+			formData.append('github', document.querySelector('#form-github').value);
+			formData.append('show_in_slider', document.querySelector('#form-show_in_slider').value);
+			console.log(document.querySelector('#form-image').value);
+			fetch('/dashboard/projects/api/', {
+				body: formData,
+				method: "post",
+				credentials: 'same-origin',
+				headers: {
+					"X-CSRFToken": csrftoken
+				}
+			})
+			.then(response => response.json())
+			.then(data => {
+				console.log(data);
+				// if(data.code == 200) {
+				// 	location.reload();
+				// } else {
+					
+				// }
+			});
+
+		})
 	})
 }
 ///////////////////////// end projects page /////////////////////////

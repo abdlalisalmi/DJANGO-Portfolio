@@ -366,6 +366,19 @@ body {
     border-bottom: rgba(0,0,0,.125) solid 1px;
 }
 
+.create-project-form {
+    display: none;
+    border: 0 solid rgba(0,0,0,.125);
+    box-shadow: 0 0 2px 0 rgba(22,26,33,.1), 0 2px 4px 0 rgba(22,26,33,.1);
+    border-radius: 5px;
+    padding: 20px 15px 20px 15px;
+    overflow: hidden;
+   -moz-animation-delay: 3.5s;
+   -webkit-animation-delay: 3.5s;
+   -o-animation-delay: 3.5s;
+    animation-delay: 3.5s;
+}
+
 .footer {
     color: var(--secondary);
     background-color: transparent;
@@ -392,7 +405,7 @@ body {
 SVG Icons - svgicons.sparkk.fr
 ----- */
 
-.svg-icon-edit, .svg-icon-delete {
+.svg-icon-edit, .svg-icon-delete, .svg-icon-view {
     width: 1.6em;
     height: 1.6em;
     margin-left: 5px;
@@ -400,9 +413,18 @@ SVG Icons - svgicons.sparkk.fr
     cursor: pointer;
     transition: all .3s;
   }
+.svg-icon-edit {
+    font-size: 14px;
+}
+.svg-icon-view {
+    font-size: 20px;
+}
   
-.svg-icon-edit  path, .svg-icon-delete  path {
+.svg-icon-edit  path, .svg-icon-delete  path, .svg-icon-view path{
     fill: rgba(0, 0, 0, 0.486);
+  }
+.svg-icon-view:hover  path{
+    fill: #00e5ffe7;
   }
 .svg-icon-edit:hover  path{
     fill: var(--scolor);
