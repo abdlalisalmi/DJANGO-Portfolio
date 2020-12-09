@@ -136,6 +136,7 @@ if (messageSearchBtn) {
 }
 ///////////////////////// end messages page /////////////////////////
 
+
 ///////////////////////// projects page /////////////////////////////
 const createProjectForm = document.querySelectorAll('#display-create-form');
 if (createProjectForm) {
@@ -297,6 +298,36 @@ if (updateProjectBtns) {
 			}
 		});
 
+	})
+}
+
+///////// remove a project //////////////////////////////////////////
+const removeProjectBtns = document.querySelectorAll(".svg-icon-delete");
+if (removeProjectBtns) {
+	removeProjectBtns.forEach(removeBtn => {
+		removeBtn.addEventListener("click", (e) => {
+			e.preventDefault()
+			let formData = new FormData();
+			formData.append('id', removeBtn.attributes.id.value);
+			formData.append('type', 'delete');
+
+			fetch('/dashboard/projects/api/', {
+				body: formData,
+				method: "post",
+				credentials: 'same-origin',
+				headers: {
+					"X-CSRFToken": csrftoken
+				}
+			})
+			.then(response => response.json())
+			.then(data => {
+				if(data.code == 200) {
+					location.reload();
+				} else {
+					console.log('error');
+				}
+			});
+		})
 	})
 }
 ///////////////////////// end projects page /////////////////////////

@@ -119,6 +119,8 @@ def projects_api(request):
             return JsonResponse({'status': 'Project Does Not Exist', 'code': 400})
 
         elif request.POST.get('type') == 'delete':
-            pass
+            id = int(request.POST.get('id'))
+            Project.objects.filter(id=id).delete()
+            return JsonResponse({'status': 'Remove Project Successfully', 'code': 200})
 
     return JsonResponse({'status': 'Bad Request'})
