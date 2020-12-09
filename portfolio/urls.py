@@ -6,7 +6,6 @@ from .views import (
     projectDetail,
     search,
     handler404,
-    # test404
 )
 
 from django.conf import settings

@@ -137,14 +137,59 @@ if (messageSearchBtn) {
 ///////////////////////// end messages page /////////////////////////
 
 ///////////////////////// projects page /////////////////////////////
-const createProjectForm = document.querySelector('#display-create-form');
+const createProjectForm = document.querySelectorAll('#display-create-form');
 if (createProjectForm) {
-	createProjectForm.addEventListener("click", (e) => {
-		e.preventDefault();
-		form = document.querySelector('.create-project-form');
-		form.classList.toggle('hide');
+	createProjectForm.forEach(btn => {
+		btn.addEventListener("click", (e) => {
+			e.preventDefault();
+			form = document.querySelector('.create-project-form');
+			form.classList.toggle('hide');
+			document.querySelector('#submit-update-project').style.display = 'none';
+			document.querySelector('#creat-project-btn').style.display = 'block';
+		})
 	})
 }
+const title = document.querySelector('#form-title');
+const description = document.querySelector('#form-description');
+const image = document.querySelector('#form-image');
+const tools = document.querySelector('#form-tools');
+const demo = document.querySelector('#form-demo');
+const github = document.querySelector('#form-github');
+const show_in_slider = document.querySelector('#form-show_in_slider');
+
+function showErrors(errors) {
+	if (errors.title) {
+		title.classList.add('form-error');
+	} else {
+		title.classList.remove('form-error');
+	}
+	if (errors.description) {
+		description.classList.add('form-error');
+	} else {
+		description.classList.remove('form-error');
+	}
+	if (errors.image) {
+		image.classList.add('form-error');
+	} else {
+		image.classList.remove('form-error');
+	}
+	if (errors.tools) {
+		tools.parentElement.classList.add('form-error');
+	} else {
+		tools.parentElement.classList.remove('form-error');
+	}
+	if (errors.demo) {
+		demo.parentElement.classList.add('form-error');
+	} else {
+		demo.parentElement.classList.remove('form-error');
+	}
+	if (errors.github) {
+		github.parentElement.classList.add('form-error');
+	} else {
+		github.parentElement.classList.remove('form-error');
+	}
+};
+
 const createProjectBtn = document.querySelector('#creat-project-btn');
 if (createProjectBtn) {
 	createProjectBtn.addEventListener('click', (e) => {
@@ -152,14 +197,14 @@ if (createProjectBtn) {
 		let formData = new FormData();
 		formData.append('type', 'create');
 
-		formData.append('title', document.querySelector('#form-title').value);
-		formData.append('description', document.querySelector('#form-description').value);
-		formData.append('image', document.querySelector('#form-image').files[0]);
-		formData.append('tools', document.querySelector('#form-tools').value);
-		formData.append('demo', document.querySelector('#form-demo').value);
-		formData.append('github', document.querySelector('#form-github').value);
-		formData.append('show_in_slider', document.querySelector('#form-show_in_slider').value);
-		console.log(document.querySelector('#form-show_in_slider').value);
+		formData.append('title', title.value);
+		formData.append('description', description.value);
+		formData.append('image', image.files[0]);
+		formData.append('tools', tools.value);
+		formData.append('demo', demo.value);
+		formData.append('github', github.value);
+		formData.append('show_in_slider', show_in_slider.checked);
+
 		fetch('/dashboard/projects/api/', {
 			body: formData,
 			method: "post",
@@ -173,7 +218,7 @@ if (createProjectBtn) {
 			if(data.code == 200) {
 				location.reload();
 			} else {
-				
+				showErrors(data.errors);
 			}
 		});
 	})
@@ -185,17 +230,10 @@ if (editProjectBtns) {
 		btn.addEventListener('click', (e) => {
 			e.preventDefault()
 			let formData = new FormData();
-			formData.append('type', 'update');
-	
 			formData.append('id', btn.attributes.id.value);
-			formData.append('title', document.querySelector('#form-title').value);
-			formData.append('description', document.querySelector('#form-description').value);
-			formData.append('image', document.querySelector('#form-image').files[0]);
-			formData.append('tools', document.querySelector('#form-tools').value);
-			formData.append('demo', document.querySelector('#form-demo').value);
-			formData.append('github', document.querySelector('#form-github').value);
-			formData.append('show_in_slider', document.querySelector('#form-show_in_slider').value);
-			console.log(document.querySelector('#form-image').value);
+			formData.append('type', 'update');
+			formData.append('first', true);
+	
 			fetch('/dashboard/projects/api/', {
 				body: formData,
 				method: "post",
@@ -206,15 +244,59 @@ if (editProjectBtns) {
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data);
-				// if(data.code == 200) {
-				// 	location.reload();
-				// } else {
-					
-				// }
+				if(data.code == 200) {
+					form = document.querySelector('.create-project-form');
+					form.classList.remove('hide');
+					document.querySelector('#creat-project-btn').style.display = 'none';
+					document.querySelector('#submit-update-project').style.display = 'block';
+					project = data.project
+					title.value = project.title
+					description.value = project.description
+					tools.value = project.tools
+					demo.value = project.demo
+					github.value = project.github
+					show_in_slider.checked = project.show_in_slider;
+					document.querySelector('#project-id').value = project.id;
+				}
 			});
 
 		})
+	})
+}
+
+const updateProjectBtns = document.querySelector('#submit-update-project');
+if (updateProjectBtns) {
+	updateProjectBtns.addEventListener('click', (e) => {
+		e.preventDefault()
+		let formData = new FormData();
+		formData.append('id', document.querySelector('#project-id').value);
+		formData.append('type', 'update');
+
+		formData.append('title', title.value);
+		formData.append('description', description.value);
+		formData.append('image', image.files[0]);
+		formData.append('tools', tools.value);
+		formData.append('demo', demo.value);
+		formData.append('github', github.value);
+		formData.append('show_in_slider', show_in_slider.value);
+
+		fetch('/dashboard/projects/api/', {
+			body: formData,
+			method: "post",
+			credentials: 'same-origin',
+			headers: {
+				"X-CSRFToken": csrftoken
+			}
+		})
+		.then(response => response.json())
+		.then(data => {
+			if(data.code == 200) {
+				location.reload();
+			} else {
+				showErrors(data.errors);
+			}
+		});
+
 	})
 }
 ///////////////////////// end projects page /////////////////////////

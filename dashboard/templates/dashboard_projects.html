@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <lable>Tools</lable>
-                <div class="input-group mb-4">
+                <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-cog"></i></i></span>
                     </div>
@@ -45,7 +45,7 @@
 
             <div class="form-group">
                 <lable>Demo</lable>
-                <div class="input-group mb-4">
+                <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-globe"></i></span>
                     </div>
@@ -55,7 +55,7 @@
 
             <div class="form-group">
                 <lable>Github</lable>
-                <div class="input-group mb-4">
+                <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fab fa-github"></i></span>
                     </div>
@@ -65,27 +65,38 @@
 
             <lable>Home Display</lable>
             <div class="form-group">
-                <label class="custom-toggle">
-                    <input type="checkbox" id="form-show_in_slider">
-                    <span class="custom-toggle-slider rounded-circle"></span>
-                </label>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input class="custom-control-input" id="form-show_in_slider" type="checkbox">
+                    <label class="custom-control-label" for="form-show_in_slider">Checked</label>
+                </div>
             </div>
+            <input type="hidden" id="project-id">
         </form>
         <div class="modal-footer">
-            <a>Close</a>
-            <a id="creat-project-btn">
-                <svg class="save-project" viewBox="0 0 20 20">
+            <a class="submit-project" id="creat-project-btn">
+                <svg viewBox="0 0 20 20">
                     <path fill="none" d="M7.197,16.963H7.195c-0.204,0-0.399-0.083-0.544-0.227l-6.039-6.082c-0.3-0.302-0.297-0.788,0.003-1.087
                     C0.919,9.266,1.404,9.269,1.702,9.57l5.495,5.536L18.221,4.083c0.301-0.301,0.787-0.301,1.087,0c0.301,0.3,0.301,0.787,0,1.087
                     L7.741,16.738C7.596,16.882,7.401,16.963,7.197,16.963z"></path>
-                </svg>
+                </svg>Save
+            </a>
+            <a class="submit-project" id="submit-update-project">
+                <svg viewBox="0 0 20 20">
+                    <path fill="none" d="M3.254,6.572c0.008,0.072,0.048,0.123,0.082,0.187c0.036,0.07,0.06,0.137,0.12,0.187C3.47,6.957,3.47,6.978,3.484,6.988c0.048,0.034,0.108,0.018,0.162,0.035c0.057,0.019,0.1,0.066,0.164,0.066c0.004,0,0.01,0,0.015,0l2.934-0.074c0.317-0.007,0.568-0.271,0.56-0.589C7.311,6.113,7.055,5.865,6.744,5.865c-0.005,0-0.01,0-0.015,0L5.074,5.907c2.146-2.118,5.604-2.634,7.971-1.007c2.775,1.912,3.48,5.726,1.57,8.501c-1.912,2.781-5.729,3.486-8.507,1.572c-0.259-0.18-0.618-0.119-0.799,0.146c-0.18,0.262-0.114,0.621,0.148,0.801c1.254,0.863,2.687,1.279,4.106,1.279c2.313,0,4.591-1.1,6.001-3.146c2.268-3.297,1.432-7.829-1.867-10.101c-2.781-1.913-6.816-1.36-9.351,1.058L4.309,3.567C4.303,3.252,4.036,3.069,3.72,3.007C3.402,3.015,3.151,3.279,3.16,3.597l0.075,2.932C3.234,6.547,3.251,6.556,3.254,6.572z"></path>
+                </svg>Update
+            </a>
+
+            <a class="cancel-edit-project" id="display-create-form">
+                <svg viewBox="0 0 20 20">
+                    <path fill="none" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+                </svg>Close
             </a>
         </div>
 
     </div>
 
-    {% with projects|first as project %}
-        <div class="row">
+    {% comment %} {% with projects|first as project %}
+        <div class="row" id="one-project">
             <div class="col-12 one-project">
                 <div class="content">
                     <img src="{{project.image.url}}">
@@ -101,7 +112,7 @@
                 </div>
             </div>
         </div>
-    {% endwith %}
+    {% endwith %} {% endcomment %}
     <div class="row">
         {% comment %} <div class="ml-3 mt-4 h5">Projects</div> {% endcomment %}
         <div class="col-12 dashboard-projects-list">

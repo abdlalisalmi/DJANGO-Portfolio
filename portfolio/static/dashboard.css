@@ -368,18 +368,28 @@ body {
 
 .create-project-form {
     border: 0 solid rgba(0,0,0,.125);
-    box-shadow: 0 0 2px 0 rgba(0, 255, 51, 0.988), 0 2px 4px 0 rgba(43, 255, 0, 0.653);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.988), 0 2px 4px 0 rgba(0, 0, 0, 0.653);
     border-radius: 15px;
-    padding: 20px 15px 20px 15px;
-    height: 900px !important;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 850px !important;
     transition: all 0.5s ease-in;
+}
+.create-project-form input , .create-project-form textarea, .create-project-form .input-group-text{
+    border-radius: 10px;
 }
 .hide {
     height: 0 !important;
     opacity: 0;
-    /* display: none; */
     animation: ease-out .5s form-out;
     transition: all 0.2s ease-out;
+}
+
+
+.form-error {
+    color: tomato;
+    border: tomato solid 1px !important;
 }
 
 .footer {
@@ -435,3 +445,30 @@ SVG Icons - svgicons.sparkk.fr
 .svg-icon-delete:hover  path{
     fill: #ff1616b1;
   }
+
+.submit-project {
+    cursor: pointer;
+    transition: all .3s;
+}
+.submit-project svg{
+    width: 1.6em;
+    height: 1.6em;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.submit-project svg path{
+    fill: var(--scolor);
+}
+.cancel-edit-project {
+    cursor: pointer;
+    transition: all .3s;
+}
+.cancel-edit-project svg{
+    width: 1.6em;
+    height: 1.6em;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.cancel-edit-project svg path{
+    fill: #ff0000b1;
+}

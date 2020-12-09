@@ -15,7 +15,7 @@ body {
 }
 
 /* Profile Image */
-.profile-pic-change {
+.profile-pic {
     border-radius: 50%;
     height: 200px;
     width: 200px;
@@ -31,7 +31,7 @@ body {
     position: relative;
 }
 
-.profile-pic-change:hover {
+.profile-pic:hover {
     background-color: rgba(0,0,0,.5);
     z-index: 10000;
     color: #fff;
@@ -41,7 +41,7 @@ body {
     text-decoration: none;
 }
 
-.profile-pic-change span {
+.profile-pic span {
     display: inline-block;
     padding-top: 4.5em;
     padding-bottom: 4.5em;
@@ -52,16 +52,16 @@ form input[type="file"] {
           cursor: pointer;
  }
  .change-pic {
-    position: absolute;;
-    padding: 12px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    left:150px;
-    bottom:20px;
-    background-color: rgba(0, 255, 128, 0.5);
-    font-size: 25px;
-    color: #fff;
+  position: absolute;;
+  padding: 12px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  left:150px;
+  bottom:20px;
+  background-color: rgba(0, 255, 128, 0.5);
+  font-size: 25px;
+  color: #fff;
  }
  .profile-name {
     color: #000000ab;
