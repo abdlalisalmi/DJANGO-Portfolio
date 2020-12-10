@@ -479,3 +479,34 @@ SVG Icons - svgicons.sparkk.fr
 .cancel-edit-project svg path{
     fill: #ff0000b1;
 }
+
+.svg-icon-home, .svg-icon-logout{
+    width: 1.2em;
+    height: 1.2em;
+    padding-bottom: 5px;
+  }
+.svg-icon-home path{
+    fill: #17d777;
+  }
+.svg-icon-logout path{
+    fill: #ff0000b1;
+  }
+.sidebar-footer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.sidebar-footer a {
+    color: #1A181E;
+    margin: 5px;
+    padding: 8px 20px;
+    border-radius: 15px;
+    border: #ffffff solid 1px;
+    transition: all .3s ease-in-out;
+}
+.sidebar-footer a:hover {
+    border: #17D778 solid 1px;
+}
+.sidebar-footer #logout:hover {
+    border: #ff0000b1 solid 1px;
+}
