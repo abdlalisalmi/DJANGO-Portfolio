@@ -373,17 +373,20 @@ body {
     padding-top: 20px;
     padding-right: 20px;
     padding-left: 20px;
-    height: 850px !important;
-    transition: all 0.5s ease-in;
+
+    position: relative;
+    top: -15px;
+    visibility: visible;
+    transition: top .5s cubic-bezier(0.335, 0.010, 0.030, 1.360);
 }
 .create-project-form input , .create-project-form textarea, .create-project-form .input-group-text{
     border-radius: 10px;
 }
 .hide {
+    top: 0;
     height: 0 !important;
     opacity: 0;
-    animation: ease-out .5s form-out;
-    transition: all 0.2s ease-out;
+    visibility: hidden;
 }
 
 
@@ -392,24 +395,28 @@ body {
     border: tomato solid 1px !important;
 }
 
-.footer {
-    color: var(--secondary);
-    background-color: transparent;
+.dash-footer {
+    color: #598061;
+    background-color: #17d77754;
+    border-radius: 10px;
+    margin-top: 30px;
 }
-.footer p{
+.dash-footer p{
     margin: 0px;
-    color: var(--secondary);
+    color: #598061;
     font-size: 15px;
 }
-.footer .coder {
+.dash-footer .coder {
     font-size: 14px;
 }
-.footer a{
+.dash-footer a{
     color: var(--scolor);
+    cursor: pointer;
+    font-weight: 500;
     transition: all .5s;
 }
-.footer a:hover{
-    color: var(--secondary);
+.dash-footer a:hover{
+    color: #598061;
 }
 
 
