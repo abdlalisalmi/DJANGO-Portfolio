@@ -220,7 +220,7 @@ body {
     margin-bottom: 4px;
     border-radius: 15px;
     font-size: 15px;
-    transition: all .5s;
+    transition: all .3s;
 }
 .new-message {
     color: var(--bg-color);
@@ -230,22 +230,28 @@ body {
 .message-item:hover {
     background-color: #dad8d8b2;
 }
+.message-item:hover .delete-message{
+    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(346deg) brightness(104%) contrast(97%);
+
+}
 .message-item .message-icons{
     font-size: 14px;
     margin: 0;
     padding: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all .3s;
 }
 .message-item .message-icons .delete-message {
     text-align: center;
-    width: 45px;
     cursor: pointer;
     padding-top: 10px;
     transition: all .5s;
 }
-.message-item .message-icons .delete-message:hover {
-    color: crimson;
-    border-radius: 8px;
+.message-item .message-icons:hover {
+    background-color: rgba(255, 0, 0, 0.769);
 }
+
 .message-item .sender {
     text-align: left;
     cursor: pointer;
@@ -365,6 +371,15 @@ body {
     padding-top: 10px;
     border-bottom: rgba(0,0,0,.125) solid 1px;
 }
+.dashboard-projects-list .item a{
+    color: #2c303a;
+    font-size: 15px;
+    font-weight: 400;
+    transition: all .3s;
+}
+.dashboard-projects-list .item a:hover{
+    color: var(--scolor);
+}
 
 .create-project-form {
     border: 0 solid rgba(0,0,0,.125);
@@ -433,25 +448,13 @@ SVG Icons - svgicons.sparkk.fr
     cursor: pointer;
     transition: all .3s;
   }
-.svg-icon-edit {
-    font-size: 14px;
+.svg-icon-delete:hover {
+    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(346deg);
 }
-.svg-icon-view {
-    font-size: 20px;
+.svg-icon-edit:hover {
+    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(50deg);
 }
   
-.svg-icon-edit  path, .svg-icon-delete  path, .svg-icon-view path{
-    fill: rgba(0, 0, 0, 0.486);
-  }
-.svg-icon-view:hover  path{
-    fill: #00e5ffe7;
-  }
-.svg-icon-edit:hover  path{
-    fill: var(--scolor);
-  }
-.svg-icon-delete:hover  path{
-    fill: #ff1616b1;
-  }
 
 .submit-project {
     cursor: pointer;
@@ -480,17 +483,8 @@ SVG Icons - svgicons.sparkk.fr
     fill: #ff0000b1;
 }
 
-.svg-icon-home, .svg-icon-logout{
-    width: 1.2em;
-    height: 1.2em;
-    padding-bottom: 5px;
-  }
-.svg-icon-home path{
-    fill: #17d777;
-  }
-.svg-icon-logout path{
-    fill: #ff0000b1;
-  }
+
+
 .sidebar-footer {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -499,14 +493,14 @@ SVG Icons - svgicons.sparkk.fr
 .sidebar-footer a {
     color: #1A181E;
     margin: 5px;
-    padding: 8px 20px;
-    border-radius: 15px;
-    border: #ffffff solid 1px;
-    transition: all .3s ease-in-out;
+    padding: 15px 10px;
+    /* border-bottom: #ffffff solid 1px; */
+    transition: all .2s ease-in-out;
 }
 .sidebar-footer a:hover {
-    border: #17D778 solid 1px;
+    border-bottom: 0 solid rgba(0,0,0,.125);
+    box-shadow: 0 2px 0 0 rgba(22,26,33,.1), 0 2px 0 0 rgba(22,26,33,.1);
 }
-.sidebar-footer #logout:hover {
-    border: #ff0000b1 solid 1px;
+.svg-icon-home, .svg-icon-logout{
+    padding-bottom: 5px;
 }
