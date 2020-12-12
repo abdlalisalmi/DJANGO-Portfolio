@@ -230,9 +230,8 @@ body {
 .message-item:hover {
     background-color: #dad8d8b2;
 }
-.message-item:hover .delete-message{
+.message-item .message-icons:hover .delete-message{
     filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(346deg) brightness(104%) contrast(97%);
-
 }
 .message-item .message-icons{
     font-size: 14px;
