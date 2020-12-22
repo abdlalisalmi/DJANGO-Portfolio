@@ -354,6 +354,11 @@ hr {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.507), 0 10px 10px rgba(0, 0, 0, 0.356);
     border: var(--scolor) solid 1.2px;
 }
+.send-success {
+    color: #d1d8e0;
+    background-color: var(--secondary);
+    border-radius: 15px;
+}
 
 .project-title {
     color: var(--scolor);

@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.core import serializers
 import json
 from django.db.models import Q
+from decouple import config
 
 from django.core.mail import send_mail
 from django.conf import settings
@@ -58,7 +59,8 @@ def homePage(request):
             'education': education,
             'experiences': experiences,
             'projects': projects,
-            'form': form
+            'form': form,
+            'recaptcha_key': config("recaptcha_site_key")
         }
     return render(request, template_name, context)
 

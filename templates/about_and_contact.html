@@ -62,25 +62,28 @@
                 <textarea name="message" id="form-message" class="form-control input" rows="7" placeholder="Your Message here ..." autocomplete="off"></textarea>
                 <div id="message-error"></div>
             </div>
-            <div class="form-group">
-                <div class="g-recaptcha" data-sitekey="6LcCrg8aAAAAAIlBHrbaM-OcWbCljAAo6NXgzFOJ" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
-                <div class="help-block with-errors"></div>
+
+            <div class="form-group" id="recaptcha" style="display:none">
+                <div class="g-recaptcha" data-sitekey="{{recaptcha_key}}" data-callback="RecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                <input id="recaptcha-input" class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
+                <div id="recaptcha-error"></div>
             </div>
+
             <a id="form-submit">
-            <div class="send-message">
-                Send <i class="ni ni-send"></i>
-            </div></a>
+                <div class="send-message">
+                    Send <i class="ni ni-send"></i>
+                </div>
+            </a>
         </form>
 
         <!-- Small modal -->
         <button style="display:none;" type="button" id="modal-toggle" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
 
         <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content text-success p-3 text-center">
+        <div class="modal-dialog modal-sm pt-8">
+            <div class="modal-content text-success p-3 text-center send-success">
                 <i class="fa fa-check-circle fa-3x"></i>
-                <span class="display-4">Your message has sent successfully.</span>
+                <p class="">Your message has sent successfully.</p>
             </div>
         </div>
         </div>
