@@ -26,6 +26,10 @@
 
     </head>
     <body>
+        {% if request.get_host == 'abdelaali-portfolio.herokuapp.com'%}
+            <meta http-equiv="REFRESH" content="0;url=https://abdelaali.tech/">
+        {% endif% %}
+
         {% block body %}
             {% include 'navbar.html' %}
             {% block content %}
