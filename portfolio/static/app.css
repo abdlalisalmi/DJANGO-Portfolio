@@ -94,7 +94,7 @@ hr {
     margin-top: 20px;
     font-weight: 900;
     height: 60px;
-    line-height: 40px;
+    line-height: 50px;
 }
 .animated span:before {
     content: '';
@@ -167,6 +167,10 @@ hr {
     background-color: transparent;
     border: none;
     transform: translate(-50%, -50%);
+}
+.scroll__down:active {
+    border: none;
+    text-decoration: none;
 }
 @media (max-width: 1000px) {
     .scroll__down {

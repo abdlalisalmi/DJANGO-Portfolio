@@ -20,6 +20,7 @@
 
         <!-- Costom CSS -->
         <link type="text/css" href="{% static 'app.css' %}" rel="stylesheet">
+        <link type="text/css" href="{% static 'animation.css' %}" rel="stylesheet">
         
         <link type="text/css" href="{% static 'slider.css' %}" rel="stylesheet">
         {% block style %}{% endblock style %}
@@ -29,9 +30,13 @@
         {% if request.META.HTTP_HOST == 'abdelaali-portfolio.herokuapp.com' %}
             <meta http-equiv="REFRESH" content="0;url=https://abdelaali.tech/">
         {% endif %}
+        <!-- particles.js container --> 
+        <div id="particles-js">
+            <canvas class="particles-js-canvas-el" width="1874" height="1998" style="width: 100%; height: 100%;"></canvas>
+        </div> 
 
         {% block body %}
-            {% include 'navbar.html' %}
+            {% comment %} {% include 'navbar.html' %} {% endcomment %}
             {% block content %}
             {% endblock content %}
 
@@ -64,6 +69,10 @@
         <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 
         <script src='https://www.google.com/recaptcha/api.js'></script>
+
+        <!-- stats.js lib --> 
+        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+        <script src="{% static "animation.js" %}"></script>
 
         <!-- Costom JS-->
         <script src="{% static 'app.js' %}"></script>
