@@ -21,7 +21,7 @@ h1 {
     /* color: var(--secondary); */
 }
 p {
-    color: var(--color);
+    color: #fff ;
 }
 hr {
     background-color: #d1d8e04d;
@@ -198,11 +198,22 @@ hr {
 }
 /* End ScrolDown */
 
+.mirror-face {
+    color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.068);
+    filter: blur(0.2px);
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.425);
+}
+
 .title {
     color: #d1d8e0;
 }
 .education-card {
-    background-color: var(--secondary);
+    /* background-color: var(--secondary); */
     border-radius: 15px;
     /* border: #17D778 solid 1.8px; */
 }
@@ -218,7 +229,7 @@ hr {
 }
 
 .competence-card {
-    background: var(--secondary);
+    /* background: var(--secondary); */
     border-radius: 10px;
     color: var(--color);
     transition: all .7s;
@@ -282,13 +293,11 @@ hr {
     /* border-radius: 20px; */
 }
 
-.about {
-    background-color: var(--secondary);
-    border-radius: 15px;
-    /* margin: 10px; */
-}
 .about h2 {
     color: var(--color);
+}
+.about p {
+    color: #d1d8e0;
 }
 .about a {
     color: white;

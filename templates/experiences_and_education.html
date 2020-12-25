@@ -1,5 +1,5 @@
 <div class="row mt-lg-0 mt-8">
-    <div class="col-lg-6" id="education">
+    <div class="col-lg-6 mt-2" id="education">
         <h1 class="display-4 title"><i class="ni ni-hat-3"></i> Education</h1>
         {% for education in education %}
             <div class="container py-2">
@@ -21,7 +21,7 @@
                     </div>
                     <!-- timeline item 1 event content -->
                     <div class="col py-2">
-                    <div class="card education-card">
+                    <div class="card education-card mirror-face">
                         <div class="card-body">
                             <h6 class="education-card-title">{{education.title}}</h6>
                             <p class="education-card-desc">{{education.description}}</p>
@@ -38,7 +38,7 @@
         
 
     </div>
-    <div class="col-lg-6" id="experiences">
+    <div class="col-lg-6 mt-2" id="experiences">
         <h1 class="display-4 title"><i class="ni ni-archive-2"></i> Experiences</h1>
 
         {% for experience in experiences %}
@@ -61,7 +61,7 @@
                     </div>
                     <!-- timeline item 1 event content -->
                     <div class="col py-2">
-                    <div class="card education-card">
+                    <div class="card education-card mirror-face">
                         <div class="card-body">
                             <h6 class="education-card-title">{{experience.title}}</h6>
                             <p class="education-card-desc">{{experience.description}}</p>
