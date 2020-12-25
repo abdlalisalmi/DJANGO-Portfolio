@@ -60,7 +60,7 @@ def homePage(request):
             'experiences': experiences,
             'projects': projects,
             'form': form,
-            'recaptcha_key': config("recaptcha_site_key")
+            'recaptcha_key': config("recaptcha_site_key", default="")
         }
     return render(request, template_name, context)
 

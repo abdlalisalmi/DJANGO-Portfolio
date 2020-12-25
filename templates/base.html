@@ -41,7 +41,10 @@
             {% endblock content %}
 
             <!-- Back to top button -->
-            <a id="Back-to-top-button"><i class="fa fa-angle-up fa-3x"></i></a>
+            {% comment %} <a id="Back-to-top-button"><i class="fa fa-angle-up fa-3x"></i></a> {% endcomment %}
+            <a id="Back-to-top-button">
+                <img class="" src="{% static 'img/rocket.svg' %}" >
+            </a>
 
             <div class="container">
                 <hr>

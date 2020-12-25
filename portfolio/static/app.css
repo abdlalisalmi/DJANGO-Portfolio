@@ -157,7 +157,7 @@ hr {
 
 .scroll__down {
     position: absolute;
-    top: 90%;
+    top: 95%;
     bottom: -44px;
     left: 50%;
     display: inline-block;
@@ -403,19 +403,24 @@ hr {
 
 #Back-to-top-button {
     display: inline-block;
-    background-color: var(--secondary);
+    /* background-color: var(--secondary); */
     color: var(--scolor);
-    width: 45px;
-    height: 45px;
+    /* width: 45px;
+    height: 45px; */
     text-align: center;
     border-radius: 4px;
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 10px;
+    right: 5px;
     transition: all .5s;
     opacity: 0;
     visibility: hidden;
     z-index: 1000;
+  }
+  #Back-to-top-button img {
+    width: 70px;
+    height: 70px;
+
   }
   #Back-to-top-button::after {
     font-family: FontAwesome;
@@ -427,7 +432,7 @@ hr {
   }
   #Back-to-top-button:hover {
     cursor: pointer;
-    background-color: var(--scolor);
+    /* background-color: var(--scolor); */
     color: var(--secondary);
   }
   #Back-to-top-button:active {
