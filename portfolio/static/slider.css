@@ -13,10 +13,8 @@
 	 position: relative;
 	 max-width: 800px;
 	 margin: auto;
-	 background: #2c303a;
 	 box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
 	 padding: 25px;
-	 border-radius: 25px;
 	 height: 400px;
 	 transition: all 0.3s;
 }
@@ -181,7 +179,7 @@
  .blog-slider__button {
 	 display: inline-flex;
      /* background-image: linear-gradient(147deg, var(--color) 0%, var(--secondary ) 74%); */
-     border: var(--scolor) solid 2px;
+     border: var(--scolor) solid 1px;
 	 padding: 8px 35px;
 	 border-radius: 15px;
 	 color: var(--scolor);

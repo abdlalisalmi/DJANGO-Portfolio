@@ -105,8 +105,8 @@ hr {
 }
 @media (max-width: 800px) {
     .animated {
-        height: 78px;
-        font-size: 35px;
+        height: 70px;
+        font-size: 30px;
     }
   }
 @keyframes animate {
@@ -203,8 +203,8 @@ hr {
     border-radius: 15px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     background-color: rgba(255, 255, 255, 0.068);
-    filter: blur(0.2px);
-    border-width: 0.1px;
+    /* filter: blur(0.09px); */
+    border-width: 0.5px;
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.425);
 }
@@ -309,7 +309,23 @@ hr {
     opacity: 1;
     transition: .5s;
 }
-
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 30px;
+}
+.social-icons a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    opacity: .5;
+    transition: .5s;
+}
+.social-icons a:hover {
+    opacity: 1;
+}
 .social {
     display: flex;
     justify-content: center;
@@ -326,7 +342,6 @@ hr {
 }
 .social a:hover {
     opacity: 1;
-    
 }
 
 .contact h2 {
@@ -340,10 +355,13 @@ hr {
     padding-bottom: 5px;
 }
 .contact .input {
-    background-color: var(--secondary);
-    color: var(--color);
-    border: none;
+    color: #fff;
     border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.068);
+    border-width: 0.5px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.425);
     transition: all 0.5s;
 }
 .contact .input:focus {
@@ -354,18 +372,25 @@ hr {
 }
 .contact .send-message {
     width: 100%;
-    background-color: var(--secondary);
     color: var(--scolor) !important;
-    border: var(--secondary) solid 1.2px;
     padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.068);
+    border-width: 0.5px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.425);
     transition: all 0.5s;
 }
 .contact .send-message:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.507), 0 10px 10px rgba(0, 0, 0, 0.356);
     border: var(--scolor) solid 1.2px;
+}
+.contact .send-message:hover i {
+    padding-left: 15px;
+    transition: all .5s ;
 }
 .send-success {
     color: #d1d8e0;
