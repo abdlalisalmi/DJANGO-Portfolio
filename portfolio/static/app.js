@@ -63,6 +63,7 @@ if (formSubmitBtn) {
             formData.append('name', formName.value);
             formData.append('email', formEmail.value);
             formData.append('message', formMessage.value);
+            formData.append('rechaptcha', rechaptcha);
     
             fetch("/",
                 {

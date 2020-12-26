@@ -31,20 +31,22 @@ def homePage(request):
     context = {}
 
     if request.method == 'POST':
-        form = MessageForm(request.POST)
-        if form.is_valid():
-            form.save(commit=False)
-            data = {
-                'name': request.POST['name'],
-                'email': request.POST['email'],
-                'message': request.POST['message']
-            }
-            email_send(data)
-            form.save()
+        if request.POST.get('rechaptcha', None):
+            form = MessageForm(request.POST)
+            if form.is_valid():
+                form.save(commit=False)
+                data = {
+                    'name': request.POST['name'],
+                    'email': request.POST['email'],
+                    'message': request.POST['message']
+                }
+                email_send(data)
+                form.save()
 
-            return JsonResponse({'success': True})
-        else:
-            return JsonResponse({'success': False, 'errors': form.errors})
+                return JsonResponse({'success': True})
+            else:
+                return JsonResponse({'success': False, 'errors': form.errors})
+        return JsonResponse({'success': False, 'errors': "Oops, you have to check the recaptcha !"})
 
     if request.method == 'GET':
         form = MessageForm()

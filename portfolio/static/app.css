@@ -367,6 +367,9 @@ hr {
 .contact .input:focus {
     border: var(--secondary) solid 1px;
 }
+.contact .input:-webkit-autofill {
+    transition: all 5000s ease-in-out 0s;
+}
 .contact .error-text {
     color: #ff5252;
 }
