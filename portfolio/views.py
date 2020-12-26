@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.http import JsonResponse
 from django.core import serializers
 import json
@@ -15,6 +15,7 @@ from info.models import (
     Experience,
     Project,
     Information,
+    Message
 )
 
 
@@ -110,4 +111,10 @@ def handler404(request, exception):
 
 def test404(request):
     return render(request, 'errors/404.html')
+
+
+def create_messages(request):
+    for i in range(1, 100):
+        Message.objects.create(name=f"message-{i}", email=f"email.{i}@gmail.com", message="This is a test email for testing django pagination")
+    return HttpResponse("<h1>Create another 99 message</h1>")
 

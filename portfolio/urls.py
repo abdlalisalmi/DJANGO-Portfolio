@@ -6,6 +6,7 @@ from .views import (
     projectDetail,
     search,
     handler404,
+    create_messages
 )
 
 from django.conf import settings
@@ -22,6 +23,7 @@ urlpatterns = [
     path('search/', search, name='search'),
 
     # path('test/', test404, name='test'),
+    path('pagination/', create_messages, name='pagination'),
 
 
     path('dashboard/', include('dashboard.urls')),
