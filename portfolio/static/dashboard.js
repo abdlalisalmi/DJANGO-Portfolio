@@ -134,6 +134,34 @@ if (messageSearchBtn) {
 		});
 	})
 }
+
+// Load another messages
+const loadNewMessages = document.querySelector('#load-more-messages');
+if (loadNewMessages) {
+	loadNewMessages.addEventListener('click', (e) => {
+		e.preventDefault();
+		// Build formData object.
+		input = document.querySelector('#search-input').value;
+		let formData = new FormData();
+		formData.append('search_text', input);
+		formData.append('option_type', "search");
+		
+		fetch('/dashboard/messages/api/', {
+			body: formData,
+			method: "post",
+			credentials: 'same-origin',
+			headers: {
+				"X-CSRFToken": csrftoken
+			}
+		})
+		.then(response => response.json())
+		.then(data => {
+			if (data.status == "success") {
+				console.log(data.messages);
+			}
+		});
+	})
+}
 ///////////////////////// end messages page /////////////////////////
 
 

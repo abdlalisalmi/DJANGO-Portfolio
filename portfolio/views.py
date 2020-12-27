@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.http import JsonResponse
 from django.core import serializers
+
 import json
 from django.db.models import Q
 from decouple import config

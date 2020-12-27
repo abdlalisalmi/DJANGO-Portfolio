@@ -482,7 +482,35 @@ SVG Icons - svgicons.sparkk.fr
     fill: #ff0000b1;
 }
 
+.pagination-active a {
+    background-color: var(--scolor);
+    border: var(--scolor) 1px solid;
+    color: #fff;
+    transition: all .3s;
+}
+.pagination-active a:hover {
+    background-color: #fff;
+    border: var(--scolor) 1px solid;
+}
 
+.pagination-number a {
+    border: var(--scolor) 1px solid;
+    transition: all .3s;
+}
+.pagination-number a:hover {
+    background-color: #17D778;
+    color: #fff;
+}
+
+.pagination-move {
+    color: var(--scolor);
+    border: var(--scolor) 1px solid;
+    transition: all .3s;
+}
+.pagination-move:hover {
+    background-color: #17D778;
+    color: #fff;
+}
 
 .sidebar-footer {
     margin-top: 10px;
