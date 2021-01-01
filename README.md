@@ -3,6 +3,10 @@
 
 Personal portfolio website made with Django framework in the backend, and with CSS, JS, and Bootstrap for the frontend. It is a dynamic site so that you can control the content of the site through the admin area.
 
+<a href="https://abdelaali.tech" target="_blank">
+  <img src="https://img.shields.io/twitter/url?color=green&label=Portfolio%20WebSite&logo=gtgtr&logoColor=white&style=social&url=https%3A%2F%2Fabdelaali.tech%2F"     alt="Portfolio">
+</a>
+
 ### Screenshots from the Portfolio:
 
 #### Home Page:
