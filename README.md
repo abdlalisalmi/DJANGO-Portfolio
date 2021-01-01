@@ -1,9 +1,11 @@
-# My Personal Portfolio WebSite
+## My Personal Portfolio WebSite
 
-<p>Personal portfolio website made with Django framework in the backend, and with CSS, JS, and Bootstrap for the frontend.</p>
-<p>It is a dynamic site so that you can control the content of the site through the admin area.</p>
 
-## Screenshots for the Portfolio:
-<img aline="center" src="https://i.imgur.com/Ykzb4cj.png">
+Personal portfolio website made with Django framework in the backend, and with CSS, JS, and Bootstrap for the frontend. It is a dynamic site so that you can control the content of the site through the admin area.
+
+### Screenshots from the Portfolio:
+
+### Home Page
+<img aline="center" src="https://i.imgur.com/PgpXXLb.png" alt="secreenshot">
 
 <a href="https://abdelaali-portfolio.herokuapp.com/">See The Project Live</a>
