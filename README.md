@@ -5,7 +5,19 @@ Personal portfolio website made with Django framework in the backend, and with C
 
 ### Screenshots from the Portfolio:
 
-### Home Page
+#### Home Page:
 <img aline="center" src="https://i.imgur.com/PgpXXLb.png" alt="secreenshot">
 
-<a href="https://abdelaali-portfolio.herokuapp.com/">See The Project Live</a>
+#### Education & Experiences Sections:
+<img aline="center" src="https://i.imgur.com/bADD89k.png" alt="secreenshot">
+
+
+#### Competences Section:
+<img aline="center" src="https://i.imgur.com/7At1pqG.png" alt="secreenshot">
+
+
+#### Projects Section (Slider Show):
+<img aline="center" src="https://i.imgur.com/1S57RqD.png" alt="secreenshot">
+
+#### About & Contact Me Sections:
+<img aline="center" src="https://i.imgur.com/djYOST6.png" alt="secreenshot">
