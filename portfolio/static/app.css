@@ -245,7 +245,7 @@ hr {
     object-fit: fill;
 }
 .competence-modal{
-    background: var(--secondary);
+    background: var(--bg-color);
     border-radius: 20px;
     color: var(--color);
     transition: all .7s;
