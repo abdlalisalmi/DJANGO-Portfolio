@@ -23,54 +23,21 @@
         <form>
             <div class="form-group">
                 <lable>Title</lable>
-                <input type="text" class="form-control" id="form-title" placeholder="Project title">
+                <input type="text" class="form-control" id="form-title" placeholder="Education title">
             </div>
             <div class="form-group">
                 <lable>Description</lable>
-                <textarea class="form-control" id="form-description" rows="10" placeholder="Project description"></textarea>
+                <textarea class="form-control" id="form-description" rows="10" placeholder="Education description"></textarea>
             </div>
             <div class="form-group">
-                <lable>Image</lable>
-                <input type="file" class="form-control" id="form-image">
-            </div>
-            <div class="form-group">
-                <lable>Tools</lable>
+                <lable>Date</lable>
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-cog"></i></i></span>
+                        <span class="input-group-text"><i class="uil uil-calendar-alt"></i></span>
                     </div>
-                    <input type="text" class="form-control" id="form-tools" placeholder="Project building tools">
+                    <input type="text" class="form-control" id="form-date" placeholder="Education year">
                 </div>
             </div>
-
-            <div class="form-group">
-                <lable>Demo</lable>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-globe"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="form-demo" placeholder="Project web site">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <lable>Github</lable>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fab fa-github"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="form-github" placeholder="Github repository">
-                </div>
-            </div>
-
-            <lable>Home Display</lable>
-            <div class="form-group">
-                <div class="custom-control custom-checkbox mb-3">
-                    <input class="custom-control-input" id="form-show_in_slider" type="checkbox">
-                    <label class="custom-control-label" for="form-show_in_slider">Checked</label>
-                </div>
-            </div>
-            <input type="hidden" id="project-id">
         </form>
         <div class="modal-footer">
             <a class="submit-project" id="creat-project-btn">
@@ -93,16 +60,17 @@
     <div class="row">
         {% comment %} <div class="ml-3 mt-4 h5">Projects</div> {% endcomment %}
         <div class="col-12 dashboard-projects-list">
-            {% for project in projects %}
+            {% for edu in education %}
                 <div class="row item">
-                    <div class="col-8 item-name">
-                        <a href="{{project.get_project_absolute_url}}" class="text-black" target="_blank">
-                            {{project.title|truncatechars:40}}
-                        </a>
+                    <div class="col-3 item-name">
+                        {{edu.title|truncatechars:15}}
                     </div>
-                    <div class="col-4 text-right">
-                        <img class="svg-icon-edit" src="{% static 'img/edit-icon.svg' %}" width='20px' id="{{project.id}}">
-                        <img class="svg-icon-delete" src="{% static 'img/trash-icon.svg' %}" width='20px' id="{{project.id}}">
+                    <div class="col-6  text-muted text-left">
+                        {{edu.description|truncatechars:38}}
+                    </div>
+                    <div class="col-3 text-right">
+                        <i class="uil uil-edit-alt icon-edit"></i>
+                        <i class="uil uil-trash-alt icon-delete"></i>
                     </div>
                 </div>
             {% endfor %}

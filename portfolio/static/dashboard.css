@@ -512,6 +512,20 @@ SVG Icons - svgicons.sparkk.fr
     color: #fff;
 }
 
+.icon-edit, .icon-delete {
+    color: #2c303a9e;
+    font-size: 26px;
+    padding: 5px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.icon-edit:hover{
+    color: #17D778;
+}
+.icon-delete:hover{
+    color: #fc5c65;
+}
+
 .sidebar-footer {
     margin-top: 10px;
     margin-bottom: 10px;
