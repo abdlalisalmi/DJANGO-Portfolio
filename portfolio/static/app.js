@@ -189,20 +189,17 @@ if (searchBtn) {
                             data.projects.forEach(project => {
                                 projectsContainer.innerHTML += `
                                 <div class="col-lg-4 mb-4 ">
-                            
-                                    <div class="card project-card">
-                                        <div class="project-card-img">
-                                            <img src="${project.image_url}">
-                                        </div>
-                                        <div class="card-body pt-0">
-                                            <h1 class="project-card-title">${truncateString(project.title, 22)}</h1>
-                                            <p class="project-card-disc">${truncateString(project.description, 100)}</p>
-                                            <div class="show-project-btn">
-                                                <a href="${project.url}"><i class="fa fa-eye"></i> Read More</a>
+                                    <a href="${project.url}">
+                                        <div class="card project-card mirror-face">
+                                            <div class="project-card-img">
+                                                <img src="${project.image_url}">
+                                            </div>
+                                            <div class="card-body pt-0">
+                                                <h1 class="project-card-title">${truncateString(project.title, 22)}</h1>
+                                                <p class="project-card-disc">${truncateString(project.description, 100)}</p>
                                             </div>
                                         </div>
-                                    </div>
-                            
+                                        </a>
                                 </div>
                                 `;
                             });
