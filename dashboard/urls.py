@@ -8,7 +8,9 @@ from .views import (
     messages,
     messages_api,
     projects,
-    projects_api
+    projects_api,
+    LoginView,
+    EducationView,
     )
 
 app_name = 'dashboard'
@@ -25,5 +27,9 @@ urlpatterns = [
     path('projects', projects, name='projects'),
     path('projects/api/', projects_api, name='projects_api'),
 
-    path('logout/', LogoutView.as_view(), name='logout')
+    path('education/', EducationView.as_view(), name='education'),
+    # path('education/', EducationView.as_view(), name='one_education'),
+
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
 ]

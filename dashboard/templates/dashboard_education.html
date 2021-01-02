@@ -1,0 +1,114 @@
+{% extends 'dashboard.html' %}
+
+{% load static %}
+
+{% block dashboardContent %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="dashboard-title">Education</div>
+            <small>Manage your education</small>
+        </div>
+        
+        <div class="col-6">
+            <div class="create-one" id="display-create-form">
+                Create One
+            </div>
+        </div>
+    </div>
+    <hr class="mt-2">
+
+
+    <div class="create-project-form hide">
+        <form>
+            <div class="form-group">
+                <lable>Title</lable>
+                <input type="text" class="form-control" id="form-title" placeholder="Project title">
+            </div>
+            <div class="form-group">
+                <lable>Description</lable>
+                <textarea class="form-control" id="form-description" rows="10" placeholder="Project description"></textarea>
+            </div>
+            <div class="form-group">
+                <lable>Image</lable>
+                <input type="file" class="form-control" id="form-image">
+            </div>
+            <div class="form-group">
+                <lable>Tools</lable>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-cog"></i></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="form-tools" placeholder="Project building tools">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <lable>Demo</lable>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-globe"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="form-demo" placeholder="Project web site">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <lable>Github</lable>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fab fa-github"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="form-github" placeholder="Github repository">
+                </div>
+            </div>
+
+            <lable>Home Display</lable>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox mb-3">
+                    <input class="custom-control-input" id="form-show_in_slider" type="checkbox">
+                    <label class="custom-control-label" for="form-show_in_slider">Checked</label>
+                </div>
+            </div>
+            <input type="hidden" id="project-id">
+        </form>
+        <div class="modal-footer">
+            <a class="submit-project" id="creat-project-btn">
+                <img src="{% static 'img/save-icon.svg' %}" width='25px'>
+                Save
+            </a>
+            <a class="submit-project" id="submit-update-project">
+                <img src="{% static 'img/edit-icon.svg' %}" width='25px'>
+                Update
+            </a>
+
+            <a class="cancel-edit-project" id="display-create-form">
+                <img src="{% static 'img/close-icon.svg' %}" width='25px'>
+                Close
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        {% comment %} <div class="ml-3 mt-4 h5">Projects</div> {% endcomment %}
+        <div class="col-12 dashboard-projects-list">
+            {% for project in projects %}
+                <div class="row item">
+                    <div class="col-8 item-name">
+                        <a href="{{project.get_project_absolute_url}}" class="text-black" target="_blank">
+                            {{project.title|truncatechars:40}}
+                        </a>
+                    </div>
+                    <div class="col-4 text-right">
+                        <img class="svg-icon-edit" src="{% static 'img/edit-icon.svg' %}" width='20px' id="{{project.id}}">
+                        <img class="svg-icon-delete" src="{% static 'img/trash-icon.svg' %}" width='20px' id="{{project.id}}">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+</div>
+
+{% endblock dashboardContent %}

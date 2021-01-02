@@ -4,10 +4,47 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as login_user
+
+from rest_framework.views import APIView
+from rest_framework import authentication, permissions
+from rest_framework.response import Response
+from rest_framework import status
+
 from .forms import EditProfileForm, CreateProjectForm
 
 from info.models import Information, Message, Project
 
+
+
+
+class CsrfExemptSessionAuthentication(authentication.SessionAuthentication):
+    def enforce_csrf(self, request):
+        return
+
+# we use this class to login and check the user if she/he logged in.
+class LoginView(APIView):
+    permission_classes = [permissions.AllowAny]
+    authentication_classes = [CsrfExemptSessionAuthentication]
+    def post(self, request):
+        username = request.POST.get('username', None)
+        password = request.POST.get('password', None)
+        
+        if not username or not password:
+            return render(request, "login.html", {'message': 'Please enter both username and password'})
+
+        user = authenticate(
+            username = username,
+            password = password
+            )
+        if user:
+            login_user(request, user)
+            return redirect('dashboard:dashboard')
+        return render(request, "login.html", {'message': 'Invalid Username or Password'})
+
+    def get(self, request):
+            return render(request, "login.html", {})
 
 
 @login_required()
@@ -137,3 +174,23 @@ def projects_api(request):
             return JsonResponse({'status': 'Remove Project Successfully', 'code': 200})
 
     return JsonResponse({'status': 'Bad Request'})
+
+
+
+from info.models import Education
+from .serializers import *
+
+class EducationView(APIView):
+    authentication_classes = [CsrfExemptSessionAuthentication]
+    permission_classes = [permissions.IsAdminUser]
+
+    def get(self, request):
+        education = Education.objects.all()
+        return render(request, 'dashboard_education.html', {'education':education})
+
+    def post(self, request):
+        serializer = EducationSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
