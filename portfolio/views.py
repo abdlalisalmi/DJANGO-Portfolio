@@ -21,11 +21,15 @@ from info.models import (
 
 
 def email_send(data):
+    old_message = Message.objects.last()
+    if old_message.name == data['name'] and old_message.email == data['email'] and old_message.message == data['message']:
+        return False
     subject = 'Portfolio : Mail from {}'.format(data['name'])
     message = '{}\nSender Email: {}'.format(data['message'], data['email'])
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [settings.EMAIL_HOST_USER, ]
     send_mail(subject, message, email_from, recipient_list)
+    return True
 
 
 def homePage(request):
@@ -42,8 +46,8 @@ def homePage(request):
                     'email': request.POST['email'],
                     'message': request.POST['message']
                 }
-                email_send(data)
-                form.save()
+                if email_send(data):
+                    form.save()
 
                 return JsonResponse({'success': True})
             else:
