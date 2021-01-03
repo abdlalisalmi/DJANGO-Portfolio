@@ -4,6 +4,7 @@ let formName = document.getElementById('form-name');
 let formEmail = document.getElementById('form-email');
 let formMessage = document.getElementById('form-message');
 let rechaptcha = false;
+let resendMessage = true;
 
 
 function getCookie(name) {
@@ -49,7 +50,7 @@ if (formName) {
     })
 }
 
-if (formSubmitBtn) {
+if (formSubmitBtn && resendMessage) {
     formSubmitBtn.addEventListener('click', (e) => {
         e.preventDefault();
 
@@ -108,6 +109,7 @@ if (formSubmitBtn) {
                         formEmail.value = '';
                         formMessage.value = '';
                         clearInputs();
+                        resendMessage = false;
                         document.getElementById('modal-toggle').click();
                         grecaptcha.reset();
                         document.getElementById('recaptcha').style.display = 'none';
