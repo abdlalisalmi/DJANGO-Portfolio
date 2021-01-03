@@ -53,10 +53,12 @@ if (formName) {
 if (formSubmitBtn && resendMessage) {
     formSubmitBtn.addEventListener('click', (e) => {
         e.preventDefault();
+        resendMessage = false;
 
         if (!rechaptcha) {
             document.getElementById('recaptcha').style.display = 'block';
             document.getElementById('recaptcha-error').innerHTML = `<small class="error-text"><i class="fa fa-exclamation-triangle"></i> Oops, you have to check the recaptcha !</small>`;
+            resendMessage = true;
         } else {
             document.getElementById('recaptcha-error').innerHTML = ``;
             // Build formData object.
@@ -114,6 +116,7 @@ if (formSubmitBtn && resendMessage) {
                         grecaptcha.reset();
                         document.getElementById('recaptcha').style.display = 'none';
                     } else {
+                        resendMessage = true;
                         if (data.errors.name) {
                             changeToF(formName);
                             document.getElementById('name-error').innerHTML = `<small class="error-text"><i class="fa fa-exclamation-triangle"></i> ${data.errors.name}</small>`
