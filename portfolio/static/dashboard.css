@@ -115,6 +115,10 @@ body {
 .link-active{
     background-color: #fafafc;
     border-right: var(--scolor) solid 5px;
+    color: #17D778 !important;
+}
+.link-active i {
+    color: #17D778;
 }
 
 
@@ -544,4 +548,11 @@ SVG Icons - svgicons.sparkk.fr
 }
 .svg-icon-home, .svg-icon-logout{
     padding-bottom: 5px;
+}
+
+
+.dashboard-icon {
+    font-size: 23px;
+    color: #2c303ac2;
+    padding-right: 5px;
 }
