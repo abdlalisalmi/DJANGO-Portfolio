@@ -280,7 +280,8 @@ if (editProjectBtns) {
 					document.querySelector('#submit-update-project').style.display = 'block';
 					project = data.project
 					title.value = project.title
-					description.value = project.description
+					// description.value = project.description
+					tinymce.get("form-description").setContent(project.description);
 					tools.value = project.tools
 					demo.value = project.demo
 					github.value = project.github

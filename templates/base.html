@@ -79,6 +79,18 @@
         <script src="{% static "animation.js" %}"></script>
 
         <!-- Costom JS-->
+        <script src='https://cdn.tiny.cloud/1/d50e95ysaxzxlmnygzozwpoz6icwcj5yb9bezny21nx6k8tv/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+        </script>
+        <script>
+            tinymce.init({
+            selector: '#form-description',
+            setup: function (editor) {
+                editor.on('change', function () {
+                    editor.save();
+                });
+            }
+            });
+        </script>
         <script src="{% static 'app.js' %}"></script>
         <script>
             var btn = $('#Back-to-top-button');
