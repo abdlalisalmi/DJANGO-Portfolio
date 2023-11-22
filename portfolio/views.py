@@ -56,10 +56,10 @@ def homePage(request):
 
     if request.method == 'GET':
         form = MessageForm()
-        competences = Competence.objects.all().order_by('id')
-        education = Education.objects.all().order_by('-id')
-        experiences = Experience.objects.all().order_by('-id')
-        projects = Project.objects.filter(show_in_slider=True).order_by('-id')
+        competences = Competence.objects.all().order_by('order')
+        education = Education.objects.all().order_by('order')
+        experiences = Experience.objects.all().order_by('order')
+        projects = Project.objects.filter(show_in_slider=True).order_by('order')
         info = Information.objects.first()
         context = {
             'info': info,

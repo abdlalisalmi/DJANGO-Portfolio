@@ -29,6 +29,7 @@ class Competence(models.Model):
     title = models.CharField(max_length=50, blank=False, null=False)
     description = models.TextField(blank=False, null=False)
     image = models.FileField(upload_to='competence/', blank=False, null=False)
+    order = models.FloatField(blank=False, default=1, null=False)
 
     def __str__(self):
         return self.title
@@ -38,6 +39,7 @@ class Education(models.Model):
     title = models.CharField(max_length=50, blank=False, null=False)
     description = models.TextField(blank=False, null=False)
     the_year = models.CharField(max_length=50, blank=False, null=False)
+    order = models.FloatField(blank=False, default=1, null=False)
 
     def __str__(self):
         return self.title
@@ -47,6 +49,7 @@ class Experience(models.Model):
     title = models.CharField(max_length=50, blank=False, null=False)
     description = models.TextField(blank=False, null=False)
     the_year = models.CharField(max_length=50, blank=False, null=False)
+    order = models.FloatField(blank=False, default=1, null=False)
 
     def __str__(self):
         return self.title
@@ -61,6 +64,7 @@ class Project(models.Model):
     demo = models.URLField()
     github = models.URLField()
     show_in_slider = models.BooleanField(default=False)
+    order = models.FloatField(blank=False, default=1, null=False)
 
     def __str__(self):
         return self.title
